@@ -9,20 +9,22 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import headerNavLinks from "@/data/headerNavLinks";
-import MobileNav from "./header/MobileNav";
+import MobileNav from "./MobileNav";
+import ThemeSwitch from "../ThemeSwitch";
+import SearchButton from "../SearchButton";
 
 function NavItem({ href, text }) {
   
   const isActive = usePathname() === href;
 
   return (
-    <Link href={href} passHref>
+    <Link className="" href={href} passHref>
       <span
         className={`${
           isActive
             ? "font-bold text-teal-500 dark:text-teal-400"
-            : "font-normal text-gray-500 dark:text-gray-400"
-        } 'hidden md:inline-block rounded-full hover:text-gray-900 dark:hover:text-gray-200 transition-all`}
+            : " text-black dark:text-white font-semibold dark:font-normal"
+        } text-base hidden md:inline-block rounded-full hover:text-gray-900 dark:hover:text-gray-200 transition-all `}
       >
         {text}
       </span>
@@ -61,13 +63,13 @@ export function NavMenu({}) {
   });
 
   return (
-    <div className={`sticky ${visible ? 'top-0' : ''} z-50 w-full text-gray-900 bg-white bg-opacity-50 dark:bg-dark dark:text-gray-100 backdrop-filter backdrop-blur-lg dark:bg-opacity-50`}>
-      <div className="flex items-center justify-between max-w-6xl px-4 py-3 mx-auto sm:px-6 md:space-x-10">
+    <div className={`border-y-[1px] border-[#383A3C] sticky ${visible ? 'top-0' : ''} z-50 w-full text-gray-900 bg-[#EFF4FF]  dark:bg-[#121212] dark:text-white  `}>
+      <div className="text-sm tracking-wider flex items-center justify-between max-w-7xl px-4 py-7 mx-auto sm:px-6 md:space-x-10">
         <div className="flex justify-start lg:w-0 lg:flex-1">
           <span className="sr-only">Profile Picture</span>
           <Link href="/" passHref>
-            <span className="block dark:hidden">
-              BLOG V1
+            <span className="block">
+              BLOG V3
               {/* <Image
                 alt="Braydon Coyer"
                 height={38}
@@ -133,17 +135,14 @@ export function NavMenu({}) {
           {/* todo mobile navigation */}
          
         </nav>
-         <MobileNav /> 
+        
+
         <div className="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
-          <button
-            aria-label="Toggle Dark Mode"
-            type="button"
-            className="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full dark:bg-midnight general-ring-state"
-            onClick={() =>
-              setTheme(resolvedTheme === "dark" ? "light" : "dark")
-            }
-          >
-            {mounted && (
+         
+             <ThemeSwitch />
+             <SearchButton />
+              <MobileNav /> 
+            {/* {mounted && (
               <div>
                 {resolvedTheme === "dark" ? (
                   <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24">
@@ -232,8 +231,8 @@ export function NavMenu({}) {
                   </svg>
                 )}
               </div>
-            )}
-          </button>
+            )} */}
+         
         </div>
       </div>
 

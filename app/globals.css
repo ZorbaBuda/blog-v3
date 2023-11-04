@@ -36,10 +36,24 @@
   src: url("../public/fonts/ComputerModernBright/cmunbmr.woff");
 }
 
+@font-face {
+  font-family: "ALLIANCE-N1-BRIGHT";
+  src: url("../public/fonts/alliance-no1/AllianceLight1.otf");
+}
+
+
 
 
 html {
   font-family: "NEWSREADER-LIGHT";
+}
+
+@layer components {
+  
+  .gradient-title {
+    @apply bg-gradient-to-r from-blue-400 to-green-300 bg-clip-text text-transparent;
+  }
+  
 }
 
 @layer utilities {
@@ -146,6 +160,7 @@ html {
   stroke-linejoin: round;
   stroke-linecap: round;
 }
+
 
 
 /* @layer components {

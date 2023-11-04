@@ -90,7 +90,7 @@ const syncContentFromGit = async ({ contentDir, gitTag }) => {
  console.log(`"contentDir:" ${contentDir}`)
 
   const syncRun = async () => {
-    const gitUrl = "https://github.com/ZorbaBuda/blog-v2.git";
+    const gitUrl = "https://github.com/ZorbaBuda/blog-v3.git";
     await runBashCommand(`
     
       if [ -d  "${contentDir}" ];

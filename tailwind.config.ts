@@ -19,7 +19,8 @@ const config: Config = {
         newsreader_light: ["NEWSREADER-LIGHT"],
         roboto: ["ROBOTO-REGULAR"],
         eina: ["EINA-REGULAR"],
-        cmbs: ["COMPUTER-MODERN-BRIGHT-SEMIBOLD"]
+        cmbs: ["COMPUTER-MODERN-BRIGHT-SEMIBOLD"],
+        alliance1: ["ALLIANCE-N1-BRIGHT"]
       },
       colors: {
         primary: {
@@ -30,7 +31,7 @@ const config: Config = {
           500: "rgb(var(--tw-clr-primary-500) / <alpha-value>)",
         },
       },
-        typography: (theme) => ({
+        typography: ({theme}) => ({
           DEFAULT: {
             css: {
               table: false,

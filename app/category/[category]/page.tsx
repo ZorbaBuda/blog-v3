@@ -1,13 +1,40 @@
 import siteMetadata from '@/data/siteMetadata'
 //import ListLayout from '@/layouts/ListLayoutWithTags'
-
 //import { genPageMetadata } from 'app/seo'
 import { Metadata } from 'next'
-
-
 import Link from 'next/link'
 import Category from '@/components/Category'
 import categoryData from '@/lib/category-files.json'
+import { Container } from '@/components/layouts/Container'
+
+
+// type CategoryParam = {
+//   category: string;
+// };
+
+// interface CategoryProps {
+//   params: CategoryParam;
+// }
+
+// async function getCategoryFromParams(params: CategoryParam) {
+//   const category = params.category;
+//   return category;
+// }
+
+// export async function generateMetadata({
+//   params,
+// }: CategoryProps): Promise<Metadata> {
+//   const category = await getCategoryFromParams(params);
+
+//   if (!category) {
+//     return {};
+//   }
+
+//   return {
+//     title: category,
+//     description: category,
+//   };
+// }
 
 export default function page({ params} : { params: { category: string }}) {
 
@@ -28,8 +55,11 @@ export default function page({ params} : { params: { category: string }}) {
 //   })
 // }
   return (
-    <>
-    <div className="mt-10 flex  flex-wrap">
+    <Container>
+    <div>{category}</div>
+    </Container>
+  )}
+    {/* <div className="mt-10 flex  flex-wrap">
     {categoryKeys.length === 0 && 'No tags found.'}
     {categoryKeys.map((t) => {
       return (
@@ -47,8 +77,5 @@ export default function page({ params} : { params: { category: string }}) {
   </div>
     <div>
       <div className='mt-10'>Browsing  {category}  Category   </div>
-      {/* <ListLayout posts={category!== "all" ? filtered  : allPosts} /> */}
-    </div>
-    </>
-  )
-}
+    </div> */}
+ 

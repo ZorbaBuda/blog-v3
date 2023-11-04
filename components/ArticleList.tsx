@@ -4,7 +4,7 @@ import { ArticleCard } from '@/components/AnotherCard';
 import { PageTransition } from './PageTransition';
 import { BookResumeCard } from './BookResumeCard';
 
-function BookResumeList({
+function ArticleList({
   articles,
   showEndMessage = false,
   fullHeight = false
@@ -59,4 +59,4 @@ function BookResumeList({
   );
 }
 
-export default BookResumeList;
+export default ArticleList;

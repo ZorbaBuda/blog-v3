@@ -1,4 +1,3 @@
-import Header from '@/components/header/Header'
 import './globals.css'
 import './mdx.css';
 import type { Metadata } from 'next'
@@ -19,11 +18,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className="" lang="en">
+    <html className="font-alliance1 antialiased " lang="en">
       <body>
        
       <ThemeProviders>
-       <main>
+       <main className=' bg-[#ECEBDA] dark:bg-[#121212]'>
         {children}
         </main> 
      </ThemeProviders>
