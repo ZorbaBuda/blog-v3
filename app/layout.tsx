@@ -1,5 +1,6 @@
 import './globals.css'
 import './mdx.css';
+import './bgPatterns.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 // import SectionContainer from '@/components/SectionContainer';
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className="font-alliance1 antialiased " lang="en">
+    <html className="font-roboto antialiased " lang="en">
       <body>
        
       <ThemeProviders>

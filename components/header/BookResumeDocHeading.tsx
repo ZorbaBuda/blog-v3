@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function BookResumeDocHeading({ post }: Props) {
-  const immUrl = `https://raw.githubusercontent.com/ZorbaBuda/blog-v1/main/public/${post.coverImage}`;
+  const immUrl = `https://raw.githubusercontent.com/ZorbaBuda/blog-v3/main/public/${post.coverImage}`;
   const formattedDate = getFormattedDate(post.date);
   return (
     <article className="mx-auto antialiased flex text-white">

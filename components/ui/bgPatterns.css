@@ -1,0 +1,71 @@
+
+.pattern1 {
+  --s: 120px; /* control the size*/
+  
+  --_g: radial-gradient(#0000 70%,#1a2030 71%);
+  background:
+    var(--_g),var(--_g) calc(var(--s)/2) calc(var(--s)/2),
+    conic-gradient(#0f9177 25%,#fdebad 0 50%,#d34434 0 75%,#b5d999 0);
+  background-size: var(--s) var(--s); 
+}
+
+
+.pattern2 {
+	height: 100vh;
+	--sz: 10px; /*** size ***/
+	--c0: #3a1b0f;
+	--c1: #ffc56f;
+  --c2: #d99838;
+  --c3: #9b5e05;
+  --ts: 50%/ calc(var(--sz) * 12.8) calc(var(--sz) * 22);
+  background:
+		/*bottom*/
+    conic-gradient(from 120deg at 50% 86.5%, var(--c1) 0 120deg, #fff0 0 360deg) var(--ts),
+    conic-gradient(from 120deg at 50% 86.5%, var(--c1) 0 120deg, #fff0 0 360deg) var(--ts),
+		/*bottom dark*/
+		conic-gradient(from 120deg at 50% 74%, var(--c0) 0 120deg, #fff0 0 360deg) var(--ts),
+		/*right*/
+		conic-gradient(from 60deg at 60% 50%, var(--c1) 0 60deg, var(--c2) 0 120deg, #fff0 0 360deg) var(--ts),
+		/*left*/
+		conic-gradient(from 180deg at 40% 50%, var(--c3) 0 60deg, var(--c1) 0 120deg, #fff0 0 360deg) var(--ts),
+		/*top dark*/
+    conic-gradient(from 0deg at 90% 35%, var(--c0) 0 90deg, #fff0 0 360deg) var(--ts),
+    conic-gradient(from -90deg at 10% 35%, var(--c0) 0 90deg, #fff0 0 360deg) var(--ts),
+    conic-gradient(from 0deg at 90% 35%, var(--c0) 0 90deg, #fff0 0 360deg) var(--ts),
+    conic-gradient(from -90deg at 10% 35%, var(--c0) 0 90deg, #fff0 0 360deg) var(--ts),
+		/*top*/
+    conic-gradient(from -60deg at 50% 13.5%, var(--c1) 0 120deg, #fff0 0 360deg) var(--ts),
+    conic-gradient(from -60deg at 50% 13.5%, var(--c1) 0 120deg, #fff0 0 360deg) var(--ts),
+		conic-gradient(from -60deg at 50% 41%, var(--c2) 0 60deg, var(--c3) 0 120deg, #fff0 0 360deg) var(--ts),
+		var(--c0) ;
+
+}
+
+.pattern3 {
+  --s: 120px; /* control the size */
+  --c1: #4E395D;
+  --c2: #8EBE94;
+  
+  --_g:var(--c1) 15%,var(--c2) 0 28%,#0000 0 72%,var(--c2) 0 85%,var(--c1) 0;
+  background:
+    conic-gradient(from 90deg at 2px 2px,#0000 25%,var(--c1) 0) -1px -1px,
+    linear-gradient(-45deg,var(--_g)),linear-gradient(45deg,var(--_g)),
+    conic-gradient(from 90deg at 40% 40%,var(--c1) 25%,var(--c2) 0) 
+     calc(var(--s)/-5) calc(var(--s)/-5);
+  background-size: var(--s) var(--s);
+}
+
+.pattern4 {
+  font-family: 'Share Tech', sans-serif;
+  font-size: 68px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  text-shadow: 8px 8px 10px #0000008c;
+  background-color: #343a40;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%239C92AC' fill-opacity='0.25' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), linear-gradient(to right top, #343a40, #2b2c31, #211f22, #151314, #000000);
+}

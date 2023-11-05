@@ -41,12 +41,21 @@
   src: url("../public/fonts/alliance-no1/AllianceLight1.otf");
 }
 
-
-
-
-html {
-  font-family: "NEWSREADER-LIGHT";
+@font-face {
+  font-family: "SPARTAN";
+  src: url("../public/fonts/spartan/Spartan-Regular.ttf");
 }
+
+@font-face {
+  font-family: "LIBRE-BASKERVILLE";
+  src: url("../public/fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf");
+}
+
+@font-face {
+  font-family: "LIBRE-BASKERVILLE-BOLD";
+  src: url("../public/fonts/Libre_Baskerville/LibreBaskerville-Bold.ttf");
+}
+
 
 @layer components {
   
@@ -136,11 +145,6 @@ html {
 
 
 
-/* .hr {
-  @apply my-16 w-full border-none text-center h-10 before:content-['∿∿∿'] before:text-[#D1D5DB] before:text-2xl;
-} */
-
-
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -162,88 +166,56 @@ html {
 }
 
 
-
-/* @layer components {
-  .layout {
-    @apply mx-auto w-11/12 max-w-6xl;
-  }
-
-  .card-layout {
-    @apply grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-4;
-  }
-
-  .custom-button {
-    @apply px-4 py-2 font-bold;
-  }
-
-  .main-border {
-    @apply border border-gray-300 dark:border-gray-600;
-  }
+/*slider button    */
+/* .slider {
+  width: 40%;
+  text-align: center;
+  position: relative;
+  top:20vh;
   
-
-  .smooth-tab {
-    @apply rounded-md transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue;
-  }
-
- 
-
-  .gradient-title {
-    @apply bg-gradient-to-r from-blue-400 to-green-300 bg-clip-text text-transparent;
-  }
-
-  .custom-underline {
-    @apply underline decoration-transparent outline-none transition [text-decoration-thickness:1px] 
-           hover:decoration-inherit focus-visible:decoration-inherit;
-  }
-
-  .animated-underline {
-    background-size: 0 2px;
-    background-position: 0 100%;
-
-    @apply bg-gradient-to-r from-blue-400 to-green-300 bg-no-repeat pb-0.5 no-underline 
-           outline-none transition-all duration-300;
-
-    &.with-dots {
-      @apply border-b border-dotted border-black dark:border-white;
-    }
-
-    &:hover,
-    &:focus-visible,
-    &:has(+ div:hover),
-    .project-card:hover &,
-    .project-card:focus-visible & {
-      background-size: 100% 2px;
-
-      &.with-dots {
-        @apply border-transparent;
-      }
-    }
-  } 
-}*/
-
-
-
-
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+hr {
+  border: 0;
+  border-bottom: 0.0625rem solid #bbb;
+  margin: 3rem 0;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+button {
+  font-size: 2em;
+  background: black;
+  color: tomato;
+  border: 0.25rem solid rgb(19, 19, 19);
+  padding: 50px 150px;
+  margin: 1rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: 0.5s;
+}
+button:hover {
+  color: black;
+}
+button::after {
+  content: "";
+  background: tomato;
+  position: absolute;
+  z-index: -1;
+  padding: 0.85em 0.75em;
+  display: block;
+}
+button[class^="slider"]::after {
+  transition: all 0.35s;
+}
+button[class^="slider"]:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 0.35s;
+}
+button.slider::after {
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
 } */
+

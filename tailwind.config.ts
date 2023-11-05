@@ -20,7 +20,10 @@ const config: Config = {
         roboto: ["ROBOTO-REGULAR"],
         eina: ["EINA-REGULAR"],
         cmbs: ["COMPUTER-MODERN-BRIGHT-SEMIBOLD"],
-        alliance1: ["ALLIANCE-N1-BRIGHT"]
+        alliance1: ["ALLIANCE-N1-BRIGHT"],
+        spartan: ["SPARTAN"],
+        libre_baskerville: ["LIBRE-BASKERVILLE"],
+        libre_baskerville_bold: ["LIBRE-BASKERVILLE-BOLD"],
       },
       colors: {
         primary: {

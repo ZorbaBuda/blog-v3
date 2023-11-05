@@ -9,8 +9,8 @@ const Tag = ({ text }: Props) => {
     <Link
       href={`/tags/${slug(text)}`}
       className="
-      tracking-wide 
-      font-montserrat p-2 mr-5   text-xs 
+      tracking-wider rounded-sm py-1 px-3  cursor-pointer
+          text-xs max-w-fit
       uppercase bg-[#252525] text-slate-300 hover:bg-gray-500 
       dark:hover:text-primary-400"
     >

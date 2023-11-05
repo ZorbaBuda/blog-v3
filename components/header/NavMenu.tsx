@@ -24,7 +24,7 @@ function NavItem({ href, text }) {
           isActive
             ? "font-bold text-teal-500 dark:text-teal-400"
             : " text-black dark:text-white font-semibold dark:font-normal"
-        } text-base hidden md:inline-block rounded-full hover:text-gray-900 dark:hover:text-gray-200 transition-all `}
+        }  text-sm hidden md:inline-block rounded-full hover:text-gray-900 dark:hover:text-gray-200 transition-all `}
       >
         {text}
       </span>
@@ -128,7 +128,7 @@ export function NavMenu({}) {
           <NavItem href="/blog" text="Blog" />
           <NavItem href="/community-wall" text="Community wall" />
         </nav> */}
-        <nav className="hidden space-x-8 text-lg md:flex">
+        <nav className="font-spartan hidden space-x-8 text-lg md:flex">
           {headerNavLinks.map((link) => (
             <NavItem key={link.title} text={link.title} href={link.href} />
           ))}

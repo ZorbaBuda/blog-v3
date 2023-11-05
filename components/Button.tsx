@@ -1,14 +1,12 @@
 import Link from 'next/link';
-import { ButtonType } from '@/lib/enums';
+import { ReactNode } from 'react';
 
 type Props = {
-  buttonType: ButtonType;
-  href: string;
-  children: React.ReactNode
+  href: string
+  children: ReactNode
 };
 
 export const Button: React.FC<Props> = ({
-  buttonType,
   href,
   children
 }) => {
@@ -18,25 +16,18 @@ export const Button: React.FC<Props> = ({
     <button
       aria-label="button"
       type="button"
-      className={`group inline-flex items-center rounded-full px-6 py-1.5 font-semibold transition ${
-        buttonType === ButtonType.PRIMARY
-          ? 'bg-midnight text-white dark:bg-gray-200 dark:text-midnight hover:bg-slate-700'
-          : buttonType === ButtonType.SECONDARY
-          ? 'text-midnight dark:text-white'
-          : null
-      }`}
-      
+      className="mt-5 border-[1px] border-slate-400 rounded-sm text-sm 
+      tracking-wider  dark:text-slate-400 text-black
+      px-6 py-3
+      "
+       
     >
       {children}
       <svg
-        className={`mt-0.5 ml-2 -mr-1 stroke-2 ${
-          buttonType === ButtonType.PRIMARY
-            ? 'stroke-white dark:stroke-midnight'
-            : 'stroke-midnight dark:stroke-white'
-        }`}
+        className=" ml-2 -mr-1 stroke-2"
         fill="none"
-        width="10"
-        height="10"
+         width="1"
+         height="1"
         viewBox="0 0 10 10"
         aria-hidden="true"
       >
