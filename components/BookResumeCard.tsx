@@ -27,11 +27,13 @@ export function BookResumeCard({ post }: Props) {
 
   return (
     // <GlowEffect>
-    <div className=" group antialiased  xl:max-w-[920px] border-t-[1px] border-[#383A3C] pt-5">
-      <Link className="" href={`/document/${slug}`}>
+    <>
+  
+    <div className="    xl:max-w-[920px] border-t-[1px] border-[#383A3C] pt-5">
+     
+      <Link className="no-underline" href={`/document/${slug}`}>
         <div className=" flex flex-wrap-reverse justify-between">
           
-
           <div className="mt-0 flex flex-col max-w-[560px] ">
             <Tag text={category} /> 
             {/* <Accent>{category}</Accent> */}
@@ -76,6 +78,7 @@ export function BookResumeCard({ post }: Props) {
         </div>
       </Link>
     </div>
-    // </GlowEffect>
+     {/* </GlowEffect> */}
+    </>
   );
 }

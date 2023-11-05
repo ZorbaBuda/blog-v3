@@ -157,7 +157,7 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
                   
               )}
         </div> */}
-          <article className="text-white font-roboto mdx leading-relaxed text-xl  mx-auto mt-4 w-full transition-colors dark:prose-invert">
+          <article className="text-white font-roboto  prose-headings:font-libre_baskerville prose-xl leading-relaxed text-xl  mx-auto mt-4 w-full transition-colors dark:prose-invert">
             <MDXComponents code={post.body.code} />
             {/* <Component
                   components={

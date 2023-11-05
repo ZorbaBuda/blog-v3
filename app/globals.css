@@ -129,11 +129,11 @@
 }
 
 /* taken from braydoncoyer project */
-
+/* 
 .wrapper {
   display: grid;
   grid-template-columns: 1fr min(65ch, calc(100% - 32px)) 1fr;
-  /* column-gap: 16px; */
+   column-gap: 16px; 
 }
 .wrapper > * {
   grid-column: 2;
@@ -141,7 +141,7 @@
 .full-bleed {
   width: 100%;
   grid-column: 1 / 4;
-}
+} */
 
 
 
@@ -155,7 +155,7 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-
+/* 
 .item {
   width: 56%;
   overflow: visible;
@@ -163,7 +163,7 @@
   stroke-width: 2;
   stroke-linejoin: round;
   stroke-linecap: round;
-}
+} */
 
 
 /*slider button    */
