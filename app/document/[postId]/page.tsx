@@ -9,6 +9,7 @@ import BookResumeDocHeading from "@/components/header/BookResumeDocHeading";
 import TableOfContents from "@/components/TableOfContents";
 import ScrollTop from "@/components/ScrollTop";
 import WritingDocHeading from "@/components/header/WritingDocHeading";
+import DocHeading from "@/components/header/DocHeading";
 
 
 type BlogParam = {
@@ -97,9 +98,11 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
       isArticle={true}
     >
        <ScrollTop />
+
+       <DocHeading post={post} /> 
        
-     {post.type === "BookResume" && ( <BookResumeDocHeading post={post} /> )}
-     {post.type === "Writing" && ( <WritingDocHeading post={post} /> )}
+     {/* {post.type === "BookResume" && ( <BookResumeDocHeading post={post} /> )}
+     {post.type === "Writing" && ( <WritingDocHeading post={post} /> )} */}
 
      
 
@@ -157,7 +160,12 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
                   
               )}
         </div> */}
-          <article className="text-white font-roboto  prose-headings:font-libre_baskerville prose-xl leading-relaxed text-xl  mx-auto mt-4 w-full transition-colors dark:prose-invert">
+          <article className="mt-4 text-black dark:text-white font-alliance1  prose-headings:font-spartan 
+          prose lg:prose-xl md:prose-lg sm:prose-base 
+          prose-headings:text-slate-800 dark:prose-headings:text-white  
+          max-w-none md:px-5 sm:px-5 lg:px-0
+          
+          ">
             <MDXComponents code={post.body.code} />
             {/* <Component
                   components={

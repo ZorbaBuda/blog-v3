@@ -12,27 +12,47 @@ import headerNavLinks from "@/data/headerNavLinks";
 import MobileNav from "./MobileNav";
 import ThemeSwitch from "../ThemeSwitch";
 import SearchButton from "../SearchButton";
+import categoryData from '@/lib/category-files.json'
 
 function NavItem({ href, text }) {
   
   const isActive = usePathname() === href;
 
   return (
-    <Link className="" href={href} passHref>
-      <span
-        className={`${
-          isActive
-            ? "font-bold text-teal-500 dark:text-teal-400"
-            : " text-black dark:text-white font-semibold dark:font-normal"
-        }  text-sm hidden md:inline-block rounded-full hover:text-gray-900 dark:hover:text-gray-200 transition-all `}
-      >
-        {text}
-      </span>
-    </Link>
+    <Link className="group" href={href} passHref>
+    <span
+      className={`${
+        isActive
+          ? "font-bold text-[#FB5148] dark:text-[#FB5148]" : " text-black dark:text-white font-semibold dark:font-normal"
+      }  text-sm hidden md:inline-block  capitalize
+       hover:text-[#FB5148] dark:hover:text-[#FB5148] transition-all 
+       bg-left-bottom bg-gradient-to-r from-[#FB5148] to-[#FB5148] bg-[length:0%_4px] bg-no-repeat 
+       group-hover:bg-[length:100%_2px]  duration-300 ease-out  
+
+      `}
+    >
+      {text}
+    </span>
+  </Link>
+    // <Link className="" href={href} passHref>
+    //   <span
+    //     className={`${
+    //       isActive
+    //         ? "font-bold text-teal-500 dark:text-teal-400"
+    //         : " text-black dark:text-white font-semibold dark:font-normal"
+    //     }  text-sm hidden md:inline-block rounded-full capitalize
+    //      hover:text-[#FB5148] dark:hover:text-[#FB5148] transition-all 
+    //     `}
+    //   >
+    //     {text}
+    //   </span>
+    // </Link>
   );
 }
 
 export function NavMenu({}) {
+  const categoryKeys = Object.keys(categoryData)
+
   const [mounted, setMounted] = useState(false);
   let [isOpen, setIsOpen] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
@@ -64,7 +84,7 @@ export function NavMenu({}) {
 
   return (
     <div className={`border-y-[1px] border-[#383A3C] sticky ${visible ? 'top-0' : ''} z-50 w-full text-gray-900 bg-[#EFF4FF]  dark:bg-[#121212] dark:text-white  `}>
-      <div className="text-sm tracking-wider flex items-center justify-between max-w-7xl px-4 py-7 mx-auto sm:px-6 md:space-x-10">
+      <div className="text-sm tracking-wider flex items-center justify-between max-w-7xl px-4 py-7   mx-auto sm:px-6 md:space-x-10">
         <div className="flex justify-start lg:w-0 lg:flex-1">
           <span className="sr-only">Profile Picture</span>
           <Link href="/" passHref>
@@ -80,8 +100,9 @@ export function NavMenu({}) {
               /> */}
             </span>
           </Link>
-          <Link href="/" passHref>
-            <span className="hidden dark:block">
+          <Link href="/patterns" passHref>
+            <span className=" ml-3 hidden dark:block">
+              PATTERNS
               {/* <Image
                 alt="Braydon Coyer"
                 height={38}
@@ -128,9 +149,9 @@ export function NavMenu({}) {
           <NavItem href="/blog" text="Blog" />
           <NavItem href="/community-wall" text="Community wall" />
         </nav> */}
-        <nav className="font-spartan hidden space-x-8 text-lg md:flex">
-          {headerNavLinks.map((link) => (
-            <NavItem key={link.title} text={link.title} href={link.href} />
+        <nav className="  font-spartan hidden space-x-8 text-lg md:flex ">
+          {categoryKeys.map((key) => (
+            <NavItem key={key} text={key} href={`/category/${key}`} />
           ))}
           {/* todo mobile navigation */}
          
@@ -138,7 +159,8 @@ export function NavMenu({}) {
         
 
         <div className="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
-         
+             <NavItem text={'About'} href={'/about'} />
+             {" "}
              <ThemeSwitch />
              <SearchButton />
               <MobileNav /> 

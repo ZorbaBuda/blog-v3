@@ -20,6 +20,8 @@ import { Button } from "@/components/Button";
 import ArticleList from "@/components/ArticleList";
 import WritingList from "@/components/WritingList";
 import { Accent } from "@/components/ui/accent";
+import Prisoner from '@/public/prisoner-of-pain.jpeg'
+import './bgPatterns.css'
 
 export default function Home() {
   if (!allDocuments) {
@@ -47,28 +49,31 @@ export default function Home() {
             </h1>
           </div>
 
-          
-              <div className="relative group cursor-pointer">
-                <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-violet-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-                <div className="relative px-7 py-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6">
-                  <div className="space-y-2">
-                    <p className="text-slate-800">Glowing Gradient Border</p>
-                  </div>
-                </div>
-              </div>
-          
-          </div>
         
-        <hr className="hr"></hr>
+            <div
+                className="w-40 h-20 flex justify-center items-center text-sky-200 
+                 rounded-lg  
+                hover:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_#08f]"
+            >
+                Neon container
+            </div>
+      
+
+
+       
+
+
+
+        </div>
+
+        <hr className="hr  "></hr>
 
         <div>
           <h2>Resúmenes recientes de libros.</h2>
 
           <ArticleList articles={allDocuments} />
           <div className="my-16">
-            <Button buttonType={ButtonType.PRIMARY} href={"/books"}>
-              Ir a todos los resúmenes
-            </Button>
+            <Button href={"/category/all"}>Ir a todos los resúmenes</Button>
           </div>
         </div>
         <hr className="hr"></hr>

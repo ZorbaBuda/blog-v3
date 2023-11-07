@@ -23,7 +23,7 @@ export default function RootLayout({
       <body>
        
       <ThemeProviders>
-       <main className=' bg-[#ECEBDA] dark:bg-[#121212]'>
+       <main className=' bg-[#ECEBDA] dark:bg-[#121212] text-black dark:text-white'>
         {children}
         </main> 
      </ThemeProviders>
