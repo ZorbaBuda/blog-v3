@@ -83,7 +83,7 @@ export function NavMenu({}) {
   });
 
   return (
-    <div className={`border-y-[1px] border-[#383A3C] sticky ${visible ? 'top-0' : ''} z-50 w-full text-gray-900 bg-[#EFF4FF]  dark:bg-[#121212] dark:text-white  `}>
+    <div className={`border-y-[1px] font-spartan border-[#383A3C] sticky ${visible ? 'top-0' : ''} z-50 w-full text-gray-900 bg-[#EFF4FF]  dark:bg-[#121212] dark:text-white  `}>
       <div className="text-sm tracking-wider flex items-center justify-between max-w-7xl px-4 py-7   mx-auto sm:px-6 md:space-x-10">
         <div className="flex justify-start lg:w-0 lg:flex-1">
           <span className="sr-only">Profile Picture</span>
@@ -114,7 +114,7 @@ export function NavMenu({}) {
             </span>
           </Link>
         </div>
-        <div className="-my-2 -mr-2 md:hidden" onClick={() => setIsOpen(true)}>
+        {/* <div className="-my-2 -mr-2 md:hidden" onClick={() => setIsOpen(true)}>
           <div className="bg-gray-200 dark:bg-midnight text-gray-600 dark:text-gray-300 rounded-full p-3.5 inline-flex items-center justify-center hover:text-gray-700 hover:bg-gray-300 cursor-pointer focus:outline-none general-ring-state">
             <span className="sr-only">Open menu</span>
             <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -141,7 +141,7 @@ export function NavMenu({}) {
               ></path>
             </svg>
           </div>
-        </div>
+        </div> */}
         {/* <nav className="hidden space-x-8 text-lg md:flex">
           <NavItem href="/" text="Home" />
           <NavItem href="/about" text="About" />
@@ -149,7 +149,7 @@ export function NavMenu({}) {
           <NavItem href="/blog" text="Blog" />
           <NavItem href="/community-wall" text="Community wall" />
         </nav> */}
-        <nav className="  font-spartan hidden space-x-8 text-lg md:flex ">
+        <nav className=" flex-wrap  font-spartan hidden space-x-8 text-lg md:flex ">
           {categoryKeys.map((key) => (
             <NavItem key={key} text={key} href={`/category/${key}`} />
           ))}

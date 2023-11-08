@@ -1,6 +1,6 @@
 import Image from "next/image";
 import slugify from "slugify";
-import { DocumentTypes } from "@/.contentlayer/generated";
+import { Post } from "@/.contentlayer/generated";
 import getFormattedDate from "@/lib/getFormattedDate";
 import Link from "next/link";
 import { Accent } from "./ui/accent";
@@ -11,7 +11,7 @@ import { Button } from "./Button";
 import Tag from '@/components/tags/Tag'
 
 type Props = {
-  post: DocumentTypes,
+  post: Post,
   pattern: string
 };
 

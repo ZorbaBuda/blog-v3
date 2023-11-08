@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { allDocuments } from "@/.contentlayer/generated";
+import { allPosts } from "@/.contentlayer/generated";
 import createTagIndex from "@/lib/createTagIndex";
 import createCategoryIndex from "@/lib/createCategoryIndex";
 import { create } from "domain";
@@ -24,7 +24,7 @@ import Prisoner from '@/public/prisoner-of-pain.jpeg'
 import './bgPatterns.css'
 
 export default function Home() {
-  if (!allDocuments) {
+  if (!allPosts) {
     return <p className="mt-10 text-center">Sorry, no posts available.</p>;
   }
 
@@ -71,7 +71,7 @@ export default function Home() {
         <div>
           <h2>Resúmenes recientes de libros.</h2>
 
-          <ArticleList articles={allDocuments} />
+          <ArticleList articles={allPosts} />
           <div className="my-16">
             <Button href={"/category/all"}>Ir a todos los resúmenes</Button>
           </div>

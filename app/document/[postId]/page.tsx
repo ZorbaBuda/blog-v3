@@ -1,5 +1,5 @@
 import * as React from "react";
-import { allDocuments } from "@/.contentlayer/generated";
+import { allPosts } from "@/.contentlayer/generated";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import MDXComponents from "@/components/mdx-component";
@@ -23,7 +23,7 @@ interface BlogDetailsProps {
 async function getPostFromParams(params: BlogParam) {
   const slug = params.postId;
 
-  const post = allDocuments.find((p) => p.slug === slug);
+  const post = allPosts.find((p) => p.slug === slug);
 
   if (!post) {
     return null;

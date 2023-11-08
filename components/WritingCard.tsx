@@ -2,7 +2,7 @@ import Image from "next/image";
 // import { handleArticleClicked } from '@/lib/handleArticleClick';
 import siteMetadata from "@/data/siteMetadata";
 import slugify from "slugify";
-import { DocumentTypes } from "@/.contentlayer/generated";
+import { Post } from "@/.contentlayer/generated";
 import getFormattedDate from "@/lib/getFormattedDate";
 import Link from "next/link";
 import pic1 from "@/public/pic1.png";
@@ -12,7 +12,7 @@ import { Info } from "./social-icons/icons";
 
 
 type Props = {
-  post: DocumentTypes;
+  post: Post;
 };
 
 export function WritingCard({ post }: Props) {

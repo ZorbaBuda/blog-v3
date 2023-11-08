@@ -11,9 +11,36 @@ import  {extractTocHeadings } from './lib/remark-tok-headings'
 const BLOG_DIRECTORY = 'content';
 const SYNC_INTERVAL = 1000 * 60;
 
-export const BookResume = defineDocumentType(() => ({
-    name: 'BookResume',
-    filePathPattern: `book-resumes/**/*.mdx`,
+export const About = defineDocumentType(() => ({
+  name: 'About',
+  filePathPattern: `about/**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+      title: { type: 'string', required: true },
+  
+    },
+  computedFields: {
+      url: {
+        type: 'string',
+        resolve: (doc) => doc._raw.flattenedPath,
+      },
+      slug: {
+        type: 'string',
+        resolve: (doc) => doc._raw.sourceFileName.split('.')[0],
+      },
+      filePath: {
+        type: 'string',
+        resolve: (doc) => doc._raw.sourceFilePath,
+      },
+       toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
+    },
+
+}))
+
+
+export const Post = defineDocumentType(() => ({
+    name: 'Post',
+    filePathPattern: `posts/**/*.mdx`,
     contentType: 'mdx',
     fields: {
         title: { type: 'string', required: true },
@@ -43,41 +70,6 @@ export const BookResume = defineDocumentType(() => ({
         },
          toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
       },
-
-}))
-
-export const Writing = defineDocumentType(() => ({
-  name: 'Writing',
-  filePathPattern: `writings/**/*.mdx`,
-  contentType: 'mdx',
-  fields: {
-      title: { type: 'string', required: true },
-      date: { type: 'date', required: true },
-      tags: { type: 'list', of: { type: 'string' }, default: [] },
-      category: { type: 'string', required: true},
-     coverImage: { type: 'string', required: true },
-       banner: { type: 'string', required: true },
-      summary: { type: 'string' },
-      images: { type: 'list', of: { type: 'string' } },
-      bibliography: { type: 'string' },
-      canonicalUrl: { type: 'string' },
-  
-    },
-  computedFields: {
-      url: {
-        type: 'string',
-        resolve: (doc) => doc._raw.flattenedPath,
-      },
-      slug: {
-        type: 'string',
-        resolve: (doc) => doc._raw.sourceFileName.split('.')[0],
-      },
-      filePath: {
-        type: 'string',
-        resolve: (doc) => doc._raw.sourceFilePath,
-      },
-       toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
-    },
 
 }))
 
@@ -166,7 +158,7 @@ export default makeSource((sourceKey = 'main') => ({
         // contentDirPath: `blog-${sourceKey}`,
         contentDirPath: `content`,
         // contentDirInclude: [BLOG_DIRECTORY],
-        documentTypes: [Writing, BookResume],
+        documentTypes: [Post, About],
         disableImportAliasWarning: true,
         mdx: {
           cwd: process.cwd(),
@@ -187,7 +179,7 @@ export default makeSource((sourceKey = 'main') => ({
           console.log("on success")
           //createCategoryIndex(importData)
         //   console.log(" import data ", typeof importData)
-        //  const { allBlogs } = await importData()
+         // const { allBlogs } = await importData()
         //   // console.log("hi")
         //   // createTagCount(allBlogs.length)
        }
