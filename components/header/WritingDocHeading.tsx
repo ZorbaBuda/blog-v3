@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import getFormattedDate from "@/lib/getFormattedDate";
 import Category from "../Category";
-import Tag from "../tags/Tag";
+import Tag from "../tags/CategoryTag";
 import Prisoner from "@/public/hero-image.png";
 
 type Props = {

@@ -1,21 +1,21 @@
-import { BookResume, DocumentTypes } from "@/.contentlayer/generated";
+import { Post } from "@/.contentlayer/generated";
 import React from "react";
 import Image from "next/image";
 import getFormattedDate from "@/lib/getFormattedDate";
 import Category from "../Category";
-import Tag from "../tags/Tag";
+import Tag from "../tags/CategoryTag";
 import Prisoner from "@/public/hero-image.png";
 import "@/components/ui/bgPatterns.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
 
 type Props = {
-  post: DocumentTypes;
+  post: Post;
 };
 
 export default function DocHeading({ post }: Props) {
   const { coverImage, slug, date, title, summary, tags, category } = post;
 
-  const pattern = "pattern15";
+  const pattern = "pattern16";
 
   const imageUrl = `${process.env.GITHUB_URL_IMAGES}${coverImage}`;
   const formattedDate = getFormattedDate(post.date);

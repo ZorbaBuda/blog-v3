@@ -100,19 +100,7 @@ export function NavMenu({}) {
               /> */}
             </span>
           </Link>
-          <Link href="/patterns" passHref>
-            <span className=" ml-3 hidden dark:block">
-              PATTERNS
-              {/* <Image
-                alt="Braydon Coyer"
-                height={38}
-                width={38}
-                src={LightLogo}
-                blurDataURL={LightLogo}
-                className="rounded-full"
-              /> */}
-            </span>
-          </Link>
+         
         </div>
         {/* <div className="-my-2 -mr-2 md:hidden" onClick={() => setIsOpen(true)}>
           <div className="bg-gray-200 dark:bg-midnight text-gray-600 dark:text-gray-300 rounded-full p-3.5 inline-flex items-center justify-center hover:text-gray-700 hover:bg-gray-300 cursor-pointer focus:outline-none general-ring-state">

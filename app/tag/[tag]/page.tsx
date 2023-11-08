@@ -8,7 +8,7 @@ import tagData from '@/lib/tag-files.json'
 import { Metadata } from 'next'
 import { BookResume } from '@/.contentlayer/generated'
 import Link from 'next/link'
-import Tag from '@/components/tags/Tag'
+import Tag from '@/components/tags/CategoryTag'
 import tagFiles from '@/lib/tag-files.json'
 
 export default function page({ params} : { params: { tag: string }}) {

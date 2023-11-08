@@ -2,7 +2,7 @@ import { ArticleCard } from '@/components/AnotherCard';
 // import { ArticleCard } from '@/components/AnotherOneCard';
 // import { ArticleCard } from './ArticleCard';
 import { PageTransition } from './PageTransition';
-import { BookResumeCard } from './BookResumeCard';
+import { BookResumeCard } from './cards/ArticleCard';
 import { WritingCard } from './WritingCard';
 
 function WritingList({

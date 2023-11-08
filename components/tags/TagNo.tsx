@@ -3,7 +3,7 @@ import Link from 'next/link';
 export function Tag({ tag, activeTag }) {
   return (
     <Link
-      href={tag ? `/blog/categories/${tag}` : '/books'}
+      href={tag ? `/blog/categories/${tag}` : '/tags/all'}
       passHref
       legacyBehavior
     >

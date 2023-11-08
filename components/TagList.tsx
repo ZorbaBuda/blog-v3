@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import { Tag } from './Tag';
+import  Tag  from './tags/Tag';
 
 export function TagList({ tag, tags }) {
 
@@ -18,12 +18,12 @@ export function TagList({ tag, tags }) {
       <div className="border border-spacing-2 flex flex-wrap w-full gap-2  justify-center ">
         {/* Initial tag for all topics */}
         <div className=" rounded  ">
-          <Tag activeTag={tag} tag="" />
+          <Tag text={tag}  />
         </div>
         {tags &&
           tags.map((tagItem, index) => (
             
-              <Tag key={index} activeTag={tag} tag={tagItem} />
+              <Tag key={index} text={tag}  />
             
           ))}
       </div>

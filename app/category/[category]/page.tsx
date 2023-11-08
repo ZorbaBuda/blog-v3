@@ -7,8 +7,10 @@ import Category from '@/components/Category'
 import categoryData from '@/lib/category-files.json'
 import { Container } from '@/components/layouts/Container'
 import BookResumeList from '@/components/BookResumeList'
-import { allDocuments } from '@/.contentlayer/generated'
-import type { DocumentTypes } from '@/.contentlayer/generated'
+import { allPosts } from '@/.contentlayer/generated'
+import type { Post } from '@/.contentlayer/generated'
+import { Accent } from '@/components/ui/accent'
+import { sortPosts } from '@/lib/postsUtils'
 
 
 // type CategoryParam = {
@@ -43,16 +45,19 @@ export default function page({ params} : { params: { category: string }}) {
 
   const categoryKeys = Object.keys(categoryData)
   
-  const categoryDocs : DocumentTypes[] = []
+  const categoryDocs : Post[] = []
   
   const category = decodeURI(params.category)
   
 
-  allDocuments.forEach((doc : DocumentTypes) => {
+  allPosts.forEach((doc : Post) => {
     if(doc.category === category) {
       categoryDocs.push(doc)
     }
   })
+
+  const sortedCategoryPosts = sortPosts(categoryDocs)
+  const sortedInitialPosts= sortPosts(allPosts)
   // if(category !== "all"){
   // const categoryFiles = categoryData[category]
   // var filtered: Post[] = []
@@ -68,15 +73,15 @@ export default function page({ params} : { params: { category: string }}) {
 // }
   return (
     <Container>
-        <div>
+        <div className='flex justify-center'>
       
-        <span className="block max-w-2xl mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl">
-          Showing {category} categories
+        <span className="  pb-10 mt-2  font-bold leading-10  md:text-4xl lg:text-5xl text-3xl">
+          <Accent>Showing {category} categories</Accent>
         </span>
       </div>
       {category === "all" ?
-       ( <BookResumeList articles={allDocuments} showEndMessage fullHeight />) :
-       ( <BookResumeList articles={categoryDocs} showEndMessage fullHeight />)
+       ( <BookResumeList articles={sortedInitialPosts} showEndMessage fullHeight />) :
+       ( <BookResumeList articles={sortedCategoryPosts} showEndMessage fullHeight />)
   }
 
     </Container>

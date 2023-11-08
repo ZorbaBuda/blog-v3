@@ -1,8 +1,6 @@
-import { ArticleCard } from '@/components/AnotherCard';
-// import { ArticleCard } from '@/components/AnotherOneCard';
-// import { ArticleCard } from './ArticleCard';
-import { PageTransition } from './PageTransition';
-import { BookResumeCard } from './BookResumeCard';
+
+import { PageTransition } from '../PageTransition';
+import  ArticleCard  from '../cards/ArticleCard';
 
 function ArticleList({
   articles,
@@ -14,7 +12,7 @@ function ArticleList({
       {/* <div className="container auto-rows-fr grid grid-cols-2 gap-10 list-none md:grid-cols-3"> */}
       <div className=" mx-auto grid grid-cols-1 gap-16  md:grid-cols-1 lg:grid-cols-1">
         {articles.map((post, index) => (
-        <BookResumeCard key={post.title} pattern={`pattern${index+1}`} post={post} />
+        <ArticleCard key={post.title} pattern={`pattern${index+1}`} post={post} />
         ))}
       </div>
       {showEndMessage && (

@@ -7,6 +7,7 @@ import Logo from "@/public/moola-bandha-the-master-key.png";
 import WritingList from "@/components/WritingList";
 import MDXComponents from "@/components/mdx-component";
 import { About } from "@/.contentlayer/generated";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -54,6 +55,13 @@ export default function About() {
                   }
                 /> */}
           </article>
+
+          <Link href="/patterns" passHref>
+            <span className="text-black dark:text-white text-3xl ml-3">
+              PATTERNS
+             
+            </span>
+          </Link>
      
       <div className="mb-12">
         <h2>I love to share my knowledge through writing.</h2>
