@@ -4,7 +4,6 @@ import Image from "next/legacy/image";
 
 import { allPosts, allAbouts } from "@/.contentlayer/generated";
 import Logo from "@/public/moola-bandha-the-master-key.png";
-import WritingList from "@/components/WritingList";
 import MDXComponents from "@/components/mdx-component";
 import { About } from "@/.contentlayer/generated";
 import Link from "next/link";
@@ -63,11 +62,7 @@ export default function About() {
             </span>
           </Link>
      
-      <div className="mb-12">
-        <h2>I love to share my knowledge through writing.</h2>
-        <p>Check out a few of my most recent publishings.</p>
-        <WritingList articles={allPosts} />
-      </div>
+     
       <hr className="my-16 w-full border-none text-center h-10 before:content-['∿∿∿'] before:text-[#D1D5DB] before:text-2xl"></hr>
     </Container>
   );

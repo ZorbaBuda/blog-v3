@@ -48,12 +48,10 @@ export const Post = defineDocumentType(() => ({
         tags: { type: 'list', of: { type: 'string' }, default: [] },
         category: { type: 'string', required: true},
        coverImage: { type: 'string', required: true },
-         banner: { type: 'string', required: true },
         summary: { type: 'string' },
-        images: { type: 'list', of: { type: 'string' } },
-        bibliography: { type: 'string' },
-        canonicalUrl: { type: 'string' },
-    
+        bookAuthor: {type: 'string'},
+        bookYear: {type:'string'},
+        pattern: {type:'string'}
       },
     computedFields: {
         url: {

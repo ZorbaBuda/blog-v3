@@ -25,7 +25,7 @@ function ArticleCard({ post, pattern }: Props) {
   // console.log(imageUrl)
   // const immUrl = `https://raw.githubusercontent.com/ZorbaBuda/blog-v3/main/public/${coverImage}`;
 
-  const patternn = "pattern17";
+  const patternn = post.pattern? post.pattern : "pattern13";
 
   return (
     <div className="  group  xl:max-w-[920px] border-t-[1px] border-[#383A3C] pt-5  ">
