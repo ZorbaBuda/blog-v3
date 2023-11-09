@@ -2,14 +2,15 @@ import { slug } from 'github-slugger'
 //import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import siteMetadata from '@/data/siteMetadata'
 //import ListLayout from '@/layouts/ListLayoutWithTags'
-import { allBookResumes } from '@/.contentlayer/generated'
+// import { allBookResumes } from '@/.contentlayer/generated'
 import tagData from '@/lib/tag-files.json'
 //import { genPageMetadata } from 'app/seo'
 import { Metadata } from 'next'
-import { BookResume } from '@/.contentlayer/generated'
+// import { BookResume } from '@/.contentlayer/generated'
 import Link from 'next/link'
-import Tag from '@/components/tags/CategoryTag'
+import Tag from '@/components/tags/Tag'
 import tagFiles from '@/lib/tag-files.json'
+import { Container } from '@/components/layouts/Container'
 
 export default function page({ params} : { params: { tag: string }}) {
 
@@ -30,7 +31,7 @@ export default function page({ params} : { params: { tag: string }}) {
 //   })
 // }
   return (
-    <>
+    <Container>
     <div className="mt-10 flex  flex-wrap">
     {tagKeys.length === 0 && 'No tags found.'}
     {tagKeys.map((t) => {
@@ -51,6 +52,6 @@ export default function page({ params} : { params: { tag: string }}) {
       <div className='mt-10'>Browsing  {tag}  Tag   </div>
       {/* <ListLayout posts={tag!== "all" ? filtered  : allPosts} /> */}
     </div>
-    </>
+    </Container>
   )
 }

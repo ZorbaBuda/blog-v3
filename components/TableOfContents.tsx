@@ -103,7 +103,7 @@ const TableOfContents = ({ source }: TOCProps) => {
   }
 
   return (
-    <div className="bg-gray-900  p-5 font-newsreader_light border border-gray-200 ">
+    <div className=" ">
       <div className="flex">
         <div className="text-white text-base ">[Contents]</div>
         <button
@@ -129,7 +129,8 @@ const TableOfContents = ({ source }: TOCProps) => {
                   //   "mb-4 text-base text-slate-700 last:mb-6 hover:underline"
                   // )}
                   className={clsx(
-                    "text-white text-lg hover:text-gray-700  dark:hover:text-gray-200",
+                    "no-underline  text-black text-lg hover:text-gray-700", 
+                    "dark:text-blue-400 font-bold dark:hover:text-gray-200",
                     heading.level === 2 ? "pl-2" : "pl-6"
                   )}
                   onClick={(e) => {
@@ -143,7 +144,11 @@ const TableOfContents = ({ source }: TOCProps) => {
                       });
                   }}
                 >
-                  {heading.text}
+                  
+                      •
+                      <span className="ml-3 hover:underline">{heading.text}</span>
+                  
+              
                 </Link>
               </div>
             );

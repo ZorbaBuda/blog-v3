@@ -3,7 +3,7 @@ import { allPosts } from "@/.contentlayer/generated";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import MDXComponents from "@/components/mdx-component";
-import { Container } from "@/components/layouts/Container";
+import { ContainerPost } from "@/components/layouts/ContainerPost";
 import { PageType } from "@/lib/enums";
 import BookResumeDocHeading from "@/components/header/BookResumeDocHeading";
 import TableOfContents from "@/components/TableOfContents";
@@ -11,6 +11,7 @@ import ScrollTop from "@/components/ScrollTop";
 import WritingDocHeading from "@/components/header/WritingDocHeading";
 import DocHeading from "@/components/header/DocHeading";
 import Tag from "@/components/tags/Tag";
+import { Container } from "@/components/layouts/Container";
 
 type BlogParam = {
   postId: string;
@@ -85,16 +86,17 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
   //#endregion  //*======== Scrollspy ===========
   return (
     <Container
+      post={post._id}
       title={post.title}
       description={post.summary}
-      imageUrl={post.coverImage}
+      coverImage={post.coverImage}
       date={new Date(post.date).toISOString()}
-      type={PageType.ARTICLE}
-      isArticle={true}
+      category={post.category}
     >
       <ScrollTop />
 
-      <DocHeading post={post} />
+ <BookResumeDocHeading post={post} />
+     {/* <DocHeading post={post} /> */}
 
 
       <div className="grid justify-center grid-cols-1 lg:grid-cols-12 lg:gap-8">
@@ -107,24 +109,24 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
      
 
         <div className="lg:col-start-1 lg:col-end-10">
-          <div className="mt-10 text-white text-xl">{post.summary}</div>
+         
 
           <article
             className="mt-4 text-black dark:text-white font-alliance1  prose-headings:font-spartan 
           prose lg:prose-xl md:prose-lg sm:prose-base 
           prose-headings:text-slate-800 dark:prose-headings:text-white  
-          max-w-none md:px-5 sm:px-5 lg:px-0
+          max-w-none md:px-5 sm:px-5 lg:px-0 f dark:font-normal
           
           "
           >
             <MDXComponents code={post.body.code} />
           </article>
         </div>
-        <section className="text-black dark:text-white"> Tags:{" "}
+        <article className="flex flex-wrap text-black dark:text-white lg:col-start-1 lg:col-end-10"> Etiquetas:{' '}
           {post.tags.map((tag) => (
             <Tag key={tag} text={tag} />
           ))}
-        </section>
+        </article>
       </div>
     </Container>
   );

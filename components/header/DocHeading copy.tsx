@@ -8,52 +8,27 @@ import Prisoner from "@/public/hero-image.png";
 import "@/components/ui/bgPatterns.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
 
+type Props = {
+  post: Post;
+};
 
+export default function DocHeading({ post }: Props) {
+  const { coverImage, slug, date, title, summary, tags, category } = post;
 
-export default function DocHeading( props ) {
-  const { coverImage,  date, title, summary } = props;
+  const pattern = "pattern17";
 
-  const pattern = "pattern16";
-
-  const imageUrl = `${process.env.GITHUB_URL_IMAGES}${props.coverImage}`;
-  // const formattedDate = getFormattedDate(date);
+  const imageUrl = `${process.env.GITHUB_URL_IMAGES}${coverImage}`;
+  const formattedDate = getFormattedDate(post.date);
 
   return (
     <div
-      className={` ${pattern}      
-    h-max w-full  min-h-[597px] min-w-max flex justify-center items-center  
-    
+      className={` ${pattern}   rounded-md border-5  object-cover 
+    h-max w-full  min-h-[497px] min-w-max grid  
+    transform transition duration-500 group-hover:scale-95
     
     `}
     >
-       <div
-            className=" mt-0 overflow-hidden rounded-md border-5
-       shadow-xl    h-3/4     w-2/3
-       backdrop-blur 
-        "
-          >
-            <div
-              className={`  card-zoom-image   w-full h-full   
-         flex items-center justify-center  
-         transition-all duration-1000 group-hover:scale-110 transform-cpu 
-        
-             `}
-            >
-              <Image
-                className=" p-5  object-fill  h-[250px] w-[162px]
-                        rounded-xl overflow-hidden 
-                         
-                          "
-                alt={coverImage}
-                src={imageUrl}
-                width={324}
-                height={500}
-                loading="lazy"
-              />
-            </div>
-          </div>
-      
-      {/* <Image
+      <Image
         className=" mt-10 justify-self-center   object-fill my-0 h-[375px] w-[243px]
                rounded-xl overflow-hidden
                 "
@@ -62,10 +37,10 @@ export default function DocHeading( props ) {
         width={486}
         height={750}
         loading="lazy"
-      /> */}
-      {/* <div className="ml-0 w-full bg-slate-700 bg-opacity-50 backdrop-blur  justify-self-start  flex flex-col  ">
-        <Tag text={props.category} />
-      
+      />
+      <div className="ml-0 w-full bg-slate-700 bg-opacity-50 backdrop-blur  justify-self-start  flex flex-col  ">
+        <Tag text={category} />
+        {/* <Accent>{category}</Accent> */}
 
         <div className="mt-3 font-libre_baskerville_bold  tracking-tight text-3xl  text-black dark:text-white">
           {title}
@@ -75,7 +50,7 @@ export default function DocHeading( props ) {
           <FaRegCalendarAlt />
           <div className="tracking-wider  ml-3 ">{formattedDate}</div>
         </div>
-      </div> */}
+      </div>
     </div>
 
     //   <article className="col-span-12 mt-12">

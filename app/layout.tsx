@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 // import SectionContainer from '@/components/SectionContainer';
 import { ThemeProviders } from './theme-providers';
+// bg-[#ECEBDA]
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,7 +24,7 @@ export default function RootLayout({
       <body>
        
       <ThemeProviders>
-       <main className=' bg-[#ECEBDA] dark:bg-[#121212] text-black dark:text-white'>
+       <main className=' bg-white dark:bg-[#121212] text-black dark:text-white'>
         {children}
         </main> 
      </ThemeProviders>

@@ -11,6 +11,7 @@ import { allPosts } from '@/.contentlayer/generated'
 import type { Post } from '@/.contentlayer/generated'
 import { Accent } from '@/components/ui/accent'
 import { sortPosts } from '@/lib/postsUtils'
+import ScrollTop from '@/components/ScrollTop'
 
 
 // type CategoryParam = {
@@ -73,6 +74,7 @@ export default function page({ params} : { params: { category: string }}) {
 // }
   return (
     <Container>
+      <ScrollTop />
         <div className='flex justify-center'>
       
         <span className="  pb-10 mt-2  font-bold leading-10  md:text-4xl lg:text-5xl text-3xl">

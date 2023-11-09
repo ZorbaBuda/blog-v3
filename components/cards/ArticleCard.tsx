@@ -9,6 +9,7 @@ import "../ui/bgPatterns.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { Button } from "../Button";
 import CategoryTag from "@/components/tags/CategoryTag";
+import Badge from "../tags/Badge";
 
 type Props = {
   post: Post;
@@ -24,19 +25,19 @@ function ArticleCard({ post, pattern }: Props) {
   // console.log(imageUrl)
   // const immUrl = `https://raw.githubusercontent.com/ZorbaBuda/blog-v3/main/public/${coverImage}`;
 
-  const patternn = "pattern16";
+  const patternn = "pattern17";
 
   return (
-    <div className="  group  xl:max-w-[920px] border-t-[1px] border-[#383A3C] pt-5 ">
+    <div className="  group  xl:max-w-[920px] border-t-[1px] border-[#383A3C] pt-5  ">
       <div className="  flex flex-wrap-reverse justify-between">
 
         <div className=" mt-0 flex flex-col max-w-[560px] ">
 
-          <CategoryTag text={category} />
+          <Badge text={category} />
           {/* <Accent>{category}</Accent> */}
 
           <Link className="no-underline" href={`/document/${slug}`}>
-            <div className="mt-3 font-libre_baskerville_bold  tracking-tight text-2xl  text-black dark:text-white">
+            <div className="hover:underline mt-3 font-libre_baskerville_bold  tracking-tight text-2xl  text-black dark:text-white">
               {title}
             </div>
           </Link>

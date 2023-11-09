@@ -138,8 +138,8 @@ export function NavMenu({}) {
           <NavItem href="/community-wall" text="Community wall" />
         </nav> */}
         <nav className=" flex-wrap  font-spartan hidden space-x-8 text-lg md:flex ">
-          {categoryKeys.map((key) => (
-            <NavItem key={key} text={key} href={`/category/${key}`} />
+          {categoryKeys.map((key, index) => (
+            <NavItem key={index} text={key} href={`/category/${key}`} />
           ))}
           {/* todo mobile navigation */}
          

@@ -1,12 +1,13 @@
-import { BookResume, DocumentTypes } from "@/.contentlayer/generated";
+import { Post } from "@/.contentlayer/generated";
 import React from "react";
 import Image from "next/image";
 import getFormattedDate from "@/lib/getFormattedDate";
 import Category from "../Category";
-import  Tag  from "../tags/CategoryTag";
+import  CategoryTag  from "../tags/CategoryTag";
+import { FaRegCalendarAlt } from "react-icons/fa";
 
 type Props = {
-  post: DocumentTypes;
+  post: Post;
 };
 
 export default function BookResumeDocHeading({ post }: Props) {
@@ -16,7 +17,7 @@ export default function BookResumeDocHeading({ post }: Props) {
     <article className="mx-auto antialiased flex text-white">
       <Image
         layout="intrinsic"
-        className="lg:ml-0 ml-3 object-cover my-0 w-[224px] h-[343px] lg:w-[354px] lg:h-[539px] md:w-[354px] md:h-[539px] "
+        className="rounded-md lg:ml-0 ml-3 object-cover my-0 w-[224px] h-[343px] lg:w-[354px] lg:h-[539px] md:w-[354px] md:h-[539px] "
         alt={immUrl}
         src={immUrl}
         width={354}
@@ -38,31 +39,26 @@ export default function BookResumeDocHeading({ post }: Props) {
             ))}
           </div>
         </div> */}
-        <div className=" mt-2 font-lora  text-white text-base">
-          {formattedDate}
+         <div className="lg:mt-0 mt-0">
+          {" "}
+          <CategoryTag text={post.category} />{" "}
         </div>
+        <div className="flex  mt-5 text-sm  uppercase dark:text-slate-400 text-black">
+            <FaRegCalendarAlt />
+            <div className="tracking-wider  ml-3 ">{formattedDate}</div>
+          </div>
+     
 
-        <div className="lg:text-7xl text-3xl mt-5 font-semibold">{post.title}</div>
+        <div className="text-black dark:text-white lg:text-5xl text-3xl mt-5 font-semibold font-libre_baskerville">{post.title}</div>
 
-        <div className="lg:text-5xl text-xl mt-4 font-semibold">Arthur Janov</div>
-        <div className="lg:mt-5 text-xl mt-2">Año de publicación: 1973</div>
+        <div className="text-black dark:text-white lg:text-3xl text-xl mt-4 font-semibold font-libre_baskerville">Arthur Janov</div>
+        <div className="text-black dark:text-white lg:mt-5 text-xl mt-2">Año de publicación: 1973</div>
 
         {/* <span className="mt-4 border-t-2 border-solid block w-10 border-slate-600"></span> */}
 
-        <div className="lg:mt-14 mt-7">
-          {" "}
-          <Category text={post.category} />{" "}
-        </div>
+       
    
-   <div className="flex  lg:mt-10 mt-5">
-      <div className="">Tags:</div>
-        
-         <div className="ml-7 flex flex-wrap">
-         {post.tags.map((tag) =>(
-          <Tag key={tag} text={tag} />
-         ))}
-         </div>
-   </div>
+  
    </div>
     </article>
 
