@@ -25,8 +25,8 @@ function ArticleCard({ post, pattern }: Props) {
   // console.log(imageUrl)
   // const immUrl = `https://raw.githubusercontent.com/ZorbaBuda/blog-v3/main/public/${coverImage}`;
 
-  const patternn = post.pattern? post.pattern : "pattern13";
-
+  // const patternn = post.pattern? post.pattern : "pattern13";
+ const patternn = 'pattern3'
   return (
     <div className="  group  xl:max-w-[920px] border-t-[1px] border-[#383A3C] pt-5  ">
       <div className="  flex flex-wrap-reverse justify-between">
@@ -60,6 +60,8 @@ function ArticleCard({ post, pattern }: Props) {
           <Button href={`/document/${slug}`}>READ MORE</Button>
         </div>
 
+
+
         <Link className="no-underline " href={`/document/${slug}`}>
           <div
             className=" mt-0 overflow-hidden rounded-md border-5
@@ -73,8 +75,9 @@ function ArticleCard({ post, pattern }: Props) {
         
              `}
             >
+              <div className="flex items-center justify-center  h-[250px] w-[162px] backdrop:blur ">
               <Image
-                className=" p-5  object-fill  h-[250px] w-[162px]
+                className=" p-5  object-fill  h-[250px] w-[162px] 
                         rounded-xl overflow-hidden
                          
                           "
@@ -84,9 +87,41 @@ function ArticleCard({ post, pattern }: Props) {
                 height={500}
                 loading="lazy"
               />
+              </div>
             </div>
           </div>
         </Link>
+
+        {/* <Link className="no-underline " href={`/document/${slug}`}>
+          <div
+            className=" mt-0 overflow-hidden rounded-md border-5
+       shadow-xl    h-[273px] w-[348px]  max-h-[273px] max-w-[348px]
+        "
+          >
+            <div
+              className={` ${patternn} card-zoom-image   w-full h-full   
+         flex items-center justify-center  
+         transition-all duration-1000 group-hover:scale-110 transform-cpu 
+        
+             `}
+             
+            >
+              <div className="flex items-center justify-center  h-[250px] w-[162px] backdrop:blur ">
+              <Image
+                className=" p-5  object-fill  h-[250px] w-[162px] 
+                        rounded-xl overflow-hidden
+                         
+                          "
+                alt={coverImage}
+                src={imageUrl}
+                width={324}
+                height={500}
+                loading="lazy"
+              />
+              </div>
+            </div>
+          </div>
+        </Link> */}
 
         {/* <Link className="no-underline" href={`/document/${slug}`}>
             <div  className={` ${pattern}  rounded-md border-5  object-cover 
