@@ -12,6 +12,7 @@ import WritingDocHeading from "@/components/header/WritingDocHeading";
 import DocHeading from "@/components/header/DocHeading";
 import Tag from "@/components/tags/Tag";
 import { Container } from "@/components/layouts/Container";
+import { BsFillTagsFill} from 'react-icons/bs'
 
 type BlogParam = {
   postId: string;
@@ -122,10 +123,18 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
             <MDXComponents code={post.body.code} />
           </article>
         </div>
-        <article className="flex flex-wrap text-black dark:text-white lg:col-start-1 lg:col-end-10"> Etiquetas:{' '}
+
+        <article className="mt-10 flex flex-wrap text-black dark:text-white lg:col-start-1 lg:col-end-10">
+          <div className="flex justify-between items-center">
+            <BsFillTagsFill />
+             <div className="ml-3">Etiquetas:</div>
+          </div>
+          
+         <div className="ml-5">
           {post.tags.map((tag) => (
             <Tag key={tag} text={tag} />
           ))}
+          </div>
         </article>
       </div>
     </Container>

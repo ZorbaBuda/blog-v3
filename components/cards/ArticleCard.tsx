@@ -10,6 +10,7 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { Button } from "../Button";
 import CategoryTag from "@/components/tags/CategoryTag";
 import Badge from "../tags/Badge";
+import Category from "../tags/Category";
 
 type Props = {
   post: Post;
@@ -33,7 +34,7 @@ function ArticleCard({ post, pattern }: Props) {
 
         <div className=" mt-0 flex flex-col max-w-[560px] ">
 
-          <Badge text={category} />
+          <Category text={category} />
           {/* <Accent>{category}</Accent> */}
 
           <Link className="no-underline" href={`/document/${slug}`}>
@@ -62,10 +63,10 @@ function ArticleCard({ post, pattern }: Props) {
 
 
 
-        <Link className="no-underline " href={`/document/${slug}`}>
+        <Link className="no-underline mx-auto md:mx-auto lg:mx-0 " href={`/document/${slug}`}>
           <div
             className=" mt-0 overflow-hidden rounded-md border-5
-       shadow-xl    h-[273px] w-[348px]  max-h-[273px] max-w-[348px]
+       shadow-xl    h-[273px] w-[348px]  max-h-[273px] max-w-[348px] p-
         "
           >
             <div

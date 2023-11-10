@@ -2,6 +2,8 @@ import Footer from "@/components/Footer";
 import Head from "next/head";
 import { PageTransition } from "@/components/PageTransition";
 import { NavMenu } from "../header/NavMenu";
+import Breadcrumb from "../breadcrumb/BreadCrumb";
+import BreadcrumbItem from "../breadcrumb/BreadCrumbItem";
 
 export function Container(props) {
   const { children, ...customMeta } = props;
@@ -83,11 +85,21 @@ export function Container(props) {
       </Head> */}
       {/* <Header /> */}
       <NavMenu />
+      
       <main
         className={`flex flex-col mx-auto max-w-7xl justify-center px-4  prose prose-lg dark:prose-dark relative pt-24`}
       >
         <div className="z-10">
-          <PageTransition>{children}</PageTransition>
+        
+          <PageTransition>
+          <div className="text-black dark:text-white text-xl py-8">
+          <Breadcrumb>
+    <BreadcrumbItem href="/">Home</BreadcrumbItem>
+    <BreadcrumbItem href="/">Home</BreadcrumbItem>
+</Breadcrumb>
+            </div>
+            {children}
+            </PageTransition>
           <Footer />
         </div>
       </main>

@@ -6,9 +6,7 @@ import categoryData from "@/lib/category-files.json";
 import { Container } from "@/components/layouts/Container";
 import { Button } from "@/components/Button";
 import ArticleList from "@/components/articleListLayouts/ArticleList";
-import WritingList from "@/components/WritingList";
 import { Accent } from "@/components/ui/accent";
-import Prisoner from '@/public/prisoner-of-pain.jpeg'
 import './bgPatterns.css'
 import { sortPosts } from '@/lib/postsUtils'
 

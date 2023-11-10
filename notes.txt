@@ -33,3 +33,33 @@ crtl + shift + l
               </div>
             );
           })}
+
+ /*  "writings1": 
+    "guide-to-using-images-in-nextjs.mdx",
+    "introducing-tailwind-nextjs-starter-blog.mdx",
+    "the-time-machine.mdx"
+  ],
+  "yoga": ["new-features-in-v1.mdx"],
+  "writings2": [
+    "guide-to-using-images-in-nextjs.mdx",
+    "introducing-tailwind-nextjs-starter-blog.mdx",
+    "the-time-machine.mdx"
+  ],
+  "writings3": [
+    "guide-to-using-images-in-nextjs.mdx",
+    "introducing-tailwind-nextjs-starter-blog.mdx",
+    "the-time-machine.mdx"
+  ],
+  "writings4": [
+    "guide-to-using-images-in-nextjs.mdx",
+    "introducing-tailwind-nextjs-starter-blog.mdx",
+    "the-time-machine.mdx"
+  ],
+  "writings5": [
+    "guide-to-using-images-in-nextjs.mdx",
+    "introducing-tailwind-nextjs-starter-blog.mdx",
+    "the-time-machine.mdx"
+  ]
+ 
+
+ */

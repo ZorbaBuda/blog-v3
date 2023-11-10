@@ -79,8 +79,8 @@ export function NavMenu({}) {
         <div className="flex justify-start lg:w-0 lg:flex-1">
           <span className="sr-only">Profile Picture</span>
           <Link href="/" passHref>
-            <span className="block">
-              BLOG V3
+            <span className="block font-libre_baskerville_bold">
+              PRIMAL IDEAS
               {/* <Image
                 alt="Braydon Coyer"
                 height={38}
@@ -123,24 +123,25 @@ export function NavMenu({}) {
         </div> */}
        
        {/* Central area */}
-        <nav className=" flex-wrap  font-spartan hidden space-x-8 text-lg md:flex ">
+        <nav className=" bg-slate-500  justify-between  font-spartan hidden space-x-8 text-lg md:flex mx-auto">
+          <NavItem text={'blog'} href={`/category/blog`} />
           {categoryKeys.map((key, index) => (
             <NavItem key={index} text={key} href={`/category/${key}`} />
           ))}
-          {/* todo mobile navigation */}
+        
+             <NavItem text={'About'} href={'/about'} />
+           
+            
+          
+
+      
          
         </nav>
         
 
         {/* right area */}
-        <div className="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
-             <NavItem text={'About'} href={'/about'} />
-             {" "}
-            
-             {/* <SearchButton /> */}
-
-        </div>
-            <div className="flex justify-between">
+       
+            <div className="flex justify-between bg-slate-500">
            <ThemeSwitch />
             <MenuDropdown />
             </div>

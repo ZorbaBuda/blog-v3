@@ -2,8 +2,7 @@ import { Post } from "@/.contentlayer/generated";
 import React from "react";
 import Image from "next/image";
 import getFormattedDate from "@/lib/getFormattedDate";
-import Category from "../Category";
-import  CategoryTag  from "../tags/CategoryTag";
+import  Category  from "../tags/Category";
 import { FaRegCalendarAlt } from "react-icons/fa";
 
 type Props = {
@@ -41,7 +40,7 @@ export default function BookResumeDocHeading({ post }: Props) {
         </div> */}
          <div className="lg:mt-0 mt-0">
           {" "}
-          <CategoryTag text={post.category} />{" "}
+          <Category text={post.category} />{" "}
         </div>
         <div className="flex  mt-5 text-sm  uppercase dark:text-slate-400 text-black">
             <FaRegCalendarAlt />
