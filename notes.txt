@@ -63,3 +63,5 @@ crtl + shift + l
  
 
  */
+
+ shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)]

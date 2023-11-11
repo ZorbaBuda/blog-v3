@@ -1,3 +1,4 @@
+'use client'
 import { Container } from "@/components/layouts/Container";
 
 import Image from "next/legacy/image";
@@ -7,8 +8,13 @@ import Logo from "@/public/moola-bandha-the-master-key.png";
 import MDXComponents from "@/components/mdx-component";
 import { About } from "@/.contentlayer/generated";
 import Link from "next/link";
+import React from "react";
+import useResizeObserver from 'use-resize-observer'
+import ResizeObserver from 'rc-resize-observer';
 
 export default function About() {
+
+  ResizeObserver
   return (
     <Container title="About Me - Braydon Coyer">
       <h1>
@@ -19,33 +25,33 @@ export default function About() {
           Here's my story.
         </span>
       </h1>
+
      
-      <div>
-        <div className="hidden md:block md:float-left">
-          <Image
-            className="md:mr-8"
-            src={Logo}
-            placeholder="blur"
-            objectFit="cover"
-            // blurDataURL="https://res.cloudinary.com/braydoncoyer/image/upload/v1670716662/family_photo_scs57f.jpg"
-            width={340}
-            height={448}
-            alt={"article cover"}
-          />
-        </div>
-       
-       
-      </div>
+      <ResizeObserver
+      
+    onResize={() => {
+      console.log('resized!');
+    }}
+  >
+    <textarea />
+  </ResizeObserver>
+
+
+
+
+
       <hr className="my-16 w-full border-none text-center h-10 before:content-['∿∿∿'] before:text-[#D1D5DB] before:text-2xl"></hr>
-     
-      <article className="mt-4 text-black dark:text-white font-alliance1  prose-headings:font-spartan 
+
+      <article
+        className="mt-4 text-black dark:text-white font-alliance1  prose-headings:font-spartan 
           prose lg:prose-xl md:prose-lg sm:prose-base 
           prose-headings:text-slate-800 dark:prose-headings:text-white  
           max-w-none md:px-5 sm:px-5 lg:px-0
           
-          ">
-            <MDXComponents code={allAbouts[0].body.code} />
-            {/* <Component
+          "
+      >
+        <MDXComponents code={allAbouts[0].body.code} />
+        {/* <Component
                   components={
                     {
                       ...MDXComponents,
@@ -53,16 +59,14 @@ export default function About() {
                     } as any
                   }
                 /> */}
-          </article>
+      </article>
 
-          <Link href="/patterns" passHref>
-            <span className="text-black dark:text-white text-3xl ml-3">
-              PATTERNS
-             
-            </span>
-          </Link>
-     
-     
+      <Link href="/patterns" passHref>
+        <span className="text-black dark:text-white text-3xl ml-3">
+          PATTERNS
+        </span>
+      </Link>
+
       <hr className="my-16 w-full border-none text-center h-10 before:content-['∿∿∿'] before:text-[#D1D5DB] before:text-2xl"></hr>
     </Container>
   );

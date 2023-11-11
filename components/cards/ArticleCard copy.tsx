@@ -26,13 +26,11 @@ function ArticleCard({ post, pattern }: Props) {
   // console.log(imageUrl)
   // const immUrl = `https://raw.githubusercontent.com/ZorbaBuda/blog-v3/main/public/${coverImage}`;
 
-  const patternn = post.pattern ? post.pattern : "pattern13";
+  const patternn = post.pattern? post.pattern : "pattern13";
   //const patternn = "pattern17";
   return (
     <div className="  group  xl:max-w-[920px] border-t-[1px] border-[#383A3C] pt-5  ">
-      <div className="  flex flex-wrap-reverse justify-between 
-      
-      ">
+      <div className="  flex flex-wrap-reverse justify-between">
         <div className=" mt-0 flex flex-col max-w-[560px] ">
           <Category text={category} />
           {/* <Accent>{category}</Accent> */}
@@ -61,35 +59,38 @@ function ArticleCard({ post, pattern }: Props) {
           <Button href={`/document/${slug}`}>READ MORE</Button>
         </div>
 
-        {/* group-hover:shadow-[-13px_6px_32px_5px_#4a5568] */}
-        <Link className=" no-underline mx-auto md:mx-auto lg:mx-0    " 
-        href={`/document/${slug}`}>
-        <div className="  flex items-center justify-center   ">
-      
-           <div className=" transform translate-x-3 translate-y-3  
-              w-[250px] h-[350px]
-              flex justify-between items-center 
-              shadow-[-15px_20px_15px_5px_#86AEE5FB]
-              dark:shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)]
-              ">
-              <Image
-                className="  object-contain  h-max w-max  overflow-visible
-               
-                 
-                "
-                alt={"Logo"}
-                src={imageUrl}
-                width={374}
-                height={500}
-                loading="lazy"
-              />
-           
-           </div>
+        <Link
+          className="no-underline mx-auto md:mx-auto lg:mx-0 "
+          href={`/document/${slug}`}
+        >
+          <div
+            className=" mt-0 overflow-hidden rounded-md border-5
+shadow-xl    h-[273px] w-[348px]  max-h-[273px] max-w-[348px] p-
+"
+          >
+            <div
+              className={` ${patternn} card-zoom-image   w-full h-full   
+flex items-center justify-center  
+transition-all duration-1000 group-hover:scale-110 transform-cpu 
 
-         
-     
-      </div>
-      </Link>
+   `}
+            >
+              <div className="flex items-center justify-center  h-[250px] w-[162px] backdrop:blur ">
+                <Image
+                  className=" p-5  object-fill  h-[250px] w-[162px] 
+              rounded-xl overflow-hidden
+               
+                "
+                  alt={coverImage}
+                  src={imageUrl}
+                  width={324}
+                  height={500}
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </Link>
       </div>
     </div>
   );

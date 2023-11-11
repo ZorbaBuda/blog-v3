@@ -13,6 +13,9 @@ const config: Config = {
   darkMode: 'class',
    important: true,
   theme: {
+    // screens: {
+    //   'xxs': '540px', // min-width
+    // },
     extend: {
       fontFamily: {
         lora: ["LORA-REGULAR"],
@@ -69,7 +72,6 @@ const config: Config = {
       //     },
       //   },
       // }),
-      
     },
   },
   plugins: [

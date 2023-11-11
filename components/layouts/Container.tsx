@@ -1,12 +1,59 @@
+"use client";
 import Footer from "@/components/Footer";
 import Head from "next/head";
 import { PageTransition } from "@/components/PageTransition";
 import { NavMenu } from "../header/NavMenu";
-import Breadcrumb from "../breadcrumb/BreadCrumb";
-import BreadcrumbItem from "../breadcrumb/BreadCrumbItem";
+import Breadcrumb from "../breadcrumb/Breadcrumb";
+import BreadcrumbItem from "../breadcrumb/BreadcrumbItem";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import React from "react";
 
-export function Container(props) {
+type breadcrumb = {
+  href: string,
+  label: string
+}
+
+export const Container = (props) => {
   const { children, ...customMeta } = props;
+
+  
+  const [breadcrumbs, setBreadcrumbs] = useState<breadcrumb[]>(null);
+  const router = usePathname()
+
+  // https://github.com/marketsystems/nextjs13-appdir-breadcrumbs/blob/main/src/index.tsx
+  useEffect(() => {
+    const linkPath = router.split("/");
+      linkPath.shift();
+
+      const pathArray = linkPath.map((path, i) => {
+        return {
+          label: path,
+          href: "/" + linkPath.slice(0, i + 1).join("/"),
+        };
+      });
+
+      setBreadcrumbs(pathArray);
+   
+  }, [router]);
+
+  // useEffect(() => {
+  //   const pathWithoutQuery = usePathname().split("?")[0];
+  //   let pathArray = pathWithoutQuery.split("/");
+  //   pathArray.shift();
+
+  //   pathArray = pathArray.filter((path) => path !== "");
+
+  //   const breadcrumbs = pathArray.map((path, index) => {
+  //     const href = "/" + pathArray.slice(0, index + 1).join("/");
+  //     return {
+  //       href,
+  //       label: path.charAt(0).toUpperCase() + path.slice(1),
+  //     };
+  //   });
+
+  //   setBreadcrumbs(breadcrumbs);
+  // }, [usePathname]);
 
   // const meta = {
   //   title: siteMetadata.title,
@@ -24,85 +71,34 @@ export function Container(props) {
 
   return (
     <div className={` min-h-full`}>
-      {/* <Head>
-        <title>{meta.title}</title>
-        <meta name="robots" content="follow, index" />
-        <meta content={meta.description} name="description" />
-        <meta
-          property="og:url"
-          content={`${siteMetadata.siteUrl}${router.asPath}`}
-        />
-        <meta name="application-name" content="&nbsp;" />
-        <meta name="msapplication-TileColor" content="#FFFFFF" />
-        <meta
-          name="msapplication-TileImage"
-          content="/assets/mstile-144x144.png"
-        />
-        <meta
-          name="msapplication-square70x70logo"
-          content="/assets/mstile-70x70.png"
-        />
-        <meta
-          name="msapplication-square150x150logo"
-          content="/assets/mstile-150x150.png"
-        />
-        <meta
-          name="msapplication-wide310x150logo"
-          content="/assets/mstile-310x150.png"
-        />
-        <meta
-          name="msapplication-square310x310logo"
-          content="/assets/mstile-310x310.png"
-        />
-        <link rel="canonical" href={meta.canonicalUrl} />
-        <meta property="og:type" content={meta.type} />
-        <meta property="og:site_name" content="Braydon Coyer" />
-        <meta property="og:description" content={meta.description} />
-        <meta property="og:title" content={meta.title} />
-        <meta
-          property="og:image"
-          content={`${siteMetadata.siteUrl}/api/og?title=${encodeURIComponent(
-            meta.title
-          )}${meta.isArticle ? '&article' : ''}${
-            meta.imageUrl ? `&imgSrc=${meta.imageUrl}` : ''
-          }&description=${encodeURIComponent(meta.description)}`}
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content={meta.twitterHandle} />
-        <meta name="twitter:title" content={meta.title} />
-        <meta name="twitter:description" content={meta.description} />
-        <meta
-          name="twitter:image"
-          content={`${siteMetadata.siteUrl}/api/og?title=${encodeURIComponent(
-            meta.title
-          )}${meta.isArticle ? '&article' : ''}${
-            meta.imageUrl ? `&imgSrc=${meta.imageUrl}` : ''
-          }&description=${encodeURIComponent(meta.description)}`}
-        />
-        {meta.date && (
-          <meta property="article:published_time" content={meta.date} />
-        )}
-      </Head> */}
+  
       {/* <Header /> */}
       <NavMenu />
-      
+
       <main
         className={`flex flex-col mx-auto max-w-7xl justify-center px-4  prose prose-lg dark:prose-dark relative pt-24`}
       >
         <div className="z-10">
-        
+
           <PageTransition>
-          <div className="text-black dark:text-white text-xl py-8">
-          <Breadcrumb>
-    <BreadcrumbItem href="/">Home</BreadcrumbItem>
-    <BreadcrumbItem href="/">Home</BreadcrumbItem>
-</Breadcrumb>
+            <div className="text-black dark:text-white text-xl py-8">
+            <Breadcrumb>
+        <BreadcrumbItem href="/">Primal Ideas</BreadcrumbItem>
+        {breadcrumbs &&
+          breadcrumbs.map((breadcrumb) => (
+            <BreadcrumbItem key={breadcrumb.href} href={breadcrumb.href}>
+              {breadcrumb.label}
+            </BreadcrumbItem>
+          ))}
+      </Breadcrumb>
             </div>
             {children}
-            </PageTransition>
+          </PageTransition>
           <Footer />
         </div>
       </main>
     </div>
   );
 }
+
+
