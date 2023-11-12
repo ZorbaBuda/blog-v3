@@ -1,5 +1,5 @@
 // import { convertToArticleList, getAllArticles } from '@/lib/notion';
-import { allBookResumes } from '@/.contentlayer/generated';
+import { allPosts } from '@/.contentlayer/generated';
 import { Container } from '@/components/layouts/Container';
 import { GetStaticProps } from 'next';
 import Image from 'next/legacy/image';
@@ -36,7 +36,7 @@ export default function Blog() {
       <TagList tag={''} tags={categoryKeys} />
 
       
-      <BookResumeList articles={allBookResumes} showEndMessage fullHeight />
+      <BookResumeList articles={allPosts} showEndMessage fullHeight />
     </Container>
   );
 }

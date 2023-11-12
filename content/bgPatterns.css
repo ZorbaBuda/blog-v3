@@ -1,3 +1,88 @@
+:root {
+--ambrosia:						#FCDBBA;
+	--apricot: 						#FF8652;
+	--aubergine: 					#6A2352;
+	--auburn: 						#A12F2F;
+	--asparagus: 					#A0C259;
+	--beetroot:						#7F0421;
+	--blue-tack: 					#82BFE0;
+	--bloom:							#363A57;
+	--blush: 							#D67B71;
+	--bronze:							#C27940;
+	--bud:								#94C15C;
+	--burnt-orange:				#FF5F00;
+	--butter:							#F2C94C;
+	--strawberry-yogurt:	#E4BCAD;
+	--carmine:						#9A133E;
+	--chocolate: 					#8F5D38;
+	--chestnut: 					#81291F;
+	--clay: 							#7D6050;
+	--conker: 						#6F3131;
+	--coral: 							#EB4444;
+	--dusty-purple: 			#7D6391;
+	--dusty-pink: 				#E4ADAD;
+	--emerald: 						#55B95F;
+	--fern:								#4F8D08;
+	--forest: 						#2E644A;
+	--fudge:							#C28742;
+	--grassy: 						#A8D363;
+	--green:							#62B90A;
+	--hazelnut: 					#D08E5A;
+	--ink:								#292C31;
+	--ivory:							#F2EFE3;
+	--lapis:							#2B4D8D;
+	--leafy:							#318553;
+	--lemon:							#EAFC7E;
+	--lime: 							#73D645;
+	--limestone:					#C9C5B5;
+	--magenta:						#BC2767;
+	--meadow:							#7A9A3E;
+	--melon:							#F2994A;
+	--midnight:						#1B3955;
+	--mink:								#E8C9A1;
+	--mint:								#C4EA70;
+	--moss:								#7DB21C;
+	--mushroom:						#EDE8D5;
+	--navy:								#363A57;
+	--orange:							#FD8A04;
+	--pale-lemon:					#F4FFDC;
+	--peach:							#FFB190;
+	--pond-bottom:				#264A46;
+	--powder-blue:				#B5D0E0;
+	--powder-pink:				#FBD1D1;
+	--primrose:						#E1F7B0;
+	--purple:							#A95AF3;
+	--purple-slate:				#545375;
+	--rainforest:					#25422E;
+	--raspberry-jam:			#3C0D2B;
+	--robins-egg:					#B8DEE0;
+	--rouge:							#CC3737;
+	--royal:							#4169E1;
+	--ruby:								#D1314B;
+	--sage:								#87A376;
+	--sakura:							#FFE4E4;
+	--sea-glass:					#7FD1AE;
+	--sea-foam:						#5D998B;
+	--sea-fog:						#758C92;
+	--slate:							#7184A5;
+	--spearmint:					#94E0CF;
+	--spring:							#5ACB65;
+	--succulent:					#83A944;
+	--twilight:						#203763;
+	--vavavoom:						#BF0D0D;
+	--white:							#FFFFFF;
+	--yellow:							#FFE03D;
+	
+	--trans: transparent;
+	--trans05: rgba(255,255,255,0.05);
+	--trans1: rgba(255,255,255,0.1);
+	--trans2: rgba(255,255,255,0.2);
+	--trans4: rgba(255,255,255,0.4);
+}
+
+
+
+
 .peep-holes {
 	background-image: 
 		repeating-linear-gradient(
@@ -348,4 +433,124 @@ background-image:
 radial-gradient(at 0% 100%, hsla(43,80%,61%,1) 0px, transparent 50%),
 radial-gradient(at 48% 55%, hsla(20,74%,54%,1) 0px, transparent 50%);
 }
+
+
+.grannys-armchair {
+	background-color: var(--blush);
+	background-image:
+		repeating-radial-gradient(
+			circle at 1.34em 1.15em,
+			var(--trans),
+			var(--trans) 0.24em,
+			var(--peach) 0.25em,
+			var(--peach) 0.4em,
+			var(--trans) 0.41em,
+			var(--trans) 0.64em),
+		repeating-radial-gradient(
+			circle at -0.34em 1.15em,
+			var(--trans),
+			var(--trans) 0.24em,
+			var(--peach) 0.25em,
+			var(--peach) 0.4em,
+			var(--trans) 0.41em,
+			var(--trans) 0.64em),
+		repeating-radial-gradient(
+			circle at 1.34em -0.15em,
+			var(--trans),
+			var(--trans) 0.24em,
+			var(--peach) 0.25em,
+			var(--peach) 0.4em,
+			var(--trans) 0.41em,
+			var(--trans) 0.64em),
+		repeating-radial-gradient(
+			circle at -0.34em -0.15em,
+			var(--trans),
+			var(--trans) 0.24em,
+			var(--peach) 0.25em,
+			var(--peach) 0.4em,
+			var(--trans) 0.41em,
+			var(--trans) 0.64em);
+	background-size: 1em 1em;
+}
+
+.mystic-eye {
+	background-color: var(--purple-slate);
+	background-image:
+		repeating-radial-gradient(
+			circle at 0.5em 0.24em,
+			var(--trans),
+			var(--trans) 0.2em,
+			var(--purple) 0.21em,
+			var(--purple) 0.3em,
+			var(--trans) 0.31em),
+		repeating-radial-gradient(
+			circle at 0.5em 0.74em,
+			var(--trans),
+			var(--trans) 0.2em,
+			var(--purple) 0.21em,
+			var(--purple) 0.3em,
+			var(--trans) 0.31em),
+		repeating-radial-gradient(
+			circle at 0.5em 0.34em,
+			var(--trans),
+			var(--trans) 0.2em,
+			var(--midnight) 0.21em,
+			var(--midnight) 0.3em,
+			var(--trans) 0.31em),
+		repeating-radial-gradient(
+			circle at 0.5em 0.8em,
+			var(--trans),
+			var(--trans) 0.2em,
+			var(--midnight) 0.21em,
+			var(--midnight) 0.3em,
+			var(--trans) 0.31em);
+	background-size: 1em 1em;
+}
+
+.lace {
+	background-color: var(--white);
+	background-image:
+		repeating-radial-gradient(
+			circle at 0.5em 0.05em,
+			var(--trans),
+			var(--trans) 0.2em,
+			var(--mushroom) 0.21em,
+			var(--mushroom) 0.3em,
+			var(--trans) 0.31em),
+		repeating-radial-gradient(
+			circle at 0.5em 0.95em,
+			var(--trans),
+			var(--trans) 0.2em,
+			var(--mushroom) 0.21em,
+			var(--mushroom) 0.3em,
+			var(--trans) 0.31em);
+	background-size: 1em 1em;
+}
+
+
+.stripes {	
+	background-image:
+		repeating-linear-gradient(
+			var(--strawberry-yogurt), 
+			var(--strawberry-yogurt) 0.2em, 
+			var(--sakura) 0.2em, 
+			var(--sakura) 0.4em);
+}
+
+.lavender-lumberjack {
+	background-image:
+		repeating-linear-gradient(
+			0deg,
+			var(--trans2), 
+			var(--trans2) 0.4em, 
+			var(--trans) 0.4em, 
+			var(--trans) 0.8em),
+		repeating-linear-gradient(
+			-90deg,
+			var(--dusty-purple), 
+			var(--dusty-purple) 0.4em, 
+			var(--aubergine) 0.4em, 
+			var(--aubergine) 0.8em);
+}
+
 
