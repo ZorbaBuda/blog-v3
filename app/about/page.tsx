@@ -11,39 +11,41 @@ import Link from "next/link";
 import React from "react";
 import useResizeObserver from 'use-resize-observer'
 import ResizeObserver from 'rc-resize-observer';
+import { TbPointFilled } from "react-icons/tb";
 
 export default function About() {
 
   ResizeObserver
   return (
     <Container title="About Me - Braydon Coyer">
-      <h1>
-        <span className="block text-base font-semibold tracking-wide text-center text-indigo-500 uppercase dark:text-teal-400">
-          About me
-        </span>
-        <span className="block max-w-2xl mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl">
-          Here's my story.
-        </span>
-      </h1>
+      <div className="flex items-center space-x-5">
+            <div className="text-black dark:text-white font-libre_baskerville text-3xl ">
+              {" "}
+              Acerca de
+            </div>
+            <div className="text-[#FB5148] dark:text-[#FB5148]">
+              <TbPointFilled />
+            </div>
+            <div className="flex-grow border-t border-gray-400"></div>
+          </div>
 
      
-      <ResizeObserver
+      {/* <ResizeObserver
       
     onResize={() => {
       console.log('resized!');
     }}
   >
     <textarea />
-  </ResizeObserver>
+  </ResizeObserver> */}
 
 
 
 
 
-      <hr className="my-16 w-full border-none text-center h-10 before:content-['∿∿∿'] before:text-[#D1D5DB] before:text-2xl"></hr>
 
       <article
-        className="mt-4 text-black dark:text-white font-alliance1  prose-headings:font-spartan 
+        className="mt-10 text-black dark:text-white font-alliance1  prose-headings:font-spartan 
           prose lg:prose-xl md:prose-lg sm:prose-base 
           prose-headings:text-slate-800 dark:prose-headings:text-white  
           max-w-none md:px-5 sm:px-5 lg:px-0
@@ -67,7 +69,6 @@ export default function About() {
         </span>
       </Link>
 
-      <hr className="my-16 w-full border-none text-center h-10 before:content-['∿∿∿'] before:text-[#D1D5DB] before:text-2xl"></hr>
     </Container>
   );
 }

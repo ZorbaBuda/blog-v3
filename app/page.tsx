@@ -7,18 +7,18 @@ import { Container } from "@/components/layouts/Container";
 import { Button } from "@/components/Button";
 import ArticleList from "@/components/articleListLayouts/ArticleList";
 import { Accent } from "@/components/ui/accent";
-import './bgPatterns.css'
-import { sortPosts } from '@/lib/postsUtils'
-
-const MAX_DISPLAY = 5
+import "./bgPatterns.css";
+import { sortPosts } from "@/lib/postsUtils";
+import { TbPointFilled } from "react-icons/tb";
+const MAX_DISPLAY = 5;
 
 export default function Home() {
   if (!allPosts) {
     return <p className="mt-10 text-center">Sorry, no posts available.</p>;
   }
 
-  const sortedPosts = sortPosts(allPosts)
-   //const allPostsCopy = structuredClone(allPosts)
+  const sortedPosts = sortPosts(allPosts);
+  //const allPostsCopy = structuredClone(allPosts)
   // allBookResumesCopy.splice(4)
 
   const tagCounts = tagData as Record<string, number>;
@@ -29,17 +29,39 @@ export default function Home() {
   return (
     <Container>
       <div>
-      
-
         <div>
-        <div className=" font-libre_baskerville text-3xl pb-10">  <Accent >Últimos artículos</Accent></div>
+          <div className="flex items-center space-x-5">
+            <div className="text-black dark:text-white font-libre_baskerville text-3xl ">
+              {" "}
+              Últimos artículos
+            </div>
+            <div className="text-[#FB5148] dark:text-[#FB5148]">
+              <TbPointFilled />
+            </div>
+            <div className="flex-grow border-t border-gray-400"></div>
+          </div>
+
+          {/* <div className="relative space-x-5 flex py-5 items-center">
+            <div className="flex-grow border-t border-gray-400"></div>
+            <div className="text-[#FB5148] dark:text-[#FB5148]">
+              <TbPointFilled />
+            </div>
+            <div className="text-black dark:text-white font-libre_baskerville text-3xl ">
+              {" "}
+              Últimos artículos
+            </div>
+           
+            <div className="text-[#FB5148] dark:text-[#FB5148]">
+              <TbPointFilled />
+            </div>
+            <div className="flex-grow border-t border-gray-400"></div>
+          </div> */}
 
           <ArticleList articles={sortedPosts.slice(0, MAX_DISPLAY)} />
           <div className="flex justify-center my-16">
             <Button href={"/category/all"}>Ver todos</Button>
           </div>
         </div>
-       
       </div>
     </Container>
   );

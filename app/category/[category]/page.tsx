@@ -3,7 +3,6 @@ import siteMetadata from '@/data/siteMetadata'
 //import { genPageMetadata } from 'app/seo'
 import { Metadata } from 'next'
 import Link from 'next/link'
-import Category from '@/components/Category'
 import categoryData from '@/lib/category-files.json'
 import { Container } from '@/components/layouts/Container'
 import BookResumeList from '@/components/BookResumeList'
@@ -12,6 +11,7 @@ import type { Post } from '@/.contentlayer/generated'
 import { Accent } from '@/components/ui/accent'
 import { sortPosts } from '@/lib/postsUtils'
 import ScrollTop from '@/components/ScrollTop'
+import { TbPointFilled } from 'react-icons/tb'
 
 
 // type CategoryParam = {
@@ -75,12 +75,19 @@ export default function page({ params} : { params: { category: string }}) {
   return (
     <Container>
       <ScrollTop />
-        <div className='flex justify-center'>
-      
-        <span className="  pb-10 mt-2  font-bold leading-10  md:text-4xl lg:text-5xl text-3xl">
-          <Accent>Showing {category} categories</Accent>
-        </span>
-      </div>
+
+      <div className="flex items-center space-x-5">
+            <div className="capitalize text-black dark:text-white font-libre_baskerville text-3xl ">
+              {category === "all" ? "Artículos" : `${category}`}
+             
+            </div>
+            <div className="text-[#FB5148] dark:text-[#FB5148]">
+              <TbPointFilled />
+            </div>
+            <div className="flex-grow border-t border-gray-400"></div>
+          </div>
+          
+       
       {category === "all" ?
        ( <BookResumeList articles={sortedInitialPosts} showEndMessage fullHeight />) :
        ( <BookResumeList articles={sortedCategoryPosts} showEndMessage fullHeight />)

@@ -77,10 +77,10 @@ export function NavMenu({}) {
       <div className="text-sm tracking-wider flex  items-center justify-between max-w-7xl px-4 py-7   mx-auto sm:px-6 ">
         
         {/* Left area */}
-        <div className="  ">
-          {/* <span className="sr-only">Profile Picture</span> */}
+        <div className=" lg:w-0  lg:flex-1 bg-slate-500">
+          <span className="sr-only">Profile Picture</span>
           <Link href="/" passHref>
-            <span className="flex w-full font-libre_baskerville_bold">
+            <span className="block font-libre_baskerville_bold">
               PRIMAL IDEAS
               {/* <Image
                 alt="Braydon Coyer"
@@ -124,7 +124,7 @@ export function NavMenu({}) {
         </div> */}
        
        {/* Central area */}
-        <nav className="px-20  w-full  mx-auto justify-center font-spartan hidden lg:flex md:flex space-x-12  text-lg  ">
+        <nav className=" bg-slate-500  font-spartan hidden space-x-8  text-lg md:flex ">
           <NavItem text={'blog'} href={`/category/blog`} />
           {categoryKeys.map((key, index) => (
             <NavItem key={index} text={key} href={`/category/${key}`} />
@@ -142,7 +142,7 @@ export function NavMenu({}) {
 
         {/* right area */}
        
-            <div className="flex justify-end items-center  ">
+            <div className="flex justify-end items-center md:flex md:flex-1 lg:w-0 bg-slate-500">
            <ThemeSwitch />
             <MenuDropdown />
             </div>

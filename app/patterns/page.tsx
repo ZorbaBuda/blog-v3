@@ -1,5 +1,7 @@
 import React from "react";
 import { Container } from "@/components/layouts/Container";
+import { FaHome } from "react-icons/fa";
+import { BsFillTagsFill } from "react-icons/bs";
 
 // var tele = document.getElementById('teleporter'),
 //   rec = document.getElementById('receiver');
@@ -34,8 +36,20 @@ export default function page() {
   
   return (
     <Container>
+       <div className="flex  items-center ">
+         
+         <FaHome />
+      
+       <div className="">Primal Ideas</div>
+     </div>
+
+     <div className="flex  items-center">
+            <BsFillTagsFill />
+             <div className="ml-3">Etiquetas:</div>
+          </div>
+
       <div className="flex flex-col">
-        <ul className=" list-none flex  overflow-hidden" id="teleporter">
+        <ul className=" list-none gap-x-6  flex-nowrap inline-flex overflow-hidden" id="teleporter">
           <li>List item 0</li>
           <li>List item 1</li>
           <li>List item 2</li>
