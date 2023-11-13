@@ -39,11 +39,6 @@ export default function About() {
     <textarea />
   </ResizeObserver> */}
 
-
-
-
-
-
       <article
         className="mt-10 text-black dark:text-white font-alliance1  prose-headings:font-spartan 
           prose lg:prose-xl md:prose-lg sm:prose-base 

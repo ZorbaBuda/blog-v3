@@ -129,10 +129,7 @@ export function NavMenu({}) {
           {categoryKeys.map((key, index) => (
             <NavItem key={index} text={key} href={`/category/${key}`} />
           ))}
-        
-             <NavItem text={'About'} href={'/about'} />
-           
-            
+      
           
 
       
@@ -143,7 +140,9 @@ export function NavMenu({}) {
         {/* right area */}
        
             <div className="flex justify-end items-center  ">
+              
            <ThemeSwitch />
+            <NavItem text={'About'} href={'/about'} />
             <MenuDropdown />
             </div>
       </div>

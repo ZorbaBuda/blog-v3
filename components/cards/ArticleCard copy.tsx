@@ -29,7 +29,7 @@ function ArticleCard({ post, pattern }: Props) {
   //const patternn = post.pattern? post.pattern : "pattern13";
   //const patternn = "lavender-lumberjack";
   return (
-    <div className="  group  xl:max-w-[920px] border-t-[1px] border-[#383A3C] pt-5  ">
+    <div className="  group  xl:max-w-[920px] pt-5  ">
       <div className="  flex flex-wrap-reverse justify-between">
         <div className=" mt-0 flex flex-col max-w-[560px] ">
           <Category text={category} />
@@ -60,36 +60,42 @@ function ArticleCard({ post, pattern }: Props) {
         </div>
 
         <Link
-          className="no-underline mx-auto md:mx-auto lg:mx-0 "
+          className="overflow-hidden no-underline mx-auto md:mx-auto lg:mx-0 flex justify-between items-center
+           h-[273px] w-[348px]  max-h-[273px] max-w-[348px]  bg-[#EEEEEE] rounded-xl
+          "
           href={`/document/${slug}`}
         >
-          <div
-            className=" mt-0 overflow-hidden rounded-md border-5
-shadow-xl    h-[273px] w-[348px]  max-h-[273px] max-w-[348px] p-
-"
-          >
-            <div
-              className={` bg-[#EEEEEE] card-zoom-image   w-full h-full   
-flex items-center justify-center  
-transition-all duration-1000 group-hover:scale-110 transform-cpu 
-
-   `}
-            >
-              <div className="bg-black flex items-center justify-center  h-[250px] w-[162px]  ">
-                <Image
-                  className=" p-5  object-fill  h-[250px] w-[162px] 
-              rounded-xl overflow-hidden
-               
+        {category === 'body' ? (
+         
+              <Image
+                className=" mx-auto  object-cover 
+              rounded-xl overflow-hidden w-full h-full
+              transition-all duration-1000 group-hover:scale-110 
+             
                 "
-                  alt={coverImage}
-                  src={imageUrl}
-                  width={324}
-                  height={500}
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
+                alt={coverImage}
+                src={imageUrl}
+                width={348}
+                height={173}
+                loading="lazy"
+              />
+        ):  (
+         
+          <Image
+            className=" mx-auto  object-fill  h-[220px] w-[132px] 
+          rounded-xl overflow-hidden
+          transition-all duration-1000 group-hover:scale-110 
+          border-4  border-black
+            "
+            alt={coverImage}
+            src={imageUrl}
+            width={324}
+            height={500}
+            loading="lazy"
+          />
+    )
+          
+  }
         </Link>
       </div>
     </div>
