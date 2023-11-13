@@ -1,15 +1,10 @@
-import * as React from "react";
 import { allPosts } from "@/.contentlayer/generated";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import MDXComponents from "@/components/mdx-component";
-import { ContainerPost } from "@/components/layouts/ContainerPost";
-import { PageType } from "@/lib/enums";
-import BookResumeDocHeading from "@/components/header/BookResumeDocHeading";
+import DocHeading from "@/components/header/DocHeading";
 import TableOfContents from "@/components/TableOfContents";
 import ScrollTop from "@/components/ScrollTop";
-import WritingDocHeading from "@/components/header/WritingDocHeading";
-import DocHeading from "@/components/header/DocHeading";
 import Tag from "@/components/tags/Tag";
 import { Container } from "@/components/layouts/Container";
 import { BsFillTagsFill} from 'react-icons/bs'
@@ -62,7 +57,7 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
     notFound();
   }
 
-  const immUrl = `https://raw.githubusercontent.com/ZorbaBuda/blog-v1/main/public/${post.coverImage}`;
+  
 
   //#region  //*=========== Scrollspy ===========
   // const activeSection = useScrollSpy();
@@ -96,8 +91,8 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
     >
       <ScrollTop />
 
- <BookResumeDocHeading post={post} />
-     {/* <DocHeading post={post} /> */}
+
+     <DocHeading post={post} />
 
 
       <div className="grid justify-center grid-cols-1 lg:grid-cols-12 lg:gap-8">

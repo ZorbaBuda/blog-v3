@@ -2,81 +2,65 @@ import { Post } from "@/.contentlayer/generated";
 import React from "react";
 import Image from "next/image";
 import getFormattedDate from "@/lib/getFormattedDate";
-import Category from "../Category";
-import Tag from "../tags/CategoryTag";
-import Prisoner from "@/public/hero-image.png";
-import "@/components/ui/bgPatterns.css";
+import  Category  from "../tags/Category";
 import { FaRegCalendarAlt } from "react-icons/fa";
 
+type Props = {
+  post: Post;
+};
 
-
-export default function DocHeading( props ) {
-  const { coverImage,  date, title, summary } = props;
-
-  const pattern = "pattern16";
-
-  const imageUrl = `${process.env.GITHUB_URL_IMAGES}${props.coverImage}`;
-  // const formattedDate = getFormattedDate(date);
-
+export default function DocHeading({ post }: Props) {
+  // const immUrl = `https://raw.githubusercontent.com/ZorbaBuda/blog-v3/main/public/${post.coverImage}`;
+  const imageUrl = `${process.env.GITHUB_URL_IMAGES}${post.coverImage}`;
+  const formattedDate = getFormattedDate(post.date);
   return (
-    <div
-      className={` ${pattern}      
-    h-max w-full  min-h-[597px] min-w-max flex justify-center items-center  
-    
-    
-    `}
-    >
-       <div
-            className=" mt-0 overflow-hidden rounded-md border-5
-       shadow-xl    h-3/4     w-2/3
-       backdrop-blur 
-        "
-          >
-            <div
-              className={`  card-zoom-image   w-full h-full   
-         flex items-center justify-center  
-         transition-all duration-1000 group-hover:scale-110 transform-cpu 
-        
-             `}
-            >
-              <Image
-                className=" p-5  object-fill  h-[250px] w-[162px]
-                        rounded-xl overflow-hidden 
-                         
-                          "
-                alt={coverImage}
-                src={imageUrl}
-                width={324}
-                height={500}
-                loading="lazy"
-              />
-            </div>
-          </div>
-      
-      {/* <Image
-        className=" mt-10 justify-self-center   object-fill my-0 h-[375px] w-[243px]
-               rounded-xl overflow-hidden
-                "
-        alt={coverImage}
+    <article className="mx-auto antialiased flex text-white">
+      <Image
+        layout="intrinsic"
+        className="rounded-md lg:ml-0 ml-3 object-cover my-0 w-[224px] h-[343px] lg:w-[354px] lg:h-[539px] md:w-[354px] md:h-[539px] "
+        alt={imageUrl}
         src={imageUrl}
-        width={486}
-        height={750}
+        width={354}
+        height={539}
         loading="lazy"
-      /> */}
-      {/* <div className="ml-0 w-full bg-slate-700 bg-opacity-50 backdrop-blur  justify-self-start  flex flex-col  ">
-        <Tag text={props.category} />
-      
+      />
 
-        <div className="mt-3 font-libre_baskerville_bold  tracking-tight text-3xl  text-black dark:text-white">
-          {title}
+      <div className=" flex flex-col ml-8">
+        {/* <div className=" text-sm">
+          <div className=" flex flex-wrap ">
+              <Category key={category} text={category} />
+          </div>
+        </div> */}
+
+        {/* <div className=" mt-3 text-sm">
+          <div className=" flex flex-wrap ">
+            {tags.map((tag) => (
+              <Tag key={tag} text={tag} />
+            ))}
+          </div>
+        </div> */}
+         <div className="lg:mt-0 mt-0">
+          {" "}
+          <Category text={post.category} />{" "}
         </div>
-
         <div className="flex  mt-5 text-sm  uppercase dark:text-slate-400 text-black">
-          <FaRegCalendarAlt />
-          <div className="tracking-wider  ml-3 ">{formattedDate}</div>
-        </div>
-      </div> */}
-    </div>
+            <FaRegCalendarAlt />
+            <div className="tracking-wider  ml-3 ">{formattedDate}</div>
+          </div>
+     
+
+        <div className="text-black dark:text-white lg:text-5xl text-3xl mt-5 font-semibold font-libre_baskerville">{post.title}</div>
+
+        <div className="text-black dark:text-white lg:text-3xl text-xl mt-4 font-semibold font-libre_baskerville">Arthur Janov</div>
+        <div className="text-black dark:text-white lg:mt-5 text-xl mt-2">Año de publicación: 1973</div>
+
+        {/* <span className="mt-4 border-t-2 border-solid block w-10 border-slate-600"></span> */}
+
+       
+   
+  
+   </div>
+    </article>
 
     //   <article className="col-span-12 mt-12">
     //   <div className="space-y-16">

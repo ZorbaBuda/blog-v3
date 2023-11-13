@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import { allPosts } from "@/.contentlayer/generated";
 import tagData from "@/lib/tag-data.json";
 import AsideLayout from "@/components/AsideLayout";
@@ -6,8 +6,6 @@ import categoryData from "@/lib/category-files.json";
 import { Container } from "@/components/layouts/Container";
 import { Button } from "@/components/Button";
 import ArticleList from "@/components/articleListLayouts/ArticleList";
-import { Accent } from "@/components/ui/accent";
-import "./bgPatterns.css";
 import { sortPosts } from "@/lib/postsUtils";
 import { TbPointFilled } from "react-icons/tb";
 const MAX_DISPLAY = 5;
@@ -28,7 +26,7 @@ export default function Home() {
 
   return (
     <Container>
-      <div>
+      <div className="">
         <div>
           <div className="flex items-center space-x-5">
             <div className="text-black dark:text-white font-libre_baskerville text-3xl ">
@@ -62,7 +60,9 @@ export default function Home() {
             <Button href={"/category/all"}>Ver todos</Button>
           </div>
         </div>
+          {/* <AsideLayout /> */}
       </div>
+    
     </Container>
   );
 }

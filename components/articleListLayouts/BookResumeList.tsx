@@ -1,5 +1,5 @@
 
-import  ArticleCard  from './cards/ArticleCard';
+import  ArticleCard  from '../cards/ArticleCard';
 
 function BookResumeList({
   articles,

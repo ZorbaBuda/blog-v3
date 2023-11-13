@@ -1,11 +1,9 @@
 import './globals.css'
 // import './mdx.css';
-import './bgPatterns.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-// import SectionContainer from '@/components/SectionContainer';
 import { ThemeProviders } from './theme-providers';
-// bg-[#ECEBDA]
+
 
 const inter = Inter({ subsets: ['latin'] })
 

@@ -3,13 +3,8 @@ import slugify from "slugify";
 import { Post } from "@/.contentlayer/generated";
 import getFormattedDate from "@/lib/getFormattedDate";
 import Link from "next/link";
-import { Accent } from "../ui/accent";
-import GlowEffect from "../ui/GlowEffect";
-import "@/content/bgPatterns.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { Button } from "../Button";
-import CategoryTag from "@/components/tags/CategoryTag";
-import Badge from "../tags/Badge";
 import Category from "../tags/Category";
 
 type Props = {

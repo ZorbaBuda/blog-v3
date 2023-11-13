@@ -1,10 +1,6 @@
 'use client'
 import { Container } from "@/components/layouts/Container";
-
-import Image from "next/legacy/image";
-
-import { allPosts, allAbouts } from "@/.contentlayer/generated";
-import Logo from "@/public/moola-bandha-the-master-key.png";
+import {  allAbouts } from "@/.contentlayer/generated";
 import MDXComponents from "@/components/mdx-component";
 import { About } from "@/.contentlayer/generated";
 import Link from "next/link";

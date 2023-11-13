@@ -1,5 +1,4 @@
 
-import { PageTransition } from '../PageTransition';
 import  ArticleCard  from '../cards/ArticleCard';
 
 function ArticleList({

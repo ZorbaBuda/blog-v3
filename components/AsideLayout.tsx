@@ -1,7 +1,5 @@
-
 import Link from 'next/link';
-import * as React from 'react';
-import Tag from '@/components/tags/CategoryTag';
+import Tag from '@/components/tags/Tag';
 import tagData from '@/lib/tag-data.json';
 import { slug } from 'github-slugger';
 import { AiOutlineSearch } from "react-icons/ai";
@@ -13,7 +11,7 @@ export default function AsideLayout() {
   const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
   
   return (
-    <aside className=' min-w-[10rem] max-w-[300px]  '>
+    <aside className='flex flex-col mx-auto min-w-[10rem] max-w-[300px]  '>
       
       <div className='flex items-center gap-[.6rem] h-[2.6rem] border px-[1rem] text-sm '>
        
@@ -28,11 +26,11 @@ export default function AsideLayout() {
         <div className=''>
         <div className='text-white text-center py-3'>TAGS</div>
         </div>
-      <div className="flex  flex-wrap">
+      <div className="flex  flex-wrap justify-start">
           {tagKeys.length === 0 && 'No tags found.'}
           {sortedTags.map((t) => {
             return (
-              <div key={t} className="mb-2 mr-5 mt-2">
+              <div key={t} className="space-x-1">
                 <Tag text={t} />
                 <Link
                   href={`/tags/${slug(t)}`}
