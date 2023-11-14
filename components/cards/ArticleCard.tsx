@@ -30,7 +30,7 @@ function ArticleCard({ post, pattern }: Props) {
           <Category text={category} />
           {/* <Accent>{category}</Accent> */}
 
-          <Link className="no-underline" href={`/document/${slug}`}>
+          <Link className="no-underline" href={`/posts/${slug}`}>
             <div className="hover:underline mt-3 font-libre_baskerville_bold  tracking-tight text-2xl  text-black dark:text-white">
               {title}
             </div>
@@ -51,7 +51,7 @@ function ArticleCard({ post, pattern }: Props) {
             <div className="tracking-wider  ml-3 ">{formattedDate}</div>
           </div>
 
-          <Button href={`/document/${slug}`}>READ MORE</Button>
+          <Button href={`/posts/${slug}`}>READ MORE</Button>
         </div>
 
         <Link
@@ -59,7 +59,7 @@ function ArticleCard({ post, pattern }: Props) {
            lg:h-[273px] lg:w-[348px]  md:h-[273px] md:w-[348px] sm:h-[273px] sm:w-[348px] container h-[313px]
              bg-[#EEEEEE] rounded-sm
           "
-          href={`/document/${slug}`}
+          href={`/posts/${slug}`}
         >
         {category === 'body' ? (
          

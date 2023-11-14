@@ -16,13 +16,13 @@ export default function DocHeading({ post }: Props) {
   return (
     <article className="mx-auto antialiased flex text-white">
       <Image
-        layout="intrinsic"
+      priority={true}
         className="rounded-md lg:ml-0 ml-3 object-cover my-0 w-[224px] h-[343px] lg:w-[354px] lg:h-[539px] md:w-[354px] md:h-[539px] "
         alt={imageUrl}
         src={imageUrl}
         width={354}
         height={539}
-        loading="lazy"
+     
       />
 
       <div className=" flex flex-col ml-8">

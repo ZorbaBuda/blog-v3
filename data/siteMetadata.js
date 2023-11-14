@@ -1,12 +1,11 @@
 const siteMetadata = {
-    title: 'Next.js Starter Blog',
-    author: 'Tails Azimuth',
-    headerTitle: 'Blog Version-1',
-    description: 'A blog created with Next.js and Tailwind.css',
+    title: 'Primal Yoga Blog',
+    author: 'Primal Yoga Admin',
+    headerTitle: 'Primal Yoga Blog',
+    description: 'Psicologia, tantra, yoga y más',
+    siteUrl:'http://localhost:3000',
     language: 'en-us',
     theme: 'dark', // system, dark or light
-    siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-    siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
     siteLogo: '/static/images/logo.png',
     socialBanner: '/static/images/twitter-card.png',
     mastodon: 'https://mastodon.social/@mastodonuser',

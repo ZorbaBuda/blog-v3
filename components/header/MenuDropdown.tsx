@@ -27,7 +27,7 @@ export default function MenuDropdown() {
     <div className="  ">
       <Menu as="div" className="relative inline-block">
         <div>
-          <Menu.Button className="text-black inline-flex w-full justify-center   px-4 py-2 text-sm font-medium dark:text-white  focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
+          <Menu.Button className="text-black inline-flex w-full justify-center   pl-4 py-2 text-sm font-medium dark:text-white  focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
             Menu
             <BsChevronDown
               className="ml-2 -mr-1 h-5 w-5 text-black dark:text-white hover:text-violet-100"
@@ -35,9 +35,9 @@ export default function MenuDropdown() {
             />
           </Menu.Button>
         </div>
-        <Transition
+        <Transition 
           as={Fragment}
-          enter="transition ease-out duration-100"
+          enter="transition ease-out duration-200"
           enterFrom="transform opacity-0 scale-95"
           enterTo="transform opacity-100 scale-100"
           leave="transition ease-in duration-75"
@@ -46,10 +46,10 @@ export default function MenuDropdown() {
         >
          
            
-            <Menu.Items className=" visible   lg:hidden flex flex-col  
-            font-spartan absolute dark:bg-black dark:text-white right-0 mt-2 w-full 
-            md:w-80  sm:min-w-max origin-top-right   bg-white shadow-lg ring-1
-             ring-black/5 focus:outline-none  border-[#383A3C] border-[1px] ">
+            <Menu.Items className="  visible   lg:hidden flex flex-col  
+            font-spartan  dark:bg-black absolute dark:text-white right-0 mt-2 w-screen
+            md:w-80      bg-white shadow-lg ring-1 mx-auto
+             ring-black/5 f  border-[#383A3C] border-[1px] ">
                <Menu.Item >
     <Link className=" no-underline text-black divide-y-2 divide-gray-100" href={`/category/blog`} >
     <span

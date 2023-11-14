@@ -33,7 +33,7 @@ const BreadcrumbComponent = () => {
 
     setBreadcrumbs(pathArray);
   }, [router]);
-  console.log("label ", breadcrumbs);
+
   return (
     <Breadcrumb>
       <BreadcrumbItem href="/" active={breadcrumbs && breadcrumbs.length > 1 ? false : true}>
@@ -57,9 +57,7 @@ const BreadcrumbComponent = () => {
 
 const Breadcrumb = ({ children }) => {
   const childrenArray = Children.toArray(children);
-  console.log(childrenArray);
-
-  // console.log(childrenArray);
+ 
 
   const childrenWtihSeperator = childrenArray.map((child, index) => {
     if (index !== childrenArray.length - 1) {

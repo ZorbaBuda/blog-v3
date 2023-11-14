@@ -36,20 +36,20 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.summary,
-    openGraph: {
-      title: post.title,
-      description: post.summary,
-      siteName: siteMetadata.title,
-      locale: 'en_US',
-      type: 'article',
-      publishedTime: publishedAt,
-      url: './',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.summary,
-    },
+    // openGraph: {
+    //   title: post.title,
+    //   description: post.summary,
+    //   siteName: siteMetadata.title,
+    //   locale: 'en_US',
+    //   type: 'article',
+    //   publishedTime: publishedAt,
+    //   url: './',
+    // },
+    // twitter: {
+    //   card: 'summary_large_image',
+    //   title: post.title,
+    //   description: post.summary,
+    // },
   }
 }
 
@@ -144,7 +144,7 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
          
 
           <article
-            className="mt-4 text-black dark:text-white font-alliance1  prose-headings:font-spartan 
+            className="mt-4 text-black dark:text-white font-roboto  prose-headings:font-spartan 
           prose lg:prose-xl md:prose-lg sm:prose-base 
           prose-headings:text-slate-800 dark:prose-headings:text-white  
           max-w-none md:px-5 sm:px-5 lg:px-0 f dark:font-normal

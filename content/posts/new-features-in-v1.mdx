@@ -16,8 +16,6 @@ bibliography: references-data.bib
 
 A post on the new features introduced in v1.0. New features:
 
-<TOCInline toc={props.toc} exclude="Overview" toHeading={2} />
-
 First load JS decreased from 43kB to 39kB despite all the new features added! [^1]
 
 [^1]: With the new changes in Nextjs 12, first load JS increase to 45kB.
@@ -96,8 +94,6 @@ Here's the full TOC rendered in a disclosure element.
 ```jsx
 <TOCInline toc={props.toc} asDisclosure />
 ```
-
-<TOCInline toc={props.toc} asDisclosure />
 
 ## Layouts
 
@@ -361,8 +357,6 @@ and can be used in a blog post:
 ```jsx
 <BlogNewsletterForm title="Like what you are reading?" />
 ```
-
-<BlogNewsletterForm title="Like what you are reading?" />
 
 The component relies on nextjs's [API routes](https://nextjs.org/docs/api-routes/introduction) which requires a server-side instance of nextjs to be setup
 and is not compatible with a 100% static site export. Users should either self-host or use a compatible platform like Vercel or Netlify which supports this functionality.
