@@ -1,5 +1,5 @@
 import { writeFileSync } from "fs";
-import { allWritings } from "@/.contentlayer/generated"; //TODO
+import { allPosts } from "@/.contentlayer/generated"; //TODO
 
 // const tagRecord2 = {
 //   "github" : ["file1", "file2", "file3"],
@@ -8,7 +8,7 @@ import { allWritings } from "@/.contentlayer/generated"; //TODO
 
 export default function createCategoryIndex() {
   const categoryRecord = {};
-  allWritings.forEach((file) => {
+  allPosts.forEach((file) => {
     if (file.category in categoryRecord) {
       categoryRecord[file.category].push(file.filePath);
     } else {

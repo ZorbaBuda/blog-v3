@@ -8,7 +8,8 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    './lib/**/*.tsx'
+    './lib/**/*.tsx',
+    "./node_modules/flowbite-react/**/*.js",
   ],
   darkMode: 'class',
    important: true,
@@ -33,6 +34,9 @@ const config: Config = {
       colors: {
         primary: colors.black,
         gray: colors.gray,
+        "almost-white": "hsl(0, 0%, 98%)",
+        "medium-gray": "hsl(0, 0%, 41%)",
+        "almost-black": "hsl(0, 0%, 8%)",
       },
       // typography: ({ theme }) => ({
       //   DEFAULT: {
@@ -76,6 +80,7 @@ const config: Config = {
   },
   plugins: [
     require("@tailwindcss/typography"),
+    require('flowbite/plugin')
   
            ],
 };

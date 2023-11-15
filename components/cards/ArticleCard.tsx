@@ -38,7 +38,9 @@ function ArticleCard({ post, pattern }: Props) {
 
           <div className="font-libre_baskerville dark:text-white text-lg text-black mt-3">
             {" "}
-            Arthur Janov, 1973
+            {post.bookAuthor ? post.bookAuthor : 'Anonymous'}
+            {', '}
+            {post.bookYear ? post.bookYear : 'No year'}
           </div>
 
           <div className="dark:text-slate-400 text-black leading-normal  text-base mt-2 tracking-normal  ">
@@ -61,7 +63,7 @@ function ArticleCard({ post, pattern }: Props) {
           "
           href={`/posts/${slug}`}
         >
-        {category === 'body' ? (
+        {category === 'writings' ? (
          
               <Image
                 className=" mx-auto  object-cover 

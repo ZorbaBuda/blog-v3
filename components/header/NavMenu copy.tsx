@@ -12,7 +12,7 @@ import headerNavLinks from "@/data/headerNavLinks";
 import MobileNav from "./MobileNav";
 import ThemeSwitch from "../ThemeSwitch";
 import SearchButton from "../SearchButton";
-import categoryData from '@/lib/category-files.json'
+import categoryData from '@/content/category-files.json'
 import MenuDropdown from "./MenuDropdown";
 
 function NavItem({ href, text }) {
@@ -77,10 +77,10 @@ export function NavMenu({}) {
       <div className="text-sm tracking-wider flex  items-center justify-between max-w-7xl px-4 py-7   mx-auto sm:px-6 ">
         
         {/* Left area */}
-        <div className=" lg:w-0  lg:flex-1 bg-slate-500">
-          <span className="sr-only">Profile Picture</span>
+        <div className="  ">
+          {/* <span className="sr-only">Profile Picture</span> */}
           <Link href="/" passHref>
-            <span className="block font-libre_baskerville_bold">
+            <div className="inline-flex min-w-fit font-libre_baskerville_bold">
               PRIMAL IDEAS
               {/* <Image
                 alt="Braydon Coyer"
@@ -90,7 +90,7 @@ export function NavMenu({}) {
                 blurDataURL={DarkLogo}
                 className="rounded-full"
               /> */}
-            </span>
+            </div>
           </Link>
          
         </div>
@@ -124,15 +124,16 @@ export function NavMenu({}) {
         </div> */}
        
        {/* Central area */}
-        <nav className=" bg-slate-500  font-spartan hidden space-x-8  text-lg md:flex ">
-          <NavItem text={'blog'} href={`/category/blog`} />
-          {categoryKeys.map((key, index) => (
+        <nav className="px-20    mx-auto justify-center font-spartan hidden lg:flex md:flex space-x-12  text-lg  ">
+          <NavItem text={'blog'} href={`/category/writings`} />
+          <NavItem text={'libros'} href={`/posts`} />
+          {/* {categoryKeys.map((key, index) => (
             <NavItem key={index} text={key} href={`/category/${key}`} />
-          ))}
-        
-             <NavItem text={'About'} href={'/about'} />
-           
-            
+          ))} */}
+            <NavItem text={'Categorías'} href={`/posts`} />
+            <NavItem text={'Etiquetas'} href={`/tag`} />
+             <NavItem text={'Acerca de'} href={'/about'} />
+      
           
 
       
@@ -142,8 +143,10 @@ export function NavMenu({}) {
 
         {/* right area */}
        
-            <div className="flex justify-end items-center md:flex md:flex-1 lg:w-0 bg-slate-500">
+            <div className="flex justify-end items-center  ">
+              
            <ThemeSwitch />
+           
             <MenuDropdown />
             </div>
       </div>

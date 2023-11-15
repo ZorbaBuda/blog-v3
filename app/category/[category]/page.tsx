@@ -2,12 +2,12 @@ import siteMetadata from '@/data/siteMetadata'
 //import ListLayout from '@/layouts/ListLayoutWithTags'
 //import { genPageMetadata } from 'app/seo'
 import { Metadata } from 'next'
-import categoryData from '@/lib/category-files.json'
+import categoryData from '@/content/category-files.json'
 import { Container } from '@/components/layouts/Container'
 import BookResumeList from '@/components/articleListLayouts/BookResumeList'
 import { allPosts } from '@/.contentlayer/generated'
 import type { Post } from '@/.contentlayer/generated'
-import { sortPosts } from '@/lib/postsUtils'
+import { allCoreContent, sortPosts } from '@/lib/postsUtils'
 import ScrollTop from '@/components/ScrollTop'
 import { TbPointFilled } from 'react-icons/tb'
 
@@ -44,39 +44,25 @@ export default function page({ params} : { params: { category: string }}) {
 
   const categoryKeys = Object.keys(categoryData)
   
+  
   const categoryDocs : Post[] = []
   
   const category = decodeURI(params.category)
+
+  const sortedCategoryPosts = allCoreContent(
+    sortPosts(allPosts.filter((post) => post.category && post.category === category))
+  )
   
 
-  allPosts.forEach((doc : Post) => {
-    if(doc.category === category) {
-      categoryDocs.push(doc)
-    }
-  })
+ 
 
-  const sortedCategoryPosts = sortPosts(categoryDocs)
-  const sortedInitialPosts= sortPosts(allPosts)
-  // if(category !== "all"){
-  // const categoryFiles = categoryData[category]
-  // var filtered: Post[] = []
-//   categoryFiles.forEach((t: string) => {
-//     allPosts.forEach((p) => {
-//       if(t === p.filePath){
-//         filtered.push(p);
-//         return
-//       }
-//     })
-    
-//   })
-// }
   return (
     <Container>
       <ScrollTop />
 
       <div className="flex items-center space-x-5">
             <div className="capitalize text-black dark:text-white font-libre_baskerville text-3xl ">
-              {category === "all" ? "Artículos" : `${category}`}
+              {category}
              
             </div>
             <div className="text-[#FB5148] dark:text-[#FB5148]">
@@ -85,11 +71,8 @@ export default function page({ params} : { params: { category: string }}) {
             <div className="flex-grow border-t border-gray-400"></div>
           </div>
           
-       
-      {category === "all" ?
-       ( <BookResumeList articles={sortedInitialPosts} showEndMessage fullHeight />) :
-       ( <BookResumeList articles={sortedCategoryPosts} showEndMessage fullHeight />)
-  }
+        <BookResumeList articles={sortedCategoryPosts} showEndMessage fullHeight />
+  
 
     </Container>
   )}

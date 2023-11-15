@@ -5,25 +5,20 @@ import Link from 'next/link'
 import Tag from '@/components/tags/Tag'
 import tagFiles from '@/lib/tag-files.json'
 import { Container } from '@/components/layouts/Container'
+import BookResumeList from '@/components/articleListLayouts/BookResumeList'
+import { allCoreContent, sortPosts } from '@/lib/postsUtils'
+import { allPosts } from '@/.contentlayer/generated'
 
 export default function page({ params} : { params: { tag: string }}) {
 
   const tagKeys = Object.keys(tagFiles)
   
   const tag = decodeURI(params.tag)
-//   if(tag !== "all"){
-//   const tagFiles = tagData[tag]
-//   var filtered: Post[] = []
-//   tagFiles.forEach((t: string) => {
-//     allPosts.forEach((p) => {
-//       if(t === p.filePath){
-//         filtered.push(p);
-//         return
-//       }
-//     })
-    
-//   })
-// }
+
+  const sortedTagPosts = allCoreContent(
+    sortPosts(allPosts.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes(tag)))
+  )
+
   return (
     <Container>
     <div className="mt-10 flex  flex-wrap">
@@ -46,6 +41,7 @@ export default function page({ params} : { params: { tag: string }}) {
       <div className='mt-10'>Browsing  {tag}  Tag   </div>
       {/* <ListLayout posts={tag!== "all" ? filtered  : allPosts} /> */}
     </div>
+    <BookResumeList articles={sortedTagPosts} showEndMessage fullHeight />
     </Container>
   )
 }

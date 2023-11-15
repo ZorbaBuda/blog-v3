@@ -174,12 +174,12 @@ export default makeSource((sourceKey = 'main') => ({
           ]
         },
          onSuccess: async (importData) => {
-          console.log("on success")
+          //console.log("on success")
           //createCategoryIndex(importData)
-        //   console.log(" import data ", typeof importData)
-         // const { allBlogs } = await importData()
+         
+          //const { allBlogs } = await importData()
         //   // console.log("hi")
-        //   // createTagCount(allBlogs.length)
+          //createTagCount(allBlogs.length)
        }
        
     }

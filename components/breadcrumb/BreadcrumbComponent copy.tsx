@@ -30,7 +30,7 @@ const BreadcrumbComponent = () => {
 
     setBreadcrumbs(pathArray);
   }, [router]);
-  console.log("label ", breadcrumbs);
+  // console.log("label ", breadcrumbs);
   return (
     <Breadcrumb>
       <BreadcrumbItem href="/">

@@ -12,8 +12,8 @@ import headerNavLinks from "@/data/headerNavLinks";
 import MobileNav from "./MobileNav";
 import ThemeSwitch from "../ThemeSwitch";
 import SearchButton from "../SearchButton";
-import categoryData from '@/lib/category-files.json'
-import MenuDropdown from "./MenuDropdown";
+import categoryData from '@/content/category-files.json'
+
 
 function NavItem({ href, text }) {
   
@@ -44,6 +44,12 @@ export function NavMenu({}) {
   const [mounted, setMounted] = useState(false);
   let [isOpen, setIsOpen] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
+
+  const [companyMenu, setCompanyMenu] = useState(false);
+  const handleCompanyMenu = () => {
+    setCompanyMenu(!companyMenu);
+   
+  };
 
   // A flag to know when the page has mounted so the theme can be accessed
   useEffect(() => setMounted(true), []);
@@ -80,7 +86,7 @@ export function NavMenu({}) {
         <div className="  ">
           {/* <span className="sr-only">Profile Picture</span> */}
           <Link href="/" passHref>
-            <span className="flex w-full font-libre_baskerville_bold">
+            <div className="inline-flex min-w-fit font-libre_baskerville_bold">
               PRIMAL IDEAS
               {/* <Image
                 alt="Braydon Coyer"
@@ -90,7 +96,7 @@ export function NavMenu({}) {
                 blurDataURL={DarkLogo}
                 className="rounded-full"
               /> */}
-            </span>
+            </div>
           </Link>
          
         </div>
@@ -124,11 +130,50 @@ export function NavMenu({}) {
         </div> */}
        
        {/* Central area */}
-        <nav className="px-20  w-full  mx-auto justify-center font-spartan hidden lg:flex md:flex space-x-12  text-lg  ">
-          <NavItem text={'blog'} href={`/category/blog`} />
-          {categoryKeys.map((key, index) => (
+        <nav className="px-20    mx-auto justify-center items-center font-spartan hidden lg:flex md:flex space-x-12  text-lg  ">
+          <NavItem text={'blog'} href={`/category/writings`} />
+          <NavItem text={'libros'} href={`/posts`} />
+          {/* {categoryKeys.map((key, index) => (
             <NavItem key={index} text={key} href={`/category/${key}`} />
-          ))}
+          ))} */}
+            <NavItem text={'Categorías'} href={`/posts`} />
+            <li className="list-none relative text-black dark:text-white font-semibold dark:font-normal text-sm">
+          <button
+            type="button"
+            className={` icon-menu flex gap-2  hover:text-almost-black dark:hover:text-gray-400`}
+            aria-haspopup="true"
+            aria-expanded={companyMenu}
+            aria-controls="company-menu"
+            onClick={handleCompanyMenu}
+          >
+            Company
+          </button>
+          {/* START company sub-menu */}
+          <ul
+            id="company-menu"
+            className={`lg:absolute lg:top-5 lg:p-8
+            
+             ${
+              companyMenu
+                ? "visible p-4 pb-0 lg:translate-y-[1rem] "
+                : "hidden"
+            }   flex w-max flex-col gap-4 p-10 rounded-md leading-none lg:left-0  bg-white  dark:bg-black`}
+          >
+            {[["History"], ["Our Team"], ["Blog"]].map(([text], index) => (
+              <li key={`company-${index}`}>
+                <a
+                  href="#"
+                  className={`${'transition duration-300 ease-in-out'} block hover:text-almost-black dark:hover:text-gray-400`}
+                >
+                  {text}
+                </a>
+              </li>
+            ))}
+            {/* END company Sub-menu */}
+          </ul>
+        </li>
+            <NavItem text={'Etiquetas'} href={`/tag`} />
+             <NavItem text={'Acerca de'} href={'/about'} />
       
           
 
@@ -142,8 +187,8 @@ export function NavMenu({}) {
             <div className="flex justify-end items-center  ">
               
            <ThemeSwitch />
-            <NavItem text={'About'} href={'/about'} />
-            <MenuDropdown />
+           
+            
             </div>
       </div>
     </div>

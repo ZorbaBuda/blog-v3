@@ -85,7 +85,7 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
   //const Component = React.useMemo(() => getMDXComponent(code), [code]);
   const post = await getPostFromParams(params);
 
-  console.log(post.type);
+ 
   // const isBookResume = post.type === "Writing" ? false : true;
   // console.log(isBookResume);
 

@@ -57,7 +57,7 @@ export default function Home() {
 
           <ArticleList articles={sortedPosts.slice(0, MAX_DISPLAY)} />
           <div className="flex justify-center my-16">
-            <Button href={"/category/all"}>Ver todos</Button>
+            <Button href={"/posts"}>Ver todos</Button>
           </div>
         </div>
           {/* <AsideLayout /> */}
