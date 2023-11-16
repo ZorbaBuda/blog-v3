@@ -1,26 +1,35 @@
 import { useEffect, useState } from "react";
 import styles from "../../styles";
+import { useTheme } from 'next-themes'
 
 const ThemeSwitcher = () => {
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
+
   const [darkMode, setDarkMode] = useState(false);
   const userTheme = localStorage.getItem("theme");
   const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  useEffect(() => {
-    if ((userTheme && userTheme === "dark") || (!userTheme && systemTheme))
-      setDarkMode(true);
-    else setDarkMode(false);
-  }, []);
+  // useEffect(() => {
+  //   if ((userTheme && userTheme === "dark") || (!userTheme && systemTheme))
+  //     setDarkMode(true);
+  //   else setDarkMode(false);
+  // }, []);
+  useEffect(() => setMounted(true), [])
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [darkMode]);
+  if (!mounted) {
+    return null
+  }
+
+  // useEffect(() => {
+  //   if (darkMode) {
+  //     document.documentElement.classList.add("dark");
+  //     localStorage.setItem("theme", "dark");
+  //   } else {
+  //     document.documentElement.classList.remove("dark");
+  //     localStorage.setItem("theme", "light");
+  //   }
+  // }, [darkMode]);
 
   return (
     <label
@@ -28,11 +37,11 @@ const ThemeSwitcher = () => {
     >
       <input
         type="checkbox"
-        className="m-t absolute top-0 left-0 z-10 h-full w-full cursor-pointer appearance-none"
+        className="m-t  top-0 left-0 z-10 h-full w-full cursor-pointer appearance-none"
         checked={darkMode}
         role="switch"
         aria-checked={darkMode}
-        onChange={() => setDarkMode(!darkMode)}
+        onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       />
       Dark mode
       <span className="dot" aria-hidden="true"></span>

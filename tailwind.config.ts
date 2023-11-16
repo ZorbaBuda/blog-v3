@@ -37,6 +37,8 @@ const config: Config = {
         "medium-gray": "hsl(0, 0%, 41%)",
         "almost-black": "hsl(0, 0%, 8%)",
       },
+      
+      
       // typography: ({ theme }) => ({
       //   DEFAULT: {
       //     css: {

@@ -1,16 +1,30 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { Container } from "@/components/layouts/Container";
-import { FaHome } from "react-icons/fa";
-import { BsFillTagsFill } from "react-icons/bs";
-import Link from "next/link";
-import Image from "next/image";
-import menu from './menu.json'
-import social from './social.json'
-import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-export default function page() {
- 
+// import DarkLogo from 'public/bcoyerlogo_dark.svg';
+// import { Dialog } from '@headlessui/react';
+import Image from "next/image";
+// import LightLogo from 'public/bcoyerlogo_white.svg';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
+import headerNavLinks from "@/data/headerNavLinks";
+import MobileNav from "./MobileNav";
+import ThemeSwitch from "../ThemeSwitch";
+import SearchButton from "../SearchButton";
+import categoryData from '@/content/category-files.json'
+import NavItem from "./NavItem";
+import { BsChevronDown } from "react-icons/bs";
+import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import menu from './menu.json'
+import { useRouter } from "next/router";
+import {IoSearch } from 'react-icons/io5'
+import React from "react";
+
+
+
+
+export function NavMenu({}) {
   // distructuring the main menu from menu object
   const { main } = menu;
 
@@ -19,7 +33,9 @@ export default function page() {
   const [showMenu, setShowMenu] = useState(false);
 
   // Router
-  //const router = useRouter();
+  // const router = useRouter();
+  // const isActive = usePathname() === href;
+  const isActive = usePathname()
 
   //stop scrolling when nav is open
   useEffect(() => {
@@ -29,15 +45,44 @@ export default function page() {
       document.body.classList.remove("menu-open");
     }
   }, [showMenu]);
+   
   
+
+
+  //not part of Gekky
+  //nabvar visible on scroll up
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+
+    if (currentScrollPos > prevScrollPos) {
+      setVisible(false);
+    } else {
+      setVisible(true);
+    }
+
+    setPrevScrollPos(currentScrollPos);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+
+  //setting isActive for Category dropdown
+  const isCategoryDropdownActive = usePathname().includes('category')
   
+
   return (
-    <header className="header">
-      <nav className="navbar container px-1 sm:px-8">
-        <div className="order-0">
-          {/* <Logo /> */}<div>Logo</div>
+    <header className={`header ${visible ? 'top-0' : ''}`}>
+         <nav className="navbar container px-1 sm:px-8">
+        <div className="border-0">
+          {/* <Logo /> */} LOGO_IMAGE
         </div>
-        <div className="flex items-center space-x-4 xl:space-x-8">
+        <div className="flex items-center justify-center space-x-4 xl:space-x-8">
           <div
             className={`collapse-menu ${
               !showMenu && "translate-x-full"
@@ -84,44 +129,47 @@ export default function page() {
                             className="nav-dropdown-item"
                             key={`children-${i}`}
                           >
-                              <Link
+                             <Link
                               href={child.url}
                               className={`nav-dropdown-link block `}
                             >
+                              {child.name}
+                            </Link>
                             {/* <Link
                               href={child.url}
                               className={`nav-dropdown-link block ${
                                 router.asPath === child.url && "active"
                               }`}
-                            > */}
+                            >
                               {child.name}
-                            </Link>
+                            </Link> */}
                           </li>
                         ))}
                       </ul>
                     </li>
                   ) : (
                     <li className="nav-item">
+                      <Link
+                        href={menu.url}
+                        className={`nav-link block `}
+                      >
+                        {menu.name}
+                      </Link>
                       {/* <Link
                         href={menu.url}
                         className={`nav-link block ${
                           router.asPath === menu.url && "active"
                         }`}
-                      > */}
-                        <Link
-                        href={menu.url}
-                        className={`nav-link block 
-                        }`}
                       >
                         {menu.name}
-                      </Link>
+                      </Link> */}
                     </li>
                   )}
                 </React.Fragment>
               ))}
             </ul>
             {/* header social */}
-            {/* <Social source={social} className="socials" /> */}
+            {/* <Social source={socical} className="socials" /> */}
           </div>
           {/* <ThemeSwitcher /> */}
           {/* Header search */}
@@ -131,7 +179,7 @@ export default function page() {
               setSearchModal(true);
             }}
           >
-            {/* <IoSearch /> */}
+            <IoSearch />
           </div>
           <button
             onClick={() => setShowMenu(!showMenu)}
@@ -159,9 +207,7 @@ export default function page() {
           setSearchModal={setSearchModal}
         /> */}
       </nav>
-      {showMenu && (
-        <div className="header-backdrop absolute top-0 left-0 h-[100vh] w-full bg-black/50 lg:hidden"></div>
-      )}
     </header>
+   
   );
 }
