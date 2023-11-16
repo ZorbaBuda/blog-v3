@@ -3,11 +3,15 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import headerNavLinks from '@/data/headerNavLinks'
+import NavItem from './NavItem'
+import categoryData from '@/content/category-files.json'
+
 
 const MobileNav = () => {
-  const [navShow, setNavShow] = useState(false)
-  console.log('mobilenav')
 
+  const categoryKeys = Object.keys(categoryData)
+
+  const [navShow, setNavShow] = useState(false)
 
   const onToggleNav = () => {
     setNavShow((status) => {
@@ -24,7 +28,7 @@ const MobileNav = () => {
   return (
     <>
       <button aria-label="Toggle Menu" onClick={onToggleNav} 
-      className="sm:hidden">
+      className="visible md:hidden lg:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
@@ -59,8 +63,13 @@ const MobileNav = () => {
             </svg>
           </button>
         </div>
-        <nav className="fixed mt-8 h-full">
-          {headerNavLinks.map((link, index) => (
+        <nav className="fixed mt-8 h-full flex-row">
+        <NavItem text={'blog'} href={`/category/writings`} />
+          <NavItem text={'libros'} href={`/posts`} />
+          {categoryKeys.map((key, index) => (
+            <NavItem key={index} text={key} href={`/category/${key}`} />
+          ))}
+          {/* {headerNavLinks.map((link, index) => (
             <div key={index} className="px-12 py-4">
               <Link
                 href={link.href}
@@ -70,7 +79,7 @@ const MobileNav = () => {
                 {link.title}
               </Link>
             </div>
-          ))}
+          ))} */}
         </nav>
       </div>
     </>

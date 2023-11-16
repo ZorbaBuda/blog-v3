@@ -9,7 +9,6 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     './lib/**/*.tsx',
-    "./node_modules/flowbite-react/**/*.js",
   ],
   darkMode: 'class',
    important: true,
@@ -80,7 +79,6 @@ const config: Config = {
   },
   plugins: [
     require("@tailwindcss/typography"),
-    require('flowbite/plugin')
   
            ],
 };

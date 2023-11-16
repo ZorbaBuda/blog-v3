@@ -5,8 +5,6 @@ import MDXComponents from "@/components/mdx-component";
 import { About } from "@/.contentlayer/generated";
 import Link from "next/link";
 import React from "react";
-import useResizeObserver from 'use-resize-observer'
-import ResizeObserver from 'rc-resize-observer';
 import { TbPointFilled } from "react-icons/tb";
 
 export default function About() {

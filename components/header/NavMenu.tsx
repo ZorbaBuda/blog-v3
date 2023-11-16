@@ -13,30 +13,32 @@ import MobileNav from "./MobileNav";
 import ThemeSwitch from "../ThemeSwitch";
 import SearchButton from "../SearchButton";
 import categoryData from '@/content/category-files.json'
+import NavItem from "./NavItem";
 
 
-function NavItem({ href, text }) {
+// function NavItem({ href, text }) {
   
-  const isActive = usePathname() === href;
+//   const isActive = usePathname() === href;
+//   console.log(usePathname().includes('category'))
 
-  return (
-    <Link className="group" href={href} passHref>
-    <span
-      className={`${
-        isActive
-          ? "font-bold text-[#FB5148] dark:text-[#FB5148]" : " text-black dark:text-white font-semibold dark:font-normal"
-      }  text-sm hidden md:inline-block  capitalize
-       hover:text-[#FB5148] dark:hover:text-[#FB5148] transition-all 
-       bg-left-bottom bg-gradient-to-r from-[#FB5148] to-[#FB5148] bg-[length:0%_4px] bg-no-repeat 
-       group-hover:bg-[length:100%_2px]  duration-300 ease-out  
+//   return (
+//     <Link className="group" href={href} passHref>
+//     <span
+//       className={`${
+//         isActive
+//           ? "font-bold text-[#FB5148] dark:text-[#FB5148]" : " text-black dark:text-white font-semibold dark:font-normal"
+//       }  text-sm hidden md:inline-block  capitalize
+//        hover:text-[#FB5148] dark:hover:text-[#FB5148] transition-all 
+//        bg-left-bottom bg-gradient-to-r from-[#FB5148] to-[#FB5148] bg-[length:0%_4px] bg-no-repeat 
+//        group-hover:bg-[length:100%_2px]  duration-300 ease-out  
 
-      `}
-    >
-      {text}
-    </span>
-  </Link>
-  );
-}
+//       `}
+//     >
+//       {text}
+//     </span>
+//   </Link>
+//   );
+// }
 
 export function NavMenu({}) {
   const categoryKeys = Object.keys(categoryData)
@@ -75,6 +77,10 @@ export function NavMenu({}) {
 
     return () => window.removeEventListener("scroll", handleScroll);
   });
+
+  //setting isActive for Category dropdown
+  const isCategoryDropdownActive = usePathname().includes('category')
+  
 
   return (
     <div className={`border-y-[1px] font-spartan border-[#383A3C] sticky ${visible ? 'top-0' : ''} z-50 w-full
@@ -136,30 +142,41 @@ export function NavMenu({}) {
           {/* {categoryKeys.map((key, index) => (
             <NavItem key={index} text={key} href={`/category/${key}`} />
           ))} */}
-            <NavItem text={'Categorías'} href={`/posts`} />
-            <li className="list-none relative text-black dark:text-white font-semibold dark:font-normal text-sm">
+            <li className="list-none relative">
           <button
             type="button"
-            className={` icon-menu flex gap-2  hover:text-almost-black dark:hover:text-gray-400`}
+            className={`  flex gap-2 
+            ${
+              isCategoryDropdownActive
+                ? "font-bold text-[#FB5148] dark:text-[#FB5148]" : " text-black dark:text-white font-semibold dark:font-normal"
+            }  text-sm hidden md:inline-block  capitalize
+            hover:text-[#FB5148] dark:hover:text-[#FB5148] transition-all 
+            bg-left-bottom bg-gradient-to-r from-[#FB5148] to-[#FB5148] bg-[length:0%_4px] bg-no-repeat 
+            hover:bg-[length:100%_2px]  duration-300 ease-out  
+            `}
             aria-haspopup="true"
             aria-expanded={companyMenu}
             aria-controls="company-menu"
             onClick={handleCompanyMenu}
+            onMouseEnter={handleCompanyMenu}
           >
-            Company
+            Categorías
           </button>
           {/* START company sub-menu */}
           <ul
             id="company-menu"
-            className={`lg:absolute lg:top-5 lg:p-8
-            
+            className={`lg:absolute md:absolute lg:top-5 lg:p-8 md:top-5 md:p-8
+             transition-[120px] duration-500 ease-out
              ${
               companyMenu
                 ? "visible p-4 pb-0 lg:translate-y-[1rem] "
                 : "hidden"
             }   flex w-max flex-col gap-4 p-10 rounded-md leading-none lg:left-0  bg-white  dark:bg-black`}
           >
-            {[["History"], ["Our Team"], ["Blog"]].map(([text], index) => (
+            {categoryKeys.map((key, index) => (
+            <NavItem key={index} text={key} href={`/category/${key}`} />
+          ))}
+            {/* {[["History"], ["Our Team"], ["Blog"]].map(([text], index) => (
               <li key={`company-${index}`}>
                 <a
                   href="#"
@@ -168,11 +185,11 @@ export function NavMenu({}) {
                   {text}
                 </a>
               </li>
-            ))}
+            ))} */}
             {/* END company Sub-menu */}
           </ul>
         </li>
-            <NavItem text={'Etiquetas'} href={`/tag`} />
+           
              <NavItem text={'Acerca de'} href={'/about'} />
       
           
@@ -187,6 +204,7 @@ export function NavMenu({}) {
             <div className="flex justify-end items-center  ">
               
            <ThemeSwitch />
+           <MobileNav />
            
             
             </div>

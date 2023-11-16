@@ -4,7 +4,6 @@ import { Container } from "@/components/layouts/Container";
 import { FaHome } from "react-icons/fa";
 import { BsFillTagsFill } from "react-icons/bs";
 import Link from "next/link";
-import { Dropdown } from "flowbite-react";
 import Header from "@/components/Header2/Header";
 import styles from "@/styles/index";
 import Image from "next/image";
