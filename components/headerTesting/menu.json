@@ -1,32 +1,45 @@
 {
   "main": [
     {
-      "name": "Home",
-      "url": "#"
+      "name": "Blog",
+      "url": "/category/writings"
     },
     {
-      "name": "About",
-      "url": "#"
+      "name": "Libros",
+      "url": "/posts"
     },
     {
-      "name": "Elements",
-      "url": "#"
-    },
-    {
-      "name": "Contact",
-      "url": "#"
-    },
-    {
-      "name": "Pages",
+      "name": "Categorias",
       "url": "",
       "hasChildren": true,
       "children": [
         {
-          "name": "Categories",
-          "url": "#"
+          "name": "Cuerpo",
+          "url": "/category/body"
+        },
+        {
+          "name": "Mente",
+          "url": "/category/mind"
+        },
+        {
+          "name": "Sexo",
+          "url": "/category/tantra"
+        },
+        {
+          "name": "Yoga",
+          "url": "/category/yoga"
         }
       ]
+    },
+    {
+      "name": "Acerca",
+      "url": "/about"
+    },
+    {
+      "name": "Contacto",
+      "url": "#"
     }
+   
   ],
   "footer": [
     {

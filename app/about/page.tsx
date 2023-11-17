@@ -9,7 +9,7 @@ import { TbPointFilled } from "react-icons/tb";
 
 export default function About() {
 
-  ResizeObserver
+ 
   return (
     <Container title="About Me - Braydon Coyer">
       <div className="flex items-center space-x-5">
@@ -24,14 +24,7 @@ export default function About() {
           </div>
 
      
-      {/* <ResizeObserver
-      
-    onResize={() => {
-      console.log('resized!');
-    }}
-  >
-    <textarea />
-  </ResizeObserver> */}
+     
 
       <article
         className="mt-10 text-black dark:text-white font-alliance1  prose-headings:font-spartan 
