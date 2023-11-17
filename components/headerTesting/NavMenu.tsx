@@ -91,12 +91,12 @@ export function NavMenu({}) {
 
   return (
     // <header className={`header ${visible ? "top-0" : "hidden"}`}>
-      <header className="header">
+       <header className="header"> 
       <nav className="navbar container px-1 sm:px-8">
         <div className="order-0">{/* <Logo /> */} LOGO_IMAGE</div>
 
              {/* navbar toggler */}
-              <input id="nav-toggle" type="checkbox" className="" /> 
+              <input id="nav-toggle" type="checkbox" className="hidden" /> 
         <label
           htmlFor="nav-toggle"
           className="order-3 cursor-pointer flex lg:hidden items-center  text-dark dark:text-white lg:order-1"
@@ -197,7 +197,9 @@ export function NavMenu({}) {
           {settings.search && (
             <Link
               className="mr-5 inline-block border-r border-border pr-5 text-xl text-dark hover:text-primary dark:border-darkmode-border dark:text-white"
-              href="/search"
+              // href="/search"
+              href="/"
+             
               aria-label="search"
             >
               <IoSearch />

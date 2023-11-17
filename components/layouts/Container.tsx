@@ -5,6 +5,7 @@ import { PageTransition } from "@/components/PageTransition";
 import { NavMenu } from "../headerTesting/NavMenu";
 import React from "react";
 import BreadcrumbComponent from "../breadcrumb/BreadcrumbComponent";
+import Breadcrumbs from "../breadcrumb/Breadcrumbs";
 
 
 export const Container = (props) => {
@@ -34,7 +35,8 @@ export const Container = (props) => {
       >
         <div className="z-10">
           <PageTransition>
-             <BreadcrumbComponent />
+             {/* <BreadcrumbComponent /> */}
+             <Breadcrumbs />
             <div className="text-black dark:text-white text-xl mt-0 py-5">
              
                

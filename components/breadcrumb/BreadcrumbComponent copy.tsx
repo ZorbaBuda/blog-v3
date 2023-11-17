@@ -10,6 +10,7 @@ import React from "react";
 type breadcrumb = {
   href: string;
   label: string;
+  active: boolean;
 };
 
 const BreadcrumbComponent = () => {
@@ -22,18 +23,20 @@ const BreadcrumbComponent = () => {
     linkPath.shift();
 
     const pathArray = linkPath.map((path, i) => {
+      const lastElement = i+1 === linkPath.length ? true : false
       return {
         label: path,
         href: "/" + linkPath.slice(0, i + 1).join("/"),
+        active: lastElement
       };
     });
 
     setBreadcrumbs(pathArray);
   }, [router]);
-  // console.log("label ", breadcrumbs);
+
   return (
     <Breadcrumb>
-      <BreadcrumbItem href="/">
+      <BreadcrumbItem href="/" active={breadcrumbs && breadcrumbs.length > 1 ? false : true}>
         <div className="flex  items-center gap-x-2">
          
        <div className="mb-1"  >  <FaHome /></div> 
@@ -44,7 +47,7 @@ const BreadcrumbComponent = () => {
 
       {breadcrumbs &&
         breadcrumbs.map((breadcrumb) => (
-          <BreadcrumbItem key={breadcrumb.href} href={breadcrumb.href}>
+          <BreadcrumbItem key={breadcrumb.href} href={breadcrumb.href} active={breadcrumb.active}>
             {breadcrumb.label}
           </BreadcrumbItem>
         ))}
@@ -54,9 +57,7 @@ const BreadcrumbComponent = () => {
 
 const Breadcrumb = ({ children }) => {
   const childrenArray = Children.toArray(children);
-  console.log(childrenArray);
-
-  // console.log(childrenArray);
+ 
 
   const childrenWtihSeperator = childrenArray.map((child, index) => {
     if (index !== childrenArray.length - 1) {
@@ -72,20 +73,22 @@ const Breadcrumb = ({ children }) => {
 
   return (
     <nav className=" flex   py-3 text-gray-700   ">
-      <ol className=" list-none inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+      {/* ul adds left margin */}
+      <div className=" list-none inline-flex items-center space-x-1">
         {childrenWtihSeperator}
-      </ol>
+      </div>
     </nav>
   );
 };
 
-const BreadcrumbItem = ({ children, href, ...props }) => {
+const BreadcrumbItem = ({ children, href, active, ...props }) => {
   return (
     <li {...props} className="inline-flex items-center">
       <Link
-        className=" hover:text-[#FB5148] dark:hover:text-[#FB5148]
-       text-black dark:text-slate-500 capitalize text-sm no-underline 
-       font-roboto "
+        className={` hover:text-[#FB5148] dark:hover:text-[#FB5148]
+        capitalize text-sm no-underline font-roboto 
+        ${active ? 'text-[#FB5148]' : 'dark:text-slate-500 text-black' }
+       `}
         href={href}
         passHref
       >

@@ -52,6 +52,8 @@ export default function page({ params} : { params: { category: string }}) {
   const sortedCategoryPosts = allCoreContent(
     sortPosts(allPosts.filter((post) => post.category && post.category === category))
   )
+
+  // console.log(sortedCategoryPosts[2])
   
 
  
