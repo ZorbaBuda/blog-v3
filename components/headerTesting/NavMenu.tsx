@@ -44,7 +44,13 @@ export function NavMenu({}) {
 
   // states declaration
   const [searchModal, setSearchModal] = useState(false);
+
+  //toggle menu
   const [showMenu, setShowMenu] = useState(false);
+
+  const handleShowMenu = () => {
+    setShowMenu(!showMenu)
+  }
 
   // Router
   // const router = useRouter();
@@ -84,7 +90,8 @@ export function NavMenu({}) {
   const isCategoryDropdownActive = usePathname().includes("category");
 
   return (
-    <header className={`header ${visible ? "top-0" : ""}`}>
+    // <header className={`header ${visible ? "top-0" : "hidden"}`}>
+      <header className="header">
       <nav className="navbar container px-1 sm:px-8">
         <div className="order-0">{/* <Logo /> */} LOGO_IMAGE</div>
 
@@ -92,19 +99,22 @@ export function NavMenu({}) {
               <input id="nav-toggle" type="checkbox" className="" /> 
         <label
           htmlFor="nav-toggle"
-          className="order-3 cursor-pointer flex items-center lg:hidden text-dark dark:text-white lg:order-1"
+          className="order-3 cursor-pointer flex lg:hidden items-center  text-dark dark:text-white lg:order-1"
         >
+       
           <svg
+           onClick={handleShowMenu}
             id="show-button"
-            className="h-6 fill-current block"
+            className={`h-6 fill-current ${ showMenu ? "hidden" : "block"}`}
             viewBox="0 0 20 20"
           >
             <title>Menu Open</title>
             <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
           </svg>
           <svg
+           onClick={handleShowMenu}
             id="hide-button"
-            className="h-6 fill-current hidden"
+            className={`h-6 fill-current ${ showMenu ? "block" : "hidden"}`}
             viewBox="0 0 20 20"
           >
             <title>Menu Close</title>
@@ -115,9 +125,10 @@ export function NavMenu({}) {
           </svg>
         </label>
 
+{/* here */}
         <ul
           id="nav-menu"
-          className="navbar-nav order-3 hidden w-full pb-6 lg:order-1 lg:flex lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8"
+          className={`navbar-nav order-3 ${showMenu ? "block" : "hidden"}    w-full pb-6 lg:order-1 lg:flex lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8`}
         >
           {main.map((menu, i) => (
             <React.Fragment key={`menu-${i}`}>
