@@ -90,26 +90,32 @@
 
   
 .header {
-  @apply w-full z-30 border-y-[1px] font-spartan  py-[6px] 
+  @apply w-full z-50 border-y-[1px] font-spartan  
   border-[#383A3C] sticky
   dark:bg-[#121212] dark:text-white
-  text-gray-900 bg-[#EFF4FF]
+  text-black bg-[#EFF4FF]
+   tracking-wider  
 }
 
 /* // navbar items */
 .navbar {
-  @apply mx-auto max-w-7xl relative flex flex-wrap items-center justify-between;
+  @apply mx-auto max-w-7xl relative flex flex-wrap items-center justify-between
+   lg:h-16  h-auto   py-3 lg:px-0
+  
+  ;
 }
 
 .navbar-brand {
-  @apply text-xl font-semibold text-black dark:text-white;
+  @apply text-2xl font-libre_baskerville_bold font-semibold text-black dark:text-white  ;
   image {
     @apply max-h-full max-w-full;
   }
 }
 
 .navbar-nav {
-  @apply text-center lg:text-left;
+  @apply text-center lg:text-left text-sm
+
+  ;
 }
 
 // .nav-item {
@@ -121,8 +127,24 @@
 // }
 
 .nav-link {
-  @apply block p-3  text-black transition hover:text-slate-600  dark:text-white lg:px-2 lg:py-3;
+  @apply block p-3  text-black dark:text-white font-semibold dark:font-normal transition-all
+  hover:text-[#FB5148] dark:hover:text-[#FB5148]   lg:px-4 lg:py-3
+ 
+       bg-left-bottom bg-gradient-to-r from-[#FB5148] to-[#FB5148] bg-[length:0%_4px] bg-no-repeat 
+       group-hover:bg-[length:100%_2px]  duration-300 ease-out 
+  ;
+ 
 }
+
+  .nav-item {
+   @apply  transition-all  
+   bg-left-bottom bg-gradient-to-r from-[#FB5148] to-[#FB5148] bg-[length:0%_4px] bg-no-repeat 
+   group-hover:bg-[length:100%_2px]  duration-300 ease-out 
+   ;
+   &.active {
+    @apply hidden;
+  }
+ }
 
 .nav-dropdown {
   @apply mr-0;

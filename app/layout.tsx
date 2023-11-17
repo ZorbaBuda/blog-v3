@@ -3,6 +3,7 @@ import './globals.scss'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProviders } from './theme-providers';
+import TwSizeIndicator from '@/components/helpers/TwSizeIndicator';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -19,15 +20,18 @@ export default function RootLayout({
 }) {
   return (
     <html className="font-roboto antialiased" lang="en" suppressHydrationWarning >
+  
       <body >
        
       <ThemeProviders>
+         <TwSizeIndicator/>
        <main className=' bg-white dark:bg-[#121212] text-black dark:text-white'>
         {children}
         </main> 
      </ThemeProviders>
        
         </body>
+       
     </html>
   )
 }

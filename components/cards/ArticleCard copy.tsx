@@ -3,13 +3,8 @@ import slugify from "slugify";
 import { Post } from "@/.contentlayer/generated";
 import getFormattedDate from "@/lib/getFormattedDate";
 import Link from "next/link";
-import { Accent } from "../ui/accent";
-import GlowEffect from "../ui/GlowEffect";
-import "@/content/bgPatterns.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { Button } from "../Button";
-import CategoryTag from "@/components/tags/CategoryTag";
-import Badge from "../tags/Badge";
 import Category from "../tags/Category";
 
 type Props = {
@@ -30,12 +25,12 @@ function ArticleCard({ post, pattern }: Props) {
   //const patternn = "lavender-lumberjack";
   return (
     <div className="  group  xl:max-w-[920px] pt-5  ">
-      <div className="  flex flex-wrap-reverse justify-between">
-        <div className=" mt-0 flex flex-col max-w-[560px] ">
+      <div className="  flex flex-wrap-reverse justify-between items-center">
+        <div className=" mt-7 md:mt-2  flex flex-col lg:max-w-[560px] md:max-w-[260px] max-w-none ">
           <Category text={category} />
           {/* <Accent>{category}</Accent> */}
 
-          <Link className="no-underline" href={`/document/${slug}`}>
+          <Link className="no-underline" href={`/posts/${slug}`}>
             <div className="hover:underline mt-3 font-libre_baskerville_bold  tracking-tight text-2xl  text-black dark:text-white">
               {title}
             </div>
@@ -43,7 +38,9 @@ function ArticleCard({ post, pattern }: Props) {
 
           <div className="font-libre_baskerville dark:text-white text-lg text-black mt-3">
             {" "}
-            Arthur Janov, 1973
+            {post.bookAuthor ? post.bookAuthor : 'Anonymous'}
+            {', '}
+            {post.bookYear ? post.bookYear : 'No year'}
           </div>
 
           <div className="dark:text-slate-400 text-black leading-normal  text-base mt-2 tracking-normal  ">
@@ -56,20 +53,21 @@ function ArticleCard({ post, pattern }: Props) {
             <div className="tracking-wider  ml-3 ">{formattedDate}</div>
           </div>
 
-          <Button href={`/document/${slug}`}>READ MORE</Button>
+          <Button href={`/posts/${slug}`}>READ MORE</Button>
         </div>
 
         <Link
-          className="overflow-hidden no-underline mx-auto md:mx-auto lg:mx-0 flex justify-between items-center
-           h-[273px] w-[348px]  max-h-[273px] max-w-[348px]  bg-[#EEEEEE] rounded-xl
+          className=" overflow-hidden no-underline mx-auto md:mx-auto lg:mx-0 flex justify-between items-center
+           lg:h-[273px] lg:w-[348px]  md:h-[273px] md:w-[348px] sm:h-[273px] sm:w-[348px] container h-[313px]
+             bg-[#EEEEEE] rounded-sm
           "
-          href={`/document/${slug}`}
+          href={`/posts/${slug}`}
         >
-        {category === 'body' ? (
+        {category === 'writings' ? (
          
               <Image
                 className=" mx-auto  object-cover 
-              rounded-xl overflow-hidden w-full h-full
+               overflow-hidden w-full h-full
               transition-all duration-1000 group-hover:scale-110 
              
                 "

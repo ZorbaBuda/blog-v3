@@ -3,6 +3,8 @@
 import { humanize } from "@/lib/textConverter";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { FaHome } from "react-icons/fa";
 
 const Breadcrumbs = ({ className }: { className?: string }) => {
   const pathname = usePathname();
@@ -10,7 +12,7 @@ const Breadcrumbs = ({ className }: { className?: string }) => {
   const paths = pathname.split("/").filter((x) => x);
   let parts = [
     {
-      label: "Home",
+      label: "Primal Ideas",
       href: "/",
       "aria-label": pathname === "/" ? "page" : undefined,
     },
@@ -28,25 +30,28 @@ const Breadcrumbs = ({ className }: { className?: string }) => {
 
   return (
     <nav aria-label="Breadcrumb" className={className}>
-      <ol className="inline-flex list-none" role="list">
+      <div className="py-10 inline-flex items-center list-none" role="">
+       <div className="text-black dark:text-white"> <FaHome /></div>
         {parts.map(({ label, ...attrs }, index) => (
-          <li className="mx-1 capitalize" role="listitem" key={index}>
-            {index > 0 && <span className="inlin-block mr-1">/</span>}
+         
+          <li className="mx-1 capitalize flex items-center" role="listitem" key={index}>
+            {index > 0 && <span className=" inline-block mr-1"><MdKeyboardArrowRight/></span>}
             {index !== parts.length - 1 ? (
               <Link
-                className="text-primary dark:text-darkmode-primary"
+                className="hover:text-[#FB5148] dark:hover:text-[#FB5148]
+                text-sm no-underline text-black dark:text-white "
                 {...attrs}
               >
                 {label}
               </Link>
             ) : (
-              <span className="text-light dark:text-darkmode-light">
+              <span className="text-sm text-[#FB5148] dark:text-[#FB5148] ">
                 {label}
               </span>
             )}
           </li>
         ))}
-      </ol>
+      </div>
     </nav>
   );
 };
