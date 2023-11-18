@@ -18,15 +18,11 @@ function ArticleCard({ post, pattern }: Props) {
   const slug1 = slugify(title).toLowerCase();
   const formattedDate = getFormattedDate(date);
   const imageUrl = `${process.env.GITHUB_URL_IMAGES}${coverImage}`;
-  // console.log(imageUrl)
-  // const immUrl = `https://raw.githubusercontent.com/ZorbaBuda/blog-v3/main/public/${coverImage}`;
-
-  //const patternn = post.pattern? post.pattern : "pattern13";
-  //const patternn = "lavender-lumberjack";
+  
   return (
-    <div className="  group  xl:max-w-[920px] pt-5  ">
+    <div className="  group  max-w-[920px] pt-5  ">
       <div className="  flex flex-wrap-reverse justify-between items-center">
-        <div className=" mt-7 md:mt-2  flex flex-col lg:max-w-[560px] md:max-w-[260px] max-w-none ">
+        <div className=" mt-7 md:mt-2  flex flex-col lg:max-w-[560px] md:max-w-[360px] max-w-none ">
           <Category text={category} />
           {/* <Accent>{category}</Accent> */}
 
@@ -57,8 +53,8 @@ function ArticleCard({ post, pattern }: Props) {
         </div>
 
         <Link
-          className=" overflow-hidden no-underline mx-auto md:mx-auto lg:mx-0 flex justify-between items-center
-           lg:h-[273px] lg:w-[348px]  md:h-[273px] md:w-[348px] sm:h-[273px] sm:w-[348px] container h-[313px]
+          className="overflow-hidden no-underline mx-auto md:mx-auto lg:mx-0 flex justify-between items-center
+           lg:h-[273px] lg:w-[348px]  md:h-[273px] md:w-[348px] sm:h-[273px] sm:w- container h-[313px]
              bg-[#EEEEEE] rounded-sm
           "
           href={`/posts/${slug}`}

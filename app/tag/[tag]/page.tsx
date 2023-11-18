@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Tag from '@/components/tags/Tag'
 import tagFiles from '@/lib/tag-files.json'
 import { Container } from '@/components/layouts/Container'
-import BookResumeList from '@/components/articleListLayouts/BookResumeList'
+import BookResumeList from '@/components/articleListLayouts/PostsListGrid'
 import { allCoreContent, sortPosts } from '@/lib/postsUtils'
 import { allPosts } from '@/.contentlayer/generated'
 

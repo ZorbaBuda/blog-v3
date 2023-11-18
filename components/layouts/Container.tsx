@@ -4,7 +4,6 @@ import Head from "next/head";
 import { PageTransition } from "@/components/PageTransition";
 import { NavMenu } from "../headerTesting/NavMenu";
 import React from "react";
-import BreadcrumbComponent from "../breadcrumb/BreadcrumbComponent";
 import Breadcrumbs from "../breadcrumb/Breadcrumbs";
 
 

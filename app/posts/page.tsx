@@ -1,6 +1,6 @@
 import categoryData from '@/content/category-files.json'
 import { Container } from '@/components/layouts/Container'
-import BookResumeList from '@/components/articleListLayouts/BookResumeList'
+import BookResumeList from '@/components/articleListLayouts/PostsListGrid'
 import { allPosts } from '@/.contentlayer/generated'
 import type { Post } from '@/.contentlayer/generated'
 import { allCoreContent, sortPosts } from '@/lib/postsUtils'

@@ -19,6 +19,7 @@ export async function POST(request) {
 
 
     // create transporter object
+    //TODO configure an email account pending
     const transporter = nodemailer.createTransport({
         host: "smtp-mail.outlook.com",
         port: 587,

@@ -9,10 +9,9 @@ import Category from "../tags/Category";
 
 type Props = {
   post: Post;
-  pattern: string;
 };
 
-function ArticleCard({ post, pattern }: Props) {
+function ArticleCard({ post }: Props) {
   const { coverImage, slug, date, title, summary, tags, category } = post;
 
   const slug1 = slugify(title).toLowerCase();
@@ -25,40 +24,13 @@ function ArticleCard({ post, pattern }: Props) {
   //const patternn = "lavender-lumberjack";
   return (
     <div className="  group  xl:max-w-[920px] pt-5  ">
-      <div className="  flex flex-wrap-reverse justify-between items-center">
-        <div className=" mt-7 md:mt-2  flex flex-col lg:max-w-[560px] md:max-w-[260px] max-w-none ">
-          <Category text={category} />
-          {/* <Accent>{category}</Accent> */}
-
-          <Link className="no-underline" href={`/posts/${slug}`}>
-            <div className="hover:underline mt-3 font-libre_baskerville_bold  tracking-tight text-2xl  text-black dark:text-white">
-              {title}
-            </div>
-          </Link>
-
-          <div className="font-libre_baskerville dark:text-white text-lg text-black mt-3">
-            {" "}
-            {post.bookAuthor ? post.bookAuthor : 'Anonymous'}
-            {', '}
-            {post.bookYear ? post.bookYear : 'No year'}
-          </div>
-
-          <div className="dark:text-slate-400 text-black leading-normal  text-base mt-2 tracking-normal  ">
-            {" "}
-            {summary}
-          </div>
-
-          <div className="flex  mt-5 text-sm  uppercase dark:text-slate-400 text-black">
-            <FaRegCalendarAlt />
-            <div className="tracking-wider  ml-3 ">{formattedDate}</div>
-          </div>
-
-          <Button href={`/posts/${slug}`}>READ MORE</Button>
-        </div>
-
-        <Link
-          className=" overflow-hidden no-underline mx-auto md:mx-auto lg:mx-0 flex justify-between items-center
-           lg:h-[273px] lg:w-[348px]  md:h-[273px] md:w-[348px] sm:h-[273px] sm:w-[348px] container h-[313px]
+      {/* <div className="  flex flex-wrap-reverse justify-between items-center"> */}
+       {/* <div className="md:grid md:grid-cols-2 md:gap-20 flex flex-wrap-reverse justify-between items-center"> */}
+       <div className="md:grid md:grid-cols-2 md:gap-20 grid-cols-1 justify-between items-center">
+      
+         <Link
+          className="md:order-last overflow-hidden no-underline mx-auto md:mx-auto lg:mx-0 flex justify-between items-center
+           lg:h-[273px] lg:w-[348px]  md:h-[273px] md:w-[348px] sm:h-[273px] sm:container container h-[313px]
              bg-[#EEEEEE] rounded-sm
           "
           href={`/posts/${slug}`}
@@ -95,8 +67,42 @@ function ArticleCard({ post, pattern }: Props) {
           
   }
         </Link>
+      
+        <div className=" mt-7 md:mt-2  flex flex-col  max-w-none ">
+          <Category text={category} />
+          {/* <Accent>{category}</Accent> */}
+
+          <Link className="no-underline" href={`/posts/${slug}`}>
+            <div className="hover:underline mt-3 font-libre_baskerville_bold  tracking-tight text-2xl  text-black dark:text-white">
+              {title}
+            </div>
+          </Link>
+
+          <div className="font-libre_baskerville dark:text-white text-lg text-black mt-3">
+            {" "}
+            {post.bookAuthor ? post.bookAuthor : 'Anonymous'}
+            {', '}
+            {post.bookYear ? post.bookYear : 'No year'}
+          </div>
+
+          <div className="dark:text-slate-400 text-black leading-normal  text-base mt-2 tracking-normal  ">
+            {" "}
+            {summary}
+          </div>
+
+          <div className="flex  mt-5 text-sm  uppercase dark:text-slate-400 text-black">
+            <FaRegCalendarAlt />
+            <div className="tracking-wider  ml-3 ">{formattedDate}</div>
+          </div>
+
+          <Button href={`/posts/${slug}`}>READ MORE</Button>
+        </div>
+
+
+     
+
       </div>
-    </div>
+     </div>
   );
 }
 

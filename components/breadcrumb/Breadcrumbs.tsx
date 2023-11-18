@@ -31,7 +31,7 @@ const Breadcrumbs = ({ className }: { className?: string }) => {
   return (
     <nav aria-label="Breadcrumb" className={className}>
       <div className="py-10 inline-flex items-center list-none" role="">
-       <div className="text-black dark:text-white"> <FaHome /></div>
+       <div className="text-black dark:text-white flex items-center"> <FaHome /></div>
         {parts.map(({ label, ...attrs }, index) => (
          
           <li className="mx-1 capitalize flex items-center" role="listitem" key={index}>
