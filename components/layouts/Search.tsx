@@ -13,6 +13,7 @@ import {
 import ImageFallback from "@/components/helpers/ImageFallback";
 import { Container } from "./Container";
 import SearchNoImage from "@/public/no-search-found.png"
+import ArticleCardInSearch from "../cards/ArticleCardInSearch";
 
 const { summary_length, blog_folder } = config.settings;
 
@@ -132,62 +133,59 @@ const Search = ({ searchList }: Props) => {
             </div>
           ) : (
             searchResults?.map(({ item }, index) => (
-              <div className="mb-12 md:col-6 lg:col-4" key={`search-${index}`}>
-                <div className="bg-body dark:bg-darkmode-body">
-                  {/* {item.frontmatter.image && (
-                    <ImageFallback
-                      className="mb-6 w-full rounded"
-                      src={item.frontmatter.image}
-                      alt={item.frontmatter.title}
-                      width={445}
-                      height={230}
-                    />
-                  )} */}
-                  <h4 className="mb-3">
-                    <Link href={`/posts/${item.slug}`}>
-                      {item.frontmatter.title}
-                    </Link>
-                  </h4>
-                  <ul className="mb-4">
-                    <li className="mr-4 inline-block">
-                      <Link href={`/authors/${slugify(item.frontmatter.author)}`}>
-                        <FaRegUserCircle
-                          className={"-mt-1 mr-2 inline-block"}
-                        />
-                        {/* {humanize(item.frontmatter.author)} */}
-                        {item.frontmatter.author}
-                      </Link>
-                    </li>
-                    <li className="mr-4 inline-block">
-                      <FaRegFolder className={"-mt-1 mr-2 inline-block"} />
-                       {item.frontmatter.categories.map(
-                        (category: string, index: number) => (
-                          <Link
-                            href={`/categories/${slugify(category)}`}
-                            key={category}
-                          >
-                            {/* {humanize(category)} */}
-                            {category}
-                            {index !== item.frontmatter.categories.length - 1 &&
-                              ", "}
-                          </Link>
-                        ),
-                      )} 
-                       
-                    </li>
-                  </ul>
-                  <p className="mb-6">
-                    {plainify(item.content?.slice(0, Number(summary_length)))}
-                  </p>
-                  <Link
-                    className="btn btn-outline-primary btn-sm"
-                    href={`/posts/${item.slug}`}
-                  >
-                    read more
-                  </Link>
-                </div>
+              // <div className="mb-12 md:col-6 lg:col-4" key={`search-${index}`}>
+            <div className="mt-10">
+              <ArticleCardInSearch post={item}   />
               </div>
+              // <div className="flex flex-col">
+              //   <div className="bg-body dark:bg-darkmode-body">
+              //     <h4 className="mb-3">
+              //       <Link 
+              //       href={`/posts/${item.slug}`}>
+              //         {item.frontmatter.title}
+              //       </Link>
+              //     </h4>
+              //     <ul className="mb-4">
+              //       <li className="mr-4 inline-block">
+              //         <Link href={`/authors/${slugify(item.frontmatter.author)}`}>
+              //           <FaRegUserCircle
+              //             className={"-mt-1 mr-2 inline-block"}
+              //           />
+              //            {humanize(item.frontmatter.author)} 
+              //           {item.frontmatter.author}
+              //         </Link>
+              //       </li>
+              //       <li className="mr-4 inline-block">
+              //         <FaRegFolder className={"-mt-1 mr-2 inline-block"} />
+              //          {item.frontmatter.categories.map(
+              //           (category: string, index: number) => (
+              //             <Link
+              //               href={`/categories/${slugify(category)}`}
+              //               key={category}
+              //             >
+              //                {humanize(category)} 
+              //               {category}
+              //               {index !== item.frontmatter.categories.length - 1 &&
+              //                 ", "}
+              //             </Link>
+              //           ),
+              //         )} 
+                       
+              //       </li>
+              //     </ul>
+              //     <p className="mb-6">
+              //       {plainify(item.content?.slice(0, Number(summary_length)))}
+              //     </p>
+              //     <Link
+              //       className="btn btn-outline-primary btn-sm"
+              //       href={`/posts/${item.slug}`}
+              //     >
+              //       read more
+              //     </Link>
+              //   </div>
+              // </div>
             ))
+            
           )}
         </div>
       </div>

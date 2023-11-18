@@ -20,6 +20,7 @@ const searchList = allPosts.map((item) => ({
     tags: item.tags,
     image: item.coverImage,
     author: item.bookAuthor!,
+    summary: item.summary,
   },
   content: item.body.raw,
 }));

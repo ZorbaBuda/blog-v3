@@ -22,7 +22,7 @@ const Category = ({ text }: Props) => {
       href={`/category/${text}`}
       className={`
       ${colors[text]}
-      tracking-wider rounded-sm py-1 px-4 mr-3  cursor-pointer
+      tracking-wider rounded-sm py-1 px-4   cursor-pointer
           text-xs max-w-fit no-underline
       uppercase  text-slate-300 
     `}
