@@ -11,6 +11,8 @@ import {
   FaSearch,
 } from "react-icons/fa/index.js";
 import ImageFallback from "@/components/helpers/ImageFallback";
+import { Container } from "./Container";
+import SearchNoImage from "@/public/no-search-found.png"
 
 const { summary_length, blog_folder } = config.settings;
 
@@ -34,6 +36,7 @@ const Search = ({ searchList }: Props) => {
   const [inputVal, setInputVal] = useState("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
 
+  //console.log(searchList.length)
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     setInputVal(e.currentTarget.value);
   };
@@ -73,8 +76,9 @@ const Search = ({ searchList }: Props) => {
   }, [inputVal]);
 
   return (
-    <section className="section-sm">
-      <div className="container">
+    <Container>
+    <section className="py-16 xl:py-20">
+      <div className="mx-auto max-w-[1320px] px-4">
         <div className="row mb-10 justify-center">
           <div className="lg:col-8">
             <div className="flex flex-nowrap">
@@ -89,7 +93,9 @@ const Search = ({ searchList }: Props) => {
                 autoFocus
                 ref={inputRef}
               />
-              <button className="btn btn-primary rounded-l-none" type="submit">
+              <button className=" mt-5 border-[1px] border-slate-400 rounded-sm text-sm 
+      tracking-wider  dark:text-slate-400 text-dark flex px-6 py-3 uppercase
+      hover:bg-[#f02b2b] hover:text-black group-dark:hover:text-black" type="submit">
                 <FaSearch />
               </button>
             </div>
@@ -110,7 +116,7 @@ const Search = ({ searchList }: Props) => {
             <div className="mx-auto pt-5 text-center">
               <ImageFallback
                 className="mx-auto mb-6"
-                src="/images/no-search-found.png"
+                src={SearchNoImage}
                 alt="no-search-found"
                 width={211}
                 height={184}
@@ -128,7 +134,7 @@ const Search = ({ searchList }: Props) => {
             searchResults?.map(({ item }, index) => (
               <div className="mb-12 md:col-6 lg:col-4" key={`search-${index}`}>
                 <div className="bg-body dark:bg-darkmode-body">
-                  {item.frontmatter.image && (
+                  {/* {item.frontmatter.image && (
                     <ImageFallback
                       className="mb-6 w-full rounded"
                       src={item.frontmatter.image}
@@ -136,47 +142,49 @@ const Search = ({ searchList }: Props) => {
                       width={445}
                       height={230}
                     />
-                  )}
+                  )} */}
                   <h4 className="mb-3">
-                    <Link href={`/${blog_folder}/${item.slug}`}>
+                    <Link href={`/posts/${item.slug}`}>
                       {item.frontmatter.title}
                     </Link>
                   </h4>
                   <ul className="mb-4">
                     <li className="mr-4 inline-block">
-                      <a href={`/authors/${slugify(item.frontmatter.author)}`}>
+                      <Link href={`/authors/${slugify(item.frontmatter.author)}`}>
                         <FaRegUserCircle
                           className={"-mt-1 mr-2 inline-block"}
                         />
-                        {humanize(item.frontmatter.author)}
-                      </a>
+                        {/* {humanize(item.frontmatter.author)} */}
+                        {item.frontmatter.author}
+                      </Link>
                     </li>
                     <li className="mr-4 inline-block">
                       <FaRegFolder className={"-mt-1 mr-2 inline-block"} />
-                      {/* {item.frontmatter.categories.map(
+                       {item.frontmatter.categories.map(
                         (category: string, index: number) => (
-                          <a
+                          <Link
                             href={`/categories/${slugify(category)}`}
                             key={category}
                           >
-                            {humanize(category)}
+                            {/* {humanize(category)} */}
+                            {category}
                             {index !== item.frontmatter.categories.length - 1 &&
                               ", "}
-                          </a>
+                          </Link>
                         ),
-                      )} */}
+                      )} 
                        
                     </li>
                   </ul>
                   <p className="mb-6">
                     {plainify(item.content?.slice(0, Number(summary_length)))}
                   </p>
-                  <a
+                  <Link
                     className="btn btn-outline-primary btn-sm"
-                    href={`/${blog_folder}/${item.slug}`}
+                    href={`/posts/${item.slug}`}
                   >
                     read more
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))
@@ -184,6 +192,7 @@ const Search = ({ searchList }: Props) => {
         </div>
       </div>
     </section>
+    </Container>
   );
 };
 

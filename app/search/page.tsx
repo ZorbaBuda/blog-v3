@@ -16,7 +16,7 @@ const searchList = allPosts.map((item) => ({
   // frontmatter: item.frontmatter,
   frontmatter: {
     title: item.title,
-    categories: item.category,
+    categories: [item.category],
     tags: item.tags,
     image: item.coverImage,
     author: item.bookAuthor!,

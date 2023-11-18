@@ -16,6 +16,7 @@ export const markdownify = (content: string, div?: boolean) => {
 
 // humanize
 export const humanize = (content: string) => {
+  console.log("content in humanize: ", content)
   return content
     .replace(/^[\s_]+|[\s_]+$/g, "")
     .replace(/[_\s]+/g, " ")
