@@ -1,23 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-
-// import DarkLogo from 'public/bcoyerlogo_dark.svg';
-// import { Dialog } from '@headlessui/react';
-import Image from "next/image";
-// import LightLogo from 'public/bcoyerlogo_white.svg';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
-import headerNavLinks from "@/data/headerNavLinks";
-import MobileNav from "./MobileNav";
-import ThemeSwitch from "../ThemeSwitch";
-import SearchButton from "../SearchButton";
-import categoryData from "@/content/category-files.json";
-import NavItem from "./NavItem";
 import { BsChevronDown } from "react-icons/bs";
 import ThemeSwitcher from "../ThemeSwitcher";
 import menu from "./menu.json";
-import { useRouter } from "next/router";
 import { IoSearch } from "react-icons/io5";
 import React from "react";
 import config from './config.json'
@@ -91,24 +78,16 @@ export function NavMenu({}) {
 
   return (
     <>
-    {/* <div className="fixed left-0 top-0 z-50 flex w-[30px] items-center justify-center bg-gray-200 py-[2.5px] text-[12px] uppercase text-black sm:bg-red-200 md:bg-yellow-200 lg:bg-green-200 xl:bg-blue-200 2xl:bg-pink-200">
-        <span className="block sm:hidden">all</span>
-        <span className="hidden sm:block md:hidden">sm</span>
-        <span className="hidden md:block lg:hidden">md</span>
-        <span className="hidden lg:block xl:hidden">lg</span>
-        <span className="hidden xl:block 2xl:hidden">xl</span>
-        <span className="hidden 2xl:block">2xl</span>
-      </div> */}
     {/* // <header className={`header ${visible ? "top-0" : "hidden"}`}> */}
        <header className="header"> 
       <nav className="navbar container px-1 sm:px-8">
-        <div className="order-0">{/* <Logo /> */} LOGO_IMAGE</div>
+        <div className="order-1  sm:order-1">{/* <Logo /> */} LOGO_IMAGE</div>
 
              {/* navbar toggler */}
               <input id="nav-toggle" type="checkbox" className="hidden" /> 
         <label
           htmlFor="nav-toggle"
-          className="order-3 cursor-pointer flex lg:hidden items-center  text-dark dark:text-white lg:order-1"
+          className="order-0  px-3 cursor-pointer flex lg:hidden items-center  text-dark dark:text-white "
         >
        
           <svg
@@ -149,7 +128,7 @@ export function NavMenu({}) {
                       menu.children
                         ?.map(({ url }) => `${url}/`)
                         .includes(pathname)
-                        ? "active"
+                        ? "text-[#FB5148]"
                         : ""
                     }`}
                   >
@@ -166,7 +145,7 @@ export function NavMenu({}) {
                           className={`nav-dropdown-link block ${
                             (pathname === `${child.url}/` ||
                               pathname === child.url) &&
-                            "active"
+                            "text-[#FB5148]"
                           }`}
                         >
                           {child.name}
@@ -176,12 +155,12 @@ export function NavMenu({}) {
                   </ul>
                 </li>
               ) : (
-                <li className="nav-item">
+                <li className="nav-item nav-dropdown group relative ">
                   <Link
                     href={menu.url}
                     className={`nav-link block active ${
                       (pathname === `${menu.url}/` || pathname === menu.url) &&
-                      "active"
+                      "text-[#FB5148]"
                     }`}
                   >
                     {menu.name}
@@ -211,7 +190,7 @@ export function NavMenu({}) {
              
               aria-label="search"
             >
-              <IoSearch />
+            <div className="hover:text-[#FB5148]">  <IoSearch /></div>
             </Link>
           )}
           <ThemeSwitcher className="mr-5" />
