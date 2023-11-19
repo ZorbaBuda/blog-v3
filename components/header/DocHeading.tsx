@@ -14,7 +14,7 @@ export default function DocHeading({ post }: Props) {
   const imageUrl = `${process.env.GITHUB_URL_IMAGES}${post.coverImage}`;
   const formattedDate = getFormattedDate(post.date);
   return (
-    <article className="mx-auto antialiased flex text-white">
+    <article className=" antialiased flex gap-10 text-white">
       <Image
       priority={true}
         className="rounded-md lg:ml-0 ml-3 object-cover my-0 w-[224px] h-[343px] lg:w-[354px] lg:h-[539px] md:w-[354px] md:h-[539px] "

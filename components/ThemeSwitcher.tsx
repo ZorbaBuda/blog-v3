@@ -1,6 +1,6 @@
 "use client";
 
-import config from "./headerTesting/config.json";
+import config from "./header/config.json";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 

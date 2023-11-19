@@ -1,63 +1,56 @@
 "use client";
 import { useEffect, useState } from "react";
-
-// import DarkLogo from 'public/bcoyerlogo_dark.svg';
-// import { Dialog } from '@headlessui/react';
-import Image from "next/image";
-// import LightLogo from 'public/bcoyerlogo_white.svg';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
-import headerNavLinks from "@/data/headerNavLinks";
-import MobileNav from "./MobileNav";
-import ThemeSwitch from "../ThemeSwitch";
-import SearchButton from "../SearchButton";
-import categoryData from '@/content/category-files.json'
-import NavItem from "./NavItem";
 import { BsChevronDown } from "react-icons/bs";
-import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import ThemeSwitcher from "../ThemeSwitcher";
+import menu from "./menu.json";
+import { IoSearch } from "react-icons/io5";
+import React from "react";
+import config from './config.json'
 
+// child navigation link interface
+export interface IChildNavigationLink {
+  name: string;
+  url: string;
+}
 
-// function NavItem({ href, text }) {
-  
-//   const isActive = usePathname() === href;
-//   console.log(usePathname().includes('category'))
-
-//   return (
-//     <Link className="group" href={href} passHref>
-//     <span
-//       className={`${
-//         isActive
-//           ? "font-bold text-[#FB5148] dark:text-[#FB5148]" : " text-black dark:text-white font-semibold dark:font-normal"
-//       }  text-sm hidden md:inline-block  capitalize
-//        hover:text-[#FB5148] dark:hover:text-[#FB5148] transition-all 
-//        bg-left-bottom bg-gradient-to-r from-[#FB5148] to-[#FB5148] bg-[length:0%_4px] bg-no-repeat 
-//        group-hover:bg-[length:100%_2px]  duration-300 ease-out  
-
-//       `}
-//     >
-//       {text}
-//     </span>
-//   </Link>
-//   );
-// }
+// navigation link interface
+export interface INavigationLink {
+  name: string;
+  url: string;
+  hasChildren?: boolean;
+  children?: IChildNavigationLink[];
+}
 
 export function NavMenu({}) {
-  const categoryKeys = Object.keys(categoryData)
+  // distructuring the main menu from menu object
+  const { main } = menu;
+  const { navigation_button, settings } = config;
 
-  const [mounted, setMounted] = useState(false);
-  let [isOpen, setIsOpen] = useState(false);
-  const { resolvedTheme, setTheme } = useTheme();
 
-  const [companyMenu, setCompanyMenu] = useState(false);
-  const handleCompanyMenu = () => {
-    setCompanyMenu(!companyMenu);
-   
-  };
+  // states declaration
+  const [searchModal, setSearchModal] = useState(false);
 
-  // A flag to know when the page has mounted so the theme can be accessed
-  useEffect(() => setMounted(true), []);
+  //toggle menu
+  const [showMenu, setShowMenu] = useState(false);
 
+  const handleShowMenu = () => {
+    setShowMenu(!showMenu)
+  }
+
+  // Router
+  // const router = useRouter();
+  // const isActive = usePathname() === href;
+  const pathname = usePathname();
+
+   // scroll to top on route change
+   useEffect(() => {
+    window.scroll(0, 0);
+  }, [pathname]);
+
+
+  //not part of Gekky
   //nabvar visible on scroll up
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -81,147 +74,135 @@ export function NavMenu({}) {
   });
 
   //setting isActive for Category dropdown
-  const isCategoryDropdownActive = usePathname().includes('category')
-  
+  const isCategoryDropdownActive = usePathname().includes("category");
 
   return (
-    <div className={`border-y-[1px] font-spartan border-[#383A3C] sticky ${visible ? 'top-0' : ''} z-50 w-full
-     text-gray-900 bg-[#EFF4FF]  dark:bg-[#121212] dark:text-white  `}>
-     
-      <div className="text-sm tracking-wider flex  items-center justify-between max-w-7xl px-4 py-7   mx-auto sm:px-6 ">
-        
-        {/* Left area */}
-        <div className="  ">
-          {/* <span className="sr-only">Profile Picture</span> */}
-          <Link href="/" passHref>
-            <div className="inline-flex min-w-fit font-libre_baskerville_bold">
-              PRIMAL IDEAS
-              {/* <Image
-                alt="Braydon Coyer"
-                height={38}
-                width={38}
-                src={DarkLogo}
-                blurDataURL={DarkLogo}
-                className="rounded-full"
-              /> */}
-            </div>
-          </Link>
+    <>
+    {/* // <header className={`header ${visible ? "top-0" : "hidden"}`}> */}
+       <header className="header"> 
+      <nav className="navbar container px-1 sm:px-8">
+        <div className="order-1  sm:order-1">{/* <Logo /> */} LOGO_IMAGE</div>
+
+             {/* navbar toggler */}
+              <input id="nav-toggle" type="checkbox" className="hidden" /> 
+        <label
+          htmlFor="nav-toggle"
+          className="order-0  px-3 cursor-pointer flex lg:hidden items-center  text-dark dark:text-white "
+        >
+       
+          <svg
+           onClick={handleShowMenu}
+            id="show-button"
+            className={`h-6 fill-current ${ showMenu ? "hidden" : "block"}`}
+            viewBox="0 0 20 20"
+          >
+            <title>Menu Open</title>
+            <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+          </svg>
+          <svg
+           onClick={handleShowMenu}
+            id="hide-button"
+            className={`h-6 fill-current ${ showMenu ? "block" : "hidden"}`}
+            viewBox="0 0 20 20"
+          >
+            <title>Menu Close</title>
+            <polygon
+              points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+              transform="rotate(45 10 10)"
+            ></polygon>
+          </svg>
+        </label>
+
+{/* here */}
+        <ul
+          id="nav-menu"
+          className={`navbar-nav order-3 ${showMenu ? "block" : "hidden"}    w-full pb-6 lg:order-1 lg:flex lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8`}
+        >
+          {main.map((menu, i) => (
+            <React.Fragment key={`menu-${i}`}>
+              {menu.hasChildren ? (
+                <li className="nav-item nav-dropdown group relative">
+                  <span
+                    className={`nav-link inline-flex items-center ${
+                      menu.children?.map(({ url }) => url).includes(pathname) ||
+                      menu.children
+                        ?.map(({ url }) => `${url}/`)
+                        .includes(pathname)
+                        ? "text-[#FB5148]"
+                        : ""
+                    }`}
+                  >
+                    {menu.name}
+                    <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                  </span>
+                  <ul className="nav-dropdown-list hidden group-hover:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100">
+                    {menu.children?.map((child, i) => (
+                      <li className="nav-dropdown-item" key={`children-${i}`}>
+                        <Link
+                          href={child.url}
+                          className={`nav-dropdown-link block ${
+                            (pathname === `${child.url}/` ||
+                              pathname === child.url) &&
+                            "text-[#FB5148]"
+                          }`}
+                        >
+                          {child.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                <li className="nav-item nav-dropdown group relative ">
+                  <Link
+                    href={menu.url}
+                    className={`nav-link block active ${
+                      (pathname === `${menu.url}/` || pathname === menu.url) &&
+                      "text-[#FB5148]"
+                    }`}
+                  >
+                    {menu.name}
+                  </Link>
+                </li>
+              )}
+            </React.Fragment>
+          ))}
+          {navigation_button.enable && (
+            <li className="mt-4 inline-block lg:hidden">
+              <Link
+                className="btn btn-outline-primary btn-sm"
+                href={navigation_button.link}
+              >
+                {navigation_button.label}
+              </Link>
+            </li>
+          )}
+        </ul>
+
+        <div className="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+          {settings.search && (
+            <Link
+              className="mr-5 inline-block border-r border-border pr-5 text-xl text-dark hover:text-primary dark:border-darkmode-border dark:text-white"
+              href="/search"
+              // href="/"
+             
+              aria-label="search"
+            >
+            <div className="hover:text-[#FB5148]">  <IoSearch /></div>
+            </Link>
+          )}
+          <ThemeSwitcher className="mr-5" />
          
         </div>
-        {/* <div className="-my-2 -mr-2 md:hidden" onClick={() => setIsOpen(true)}>
-          <div className="bg-gray-200 dark:bg-midnight text-gray-600 dark:text-gray-300 rounded-full p-3.5 inline-flex items-center justify-center hover:text-gray-700 hover:bg-gray-300 cursor-pointer focus:outline-none general-ring-state">
-            <span className="sr-only">Open menu</span>
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.5"
-                d="M4.75 5.75H19.25"
-              ></path>
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.5"
-                d="M4.75 18.25H19.25"
-              ></path>
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.5"
-                d="M4.75 12H19.25"
-              ></path>
-            </svg>
-          </div>
-        </div> */}
-       
-       {/* Central area */}
-        <nav className="  px-20    mx-auto justify-center items-center font-spartan hidden lg:flex md:flex space-x-12  text-lg  ">
-          <NavItem text={'blog'} href={`/category/writings`} />
-          <NavItem text={'libros'} href={`/posts`} />
-          {/* {categoryKeys.map((key, index) => (
-            <NavItem key={index} text={key} href={`/category/${key}`} />
-          ))} */}
-            <li className="list-none relative"
-             onMouseLeave={handleCompanyMenu}
-            onMouseEnter={handleCompanyMenu}
-            >
-              <div className="flex items-center">
-          <button
-            type="button"
-            className={`  flex  gap-2 icon-menu
-            ${
-              isCategoryDropdownActive
-                ? "font-bold text-[#FB5148] dark:text-[#FB5148]" : " text-black dark:text-white font-semibold dark:font-normal"
-            }  text-sm hidden md:inline-block  capitalize
-            hover:text-[#FB5148] dark:hover:text-[#FB5148] transition-all 
-            bg-left-bottom bg-gradient-to-r from-[#FB5148] to-[#FB5148] bg-[length:0%_4px] bg-no-repeat 
-            hover:bg-[length:100%_2px]  duration-300 ease-out 
-            `}
-            aria-haspopup="true"
-            aria-expanded={companyMenu}
-            aria-controls="company-menu"
-           
-          >
-            Categorías
-           
-          </button>
-              {/* <BsChevronDown
-              className="ml-2  h-4 w-4 text-black dark:text-white hover:text-violet-100"
-              aria-hidden="true"
-            /> */}
-          </div>
-          {/* START company sub-menu */}
-          <ul
-            id="company-menu"
-            className={`lg:absolute md:absolute  lg:p-8 lg:top-5 md:top-5 md:p-8
-             transition-[120px] duration-500 ease-out
-             ${
-              companyMenu
-                ? "visible p-4 pb-0  "
-                : "hidden"
-            }   flex w-max flex-col gap-4 p-10 rounded-md leading-none lg:left-0  bg-white  dark:bg-black`}
-          >
-            
-            {categoryKeys.map((key, index) => (
-            <NavItem key={index} text={key} href={`/category/${key}`} />
-          ))}
-            {/* {[["History"], ["Our Team"], ["Blog"]].map(([text], index) => (
-              <li key={`company-${index}`}>
-                <a
-                  href="#"
-                  className={`${'transition duration-300 ease-in-out'} block hover:text-almost-black dark:hover:text-gray-400`}
-                >
-                  {text}
-                </a>
-              </li>
-            ))} */}
-            {/* END company Sub-menu */}
-          </ul>
-        </li>
-           
-             <NavItem text={'Acerca'} href={'/about'} />
-      
-          
 
-      
-         
-        </nav>
-        
-
-        {/* right area */}
-       
-            <div className="flex justify-end items-center  ">
-              
-           <ThemeSwitch />
-           {/* <ThemeSwitcher/> */}
-           {/* <MobileNav /> */}
-           
-            
-            </div>
-      </div>
-    </div>
+        {/* <SearchModal
+          searchModal={searchModal}
+          setSearchModal={setSearchModal}
+        /> */}
+      </nav>
+    </header>
+    </>
   );
 }

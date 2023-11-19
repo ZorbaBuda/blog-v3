@@ -2,7 +2,7 @@
 import Footer from "@/components/Footer";
 import Head from "next/head";
 import { PageTransition } from "@/components/PageTransition";
-import { NavMenu } from "../headerTesting/NavMenu";
+import { NavMenu } from "../header/NavMenu";
 import React from "react";
 import Breadcrumbs from "../breadcrumb/Breadcrumbs";
 
