@@ -10,6 +10,7 @@ import type { Post } from '@/.contentlayer/generated'
 import { allCoreContent, sortPosts } from '@/lib/postsUtils'
 import ScrollTop from '@/components/ScrollTop'
 import { TbPointFilled } from 'react-icons/tb'
+import ArticleList from '@/components/articleListLayouts/ArticleList'
 
 
 // type CategoryParam = {
@@ -73,7 +74,7 @@ export default function page({ params} : { params: { category: string }}) {
             <div className="flex-grow border-t border-gray-400"></div>
           </div>
           
-        <BookResumeList articles={sortedCategoryPosts} showEndMessage fullHeight />
+        <ArticleList articles={sortedCategoryPosts} showEndMessage fullHeight />
   
 
     </Container>

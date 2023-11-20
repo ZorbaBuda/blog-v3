@@ -45,9 +45,9 @@ export function NavMenu({}) {
   const pathname = usePathname();
 
    // scroll to top on route change
-   useEffect(() => {
-    window.scroll(0, 0);
-  }, [pathname]);
+  //  useEffect(() => {
+  //   window.scroll(0, 0);
+  // }, [pathname]);
 
 
   //not part of Gekky
@@ -73,13 +73,12 @@ export function NavMenu({}) {
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
-  //setting isActive for Category dropdown
-  const isCategoryDropdownActive = usePathname().includes("category");
 
   return (
     <>
-    {/* // <header className={`header ${visible ? "top-0" : "hidden"}`}> */}
-       <header className="header"> 
+     {/* <header className={`header ${visible ? "top-0" : "hidden"}`}> */}
+     <header className={`header`}>
+       {/* <header className="header">  */}
       <nav className="navbar container px-1 sm:px-8">
         <div className="order-1  sm:order-1">{/* <Logo /> */} LOGO_IMAGE</div>
 

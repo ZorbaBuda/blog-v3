@@ -26,11 +26,12 @@ function ArticleCard({ post }: Props) {
   //const patternn = post.pattern? post.pattern : "pattern13";
   //const patternn = "lavender-lumberjack";
   return (
+    <div className="md:border-b md:border-b-slate-700">
     <div className="  group  p-5 md:pt-8 md:pb-14  border border-spacing-2 border-slate-700
-    md:border-b md:border-b-slate-700  ">
+    md:border-none   ">
       {/* <div className="  flex flex-wrap-reverse justify-between items-center"> */}
        {/* <div className="md:grid md:grid-cols-2 md:gap-20 flex flex-wrap-reverse justify-between items-center"> */}
-       <div className="md:grid md:grid-cols-3 md:gap-20 grid-cols-1 justify-between items-center">
+       <div className="md:grid lg:grid-cols-3 md:grid-cols-2 md:gap-10 grid-cols-1 justify-between items-center">
       
          <Link
           className="md:order-last overflow-hidden no-underline mx-auto md:mx-auto lg:mx-0 flex justify-center items-center
@@ -72,7 +73,7 @@ function ArticleCard({ post }: Props) {
   }
         </Link>
       
-        <div className="md:col-span-2 mt-3 md:mt-2  flex flex-col  max-w-none ">
+        <div className="lg:col-span-2 mt-3 md:mt-2  flex flex-col  max-w-none ">
 
           <div className="flex  items-center gap-2">
           <Category text={category} />
@@ -112,6 +113,7 @@ function ArticleCard({ post }: Props) {
      
 
       </div>
+     </div>
      </div>
   );
 }

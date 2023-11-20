@@ -4,11 +4,11 @@ interface Props {
 }
 
 const colors = {
-  tantra: "bg-blue-800 hover:bg-blue-600 font-bold",
-  body: "bg-red-800 hover:bg-red-600 font-bold ",
-  mind:"bg-green-800 hover:bg-green-600 font-bold ",
-  writings:"bg-yellow-700 hover:bg-yellow-500 font-bold",
-  yoga:"bg-gray-700 hover:bg-gray-500 font-bold",
+  tantra: "text-blue-800 hover:text-blue-600 ",
+  body: "text-red-800 hover:text-red-600  ",
+  mind:"text-green-800 hover:text-green-600 ",
+  writings:"text-yellow-700 hover:text-yellow-500 ",
+  yoga:"text-gray-700 hover:text-gray-500 ",
     // <span class="bg-yellow-500 font-bold text-white text-center py-1 px-2 text-xs rounded">Warning</span>
     // <span class="bg-purple-400 font-bold text-white text-center py-1 px-2 text-xs rounded">Info</span>
     // <span class="bg-gray-100 font-bold text-gray-800 text-center py-1 px-2 text-xs rounded">Light</span>
@@ -21,7 +21,8 @@ const Category = ({ text }: Props) => {
     <Link
     href={`/category/${text}`}
     className={`
-       cursor-pointer lg:text-2xl font-open_sans font-semibold
+   
+       cursor-pointer lg:text-xl font-open_sans font-semibold
          max-w-fit no-underline hover:underline
     capitalize  text-[#FB5148]
   `}

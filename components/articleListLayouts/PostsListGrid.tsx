@@ -9,7 +9,7 @@ function BookResumeList({
   return (
     <div className={`mt-10 space-y-12 ${fullHeight && 'min-h-screen '}`}>
       {/* <div className="container auto-rows-fr grid grid-cols-2 gap-10 list-none md:grid-cols-3"> */}
-      <div className=" mx-auto grid grid-cols-1 gap-16  md:grid-cols-2 lg:grid-cols-3">
+      <div className="lg:px-20 mx-auto grid grid-cols-1 gap-20  md:grid-cols-2 lg:grid-cols-2">
         {articles.map((post) => (
         <ArticleCard pattern={`pattern1`} key={post.title} post={post} />
         ))}

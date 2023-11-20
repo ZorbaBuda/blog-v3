@@ -6,6 +6,7 @@ import type { Post } from '@/.contentlayer/generated'
 import { allCoreContent, sortPosts } from '@/lib/postsUtils'
 import ScrollTop from '@/components/ScrollTop'
 import { TbPointFilled } from 'react-icons/tb'
+import ArticleList from '@/components/articleListLayouts/ArticleList'
 
 export default function Posts() {
   
@@ -27,7 +28,7 @@ return (
             <div className="flex-grow border-t border-gray-400"></div>
           </div>
           
-        <BookResumeList articles={sortedPosts} showEndMessage fullHeight />
+        <ArticleList articles={sortedPosts} showEndMessage fullHeight />
       
   
 

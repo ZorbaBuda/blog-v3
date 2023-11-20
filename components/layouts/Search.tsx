@@ -90,7 +90,7 @@ const Search = ({ searchList }: Props) => {
                 name="search"
                 value={inputVal}
                 onChange={handleChange}
-                autoComplete="off"
+                autoComplete="on"
                 autoFocus
                 ref={inputRef}
               />

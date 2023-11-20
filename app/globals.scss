@@ -49,6 +49,18 @@
   src: url("../public/fonts/montserrat/Montserrat-Regular.ttf");
 }
 
+@font-face {
+  font-family: "SPECTRAL-REGULAR";
+  src: url("../public/fonts/Spectral/Spectral-Regular.ttf");
+}
+
+@font-face {
+  font-family: "PT-SERIF-REGULAR";
+  src: url("../public/fonts/PT_Serif/PTSerif-Regular.ttf");
+}
+
+
+
 
 @layer components {
   .icon-menu::after {

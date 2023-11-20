@@ -25,7 +25,9 @@ const config: Config = {
         open_sans:["OPEN_SANS"],
         eb_garamond:["EB_GARAMOND"],
         crimson_text:["CRIMSON_TEXT"],
-        gloock:["GLOOCK"]
+        gloock:["GLOOCK"],
+        spectral_regular:["SPECTRAL-REGULAR"],
+        pt_serif_regular:["PT-SERIF"]
       },
       colors: {
         primary: colors.black,

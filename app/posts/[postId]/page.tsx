@@ -144,11 +144,11 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
          
 
           <article
-            className="mt-4 text-black dark:text-white font-crimson_text  prose-headings:font-crimson
-          prose lg:prose-xl md:prose-xl sm:prose-xl prose-xl
+            className="mt-4 text-black dark:text-white font-pt_serif_regular  prose-headings:font-crimson
+          prose lg:prose-2xl md:prose-xl sm:prose-lg prose-lg
           prose-headings:text-black dark:prose-headings:text-slate-800  
-          prose-headings:text-2xl
-          max-w-none md:px-5 sm:px-5 lg:px-0  dark:font-normal
+          prose-headings:text-2xl tracking-normal leading-8
+          max-w-none md:px-5 sm:px-5 lg:px-0  
           
           "
           >
@@ -162,7 +162,7 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
              <div className="ml-3">Etiquetas:</div>
           </div>
           
-         <div className="ml-5">
+         <div className="ml-5 flex gap-2">
           {post.tags.map((tag) => (
             <Tag key={tag} text={tag} />
           ))}
