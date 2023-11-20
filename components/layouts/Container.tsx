@@ -30,7 +30,7 @@ export const Container = (props) => {
       <NavMenu />
 
       <main
-        className={`flex flex-col mx-auto max-w-7xl justify-center px-4  prose prose-lg dark:prose-dark relative `}
+        className={`flex flex-col mx-auto max-w-7xl justify-center px-4   dark:prose-dark relative `}
       >
         <div className="z-10">
           <PageTransition>

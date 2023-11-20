@@ -19,16 +19,26 @@ const Category = ({ text }: Props) => {
   
   return (
     <Link
-      href={`/category/${text}`}
-      className={`
-      ${colors[text]}
-      tracking-wider rounded-sm py-1 px-4   cursor-pointer
-          text-xs max-w-fit no-underline
-      uppercase  text-slate-300 
-    `}
-    >
-      {text}
-    </Link>
+    href={`/category/${text}`}
+    className={`
+       cursor-pointer lg:text-2xl font-open_sans font-semibold
+         max-w-fit no-underline hover:underline
+    capitalize  text-[#FB5148]
+  `}
+  >
+    {text}
+  </Link>
+    // <Link
+    //   href={`/category/${text}`}
+    //   className={`
+    //   ${colors[text]}
+    //   tracking-wider rounded-sm py-1 px-4   cursor-pointer
+    //       text-xs max-w-fit no-underline
+    //   uppercase  text-slate-300 
+    // `}
+    // >
+    //   {text}
+    // </Link>
   )
 }
 

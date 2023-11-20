@@ -12,7 +12,7 @@ const Breadcrumbs = ({ className }: { className?: string }) => {
   const paths = pathname.split("/").filter((x) => x);
   let parts = [
     {
-      label: "Primal Ideas",
+      label: "Home",
       href: "/",
       "aria-label": pathname === "/" ? "page" : undefined,
     },
@@ -30,7 +30,7 @@ const Breadcrumbs = ({ className }: { className?: string }) => {
 
   return (
     <nav aria-label="Breadcrumb" className={className}>
-      <div className="py-10 inline-flex items-center list-none" role="">
+      <div className="py-5 inline-flex items-center list-none" role="">
        <div className="text-black dark:text-white flex items-center"> <FaHome /></div>
         {parts.map(({ label, ...attrs }, index) => (
          
