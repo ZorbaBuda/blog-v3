@@ -144,10 +144,11 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
          
 
           <article
-            className="mt-4 text-black dark:text-white font-roboto  prose-headings:font-spartan 
-          prose lg:prose-xl md:prose-lg sm:prose-base 
-          prose-headings:text-slate-800 dark:prose-headings:text-white  
-          max-w-none md:px-5 sm:px-5 lg:px-0 f dark:font-normal
+            className="mt-4 text-black dark:text-white font-crimson_text  prose-headings:font-crimson
+          prose lg:prose-xl md:prose-xl sm:prose-xl prose-xl
+          prose-headings:text-black dark:prose-headings:text-slate-800  
+          prose-headings:text-2xl
+          max-w-none md:px-5 sm:px-5 lg:px-0  dark:font-normal
           
           "
           >

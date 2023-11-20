@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className="font-roboto antialiased" lang="en" suppressHydrationWarning >
+    <html className="font-roboto antialiased" lang="es" suppressHydrationWarning >
   
       <body >
        

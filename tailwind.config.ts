@@ -20,15 +20,12 @@ const config: Config = {
       fontFamily: {
         lora: ["LORA-REGULAR"],
         montserrat: ["MONTSERRAT-REGULAR"],
-        minion_pro: ["MINION-PRO-REGULAR"],
-        newsreader_light: ["NEWSREADER-LIGHT"],
         roboto: ["ROBOTO-REGULAR"],
-        eina: ["EINA-REGULAR"],
         cmbs: ["COMPUTER-MODERN-BRIGHT-SEMIBOLD"],
-        alliance1: ["ALLIANCE-N1-BRIGHT"],
-        spartan: ["SPARTAN"],
-        libre_baskerville: ["LIBRE-BASKERVILLE"],
-        libre_baskerville_bold: ["LIBRE-BASKERVILLE-BOLD"],
+        open_sans:["OPEN_SANS"],
+        eb_garamond:["EB_GARAMOND"],
+        crimson_text:["CRIMSON_TEXT"],
+        gloock:["GLOOCK"]
       },
       colors: {
         primary: colors.black,

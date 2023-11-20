@@ -29,7 +29,7 @@ export default function Home() {
       <div className="">
         <div>
           <div className="flex items-center space-x-5">
-            <div className="text-black dark:text-white font-libre_baskerville text-3xl ">
+            <div className="text-black dark:text-white font-semibold font-gloock md:text-4xl text-3xl ">
               {" "}
               Últimos artículos
             </div>

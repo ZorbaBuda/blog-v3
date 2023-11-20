@@ -31,7 +31,7 @@ function ArticleCard({ post }: Props) {
          <Link
           className="md:order-last overflow-hidden no-underline mx-auto md:mx-auto lg:mx-0 flex justify-between items-center
            lg:h-[273px] lg:w-[348px]  md:h-[273px] md:w-[348px] sm:h-[273px] sm:container container h-[313px]
-             bg-[#EEEEEE] rounded-sm
+             bg-[#EEEEEE] dark:bg-slate-400 rounded-sm
           "
           href={`/posts/${slug}`}
         >
@@ -73,19 +73,19 @@ function ArticleCard({ post }: Props) {
           {/* <Accent>{category}</Accent> */}
 
           <Link className="no-underline" href={`/posts/${slug}`}>
-            <div className="hover:underline mt-3 font-libre_baskerville_bold  tracking-tight text-2xl  text-black dark:text-white">
+            <div className="hover:underline mt-3 font-gloock   tracking-tight text-3xl  text-black dark:text-white">
               {title}
             </div>
           </Link>
 
-          <div className="font-libre_baskerville dark:text-white text-lg text-black mt-3">
+          <div className="font-gloock dark:text-white text-xl text-black mt-3">
             {" "}
             {post.bookAuthor ? post.bookAuthor : 'Anonymous'}
             {', '}
             {post.bookYear ? post.bookYear : 'No year'}
           </div>
 
-          <div className="dark:text-slate-400 text-black leading-normal  text-base mt-2 tracking-normal  ">
+          <div className="font-open_sans dark:text-slate-400 text-black leading-normal  text-base mt-2 tracking-normal  ">
             {" "}
             {summary}
           </div>

@@ -10,11 +10,11 @@ type Props = {
 };
 
 export default function DocHeading({ post }: Props) {
-  // const immUrl = `https://raw.githubusercontent.com/ZorbaBuda/blog-v3/main/public/${post.coverImage}`;
+  
   const imageUrl = `${process.env.GITHUB_URL_IMAGES}${post.coverImage}`;
   const formattedDate = getFormattedDate(post.date);
   return (
-    <article className=" antialiased flex gap-10 text-white">
+    <article className=" flex  flex-wrap md:flex-none gap-5 lg:gap-8 text-black dark:text-white">
       <Image
       priority={true}
         className="rounded-md lg:ml-0 ml-3 object-cover my-0 w-[224px] h-[343px] lg:w-[354px] lg:h-[539px] md:w-[354px] md:h-[539px] "
@@ -25,20 +25,8 @@ export default function DocHeading({ post }: Props) {
      
       />
 
-      <div className=" flex flex-col ml-8">
-        {/* <div className=" text-sm">
-          <div className=" flex flex-wrap ">
-              <Category key={category} text={category} />
-          </div>
-        </div> */}
-
-        {/* <div className=" mt-3 text-sm">
-          <div className=" flex flex-wrap ">
-            {tags.map((tag) => (
-              <Tag key={tag} text={tag} />
-            ))}
-          </div>
-        </div> */}
+      <div className=" flex flex-col ml-0">
+       
          <div className="lg:mt-0 mt-0">
           {" "}
           <Category text={post.category} />{" "}
@@ -49,7 +37,7 @@ export default function DocHeading({ post }: Props) {
           </div>
      
 
-        <div className="text-black dark:text-white lg:text-5xl text-3xl mt-5 font-semibold font-libre_baskerville">{post.title}</div>
+        <div className="text-black dark:text-white lg:text-5xl text-3xl mt-5 font-semibold font-sf_compact_display_medium">{post.title}</div>
 
         <div className="text-black dark:text-white lg:text-3xl text-xl mt-4 font-semibold font-libre_baskerville">Arthur Janov</div>
         <div className="text-black dark:text-white lg:mt-5 text-xl mt-2">Año de publicación: 1973</div>

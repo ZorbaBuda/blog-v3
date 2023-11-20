@@ -2,6 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
+
+@font-face {
+  font-family: "ROBOTO-REGULAR";
+  src: url("../public/fonts/Roboto/Roboto-Regular.ttf");
+}
+
+
+@font-face {
+  font-family: "COMPUTER-MODERN-BRIGHT-SEMIBOLD";
+  src: url("../public/fonts/ComputerModernBright/cmunbmr.woff");
+}
+
+
+//google licensed
+@font-face {
+  font-family: "OPEN_SANS";
+  src: url("../public/fonts/open_sans/OpenSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "EB_GARAMOND";
+  src: url("../public/fonts/eb_garamond/EBGaramond-Regular.ttf");
+}
+
+@font-face {
+  font-family: "CRIMSON_TEXT";
+  src: url("../public/fonts/Crimson_Text/CrimsonText-Regular.ttf");
+}
+
+@font-face {
+  font-family: "GLOOCK";
+  src: url("../public/fonts/Gloock/Gloock-Regular.otf");
+}
+
 @font-face {
   font-family: "LORA-REGULAR";
   src: url("../public/fonts/lora/Lora-Regular.ttf");
@@ -12,49 +49,6 @@
   src: url("../public/fonts/montserrat/Montserrat-Regular.ttf");
 }
 
-@font-face {
-  font-family: "MINION-PRO-REGULAR";
-  src: url("../public/fonts/minion-pro/MinionPro-Regular.otf");
-}
-
-@font-face {
-  font-family: "NEWSREADER-LIGHT";
-  src: url("../public/fonts/newsreader/Newsreader_14pt-Light.ttf");
-}
-
-@font-face {
-  font-family: "ROBOTO-REGULAR";
-  src: url("../public/fonts/Roboto/Roboto-Regular.ttf");
-}
-
-@font-face {
-  font-family: "EINA-REGULAR";
-  src: url("../public/fonts/eina/Eina01-Regular.ttf");
-}
-@font-face {
-  font-family: "COMPUTER-MODERN-BRIGHT-SEMIBOLD";
-  src: url("../public/fonts/ComputerModernBright/cmunbmr.woff");
-}
-
-@font-face {
-  font-family: "ALLIANCE-N1-BRIGHT";
-  src: url("../public/fonts/alliance-no1/AllianceLight1.otf");
-}
-
-@font-face {
-  font-family: "SPARTAN";
-  src: url("../public/fonts/spartan/Spartan-Regular.ttf");
-}
-
-@font-face {
-  font-family: "LIBRE-BASKERVILLE";
-  src: url("../public/fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf");
-}
-
-@font-face {
-  font-family: "LIBRE-BASKERVILLE-BOLD";
-  src: url("../public/fonts/Libre_Baskerville/LibreBaskerville-Bold.ttf");
-}
 
 @layer components {
   .icon-menu::after {
@@ -90,10 +84,10 @@
 
   
 .header {
-  @apply w-full z-50 border-y-[1px] font-spartan  
+  @apply w-full z-50 border-y-[1px] font-open_sans uppercase 
   border-[#383A3C] sticky
   dark:bg-[#121212] dark:text-white
-  text-black bg-[#EFF4FF]
+  text-black bg-[#EEEEEE]
    tracking-wider  
 }
 
@@ -106,7 +100,7 @@
 }
 
 .navbar-brand {
-  @apply text-2xl font-libre_baskerville_bold font-semibold text-black dark:text-white  ;
+  @apply text-2xl font-open_sans font-semibold text-black dark:text-white  ;
   image {
     @apply max-h-full max-w-full;
   }

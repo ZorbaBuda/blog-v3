@@ -12,6 +12,7 @@ import React, {
   useState,
 } from "react";
 import { RiArrowDownSLine } from "react-icons/ri";
+import { RiArrowUpSLine } from "react-icons/ri";
 
 interface TOCProps {
   source: string;
@@ -95,31 +96,27 @@ const TableOfContents = ({ source }: TOCProps) => {
   //table of contents hide-show
   const [isTOCVisible, setIsTOCVisible] = useState(true);
 
-  {
-    /* control + shift + l */
-  }
-  {
-    /* https://www.flowbite-react.com/docs/customize/theme */
-  }
 
   return (
     <div className=" ">
-      <div className="flex">
-        <div className="text-white text-base ">[Contents]</div>
-        <button
+      <div 
           onClick={() => {
             setIsTOCVisible(!isTOCVisible);
           }}
+         className="flex items-center text-black dark:text-white text-base gap-4 hover:text-[#FB5148] max-w-fit">
+        <div className="text-lg">Contenidos</div>
+        <button className="text-2xl "
+         
           type="button"
         >
-         {isTOCVisible ? "Hide" : "Show" }
+         {isTOCVisible ? <RiArrowDownSLine/> : <RiArrowUpSLine /> }
         </button>
       </div>
       {isTOCVisible && (
-        <div className="">
+        <div className="pb-10 ml-7 text-base">
           {headings.map((heading, index) => {
             return (
-              <div  key={index} className="mt-[5px] ">
+              <div  key={index} className="mt-[10px] ">
                 <Link
                  
                   href={`#${heading.id}`}
@@ -129,8 +126,8 @@ const TableOfContents = ({ source }: TOCProps) => {
                   //   "mb-4 text-base text-slate-700 last:mb-6 hover:underline"
                   // )}
                   className={clsx(
-                    "no-underline  text-black text-lg hover:text-gray-700", 
-                    "dark:text-blue-400 font-bold dark:hover:text-gray-200",
+                    "no-underline  text-black  hover:text-gray-700 ", 
+                    "dark:text-white  dark:hover:text-gray-500",
                     heading.level === 2 ? "pl-2" : "pl-6"
                   )}
                   onClick={(e) => {

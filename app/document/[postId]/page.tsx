@@ -144,7 +144,7 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
          
 
           <article
-            className="mt-4 text-black dark:text-white font-alliance1  prose-headings:font-spartan 
+            className="mt-4 text-black dark:text-white prose:font-alliance1  prose-headings:font-spectral
           prose lg:prose-xl md:prose-lg sm:prose-base 
           prose-headings:text-slate-800 dark:prose-headings:text-white  
           max-w-none md:px-5 sm:px-5 lg:px-0 f dark:font-normal
@@ -156,12 +156,12 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
         </div>
 
         <article className="mt-10 flex flex-wrap text-black dark:text-white lg:col-start-1 lg:col-end-10">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center ">
             <BsFillTagsFill />
              <div className="ml-3">Etiquetas:</div>
           </div>
           
-         <div className="ml-5">
+         <div className="flex flex-wrap gap-2">
           {post.tags.map((tag) => (
             <Tag key={tag} text={tag} />
           ))}
