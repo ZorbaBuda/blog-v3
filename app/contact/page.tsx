@@ -3,9 +3,9 @@ import config from "@/lib/config.json";
 import { getListPage } from "@/lib/contentParser";
 import PageHeader from "@/components/PageHeader";
 import SeoMeta from "@/components/SeoMeta";
-import { RegularPage } from "@/types";
 import { Container } from "@/components/layouts/Container";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { sendContactForm } from '@/lib/firebaseContactForm'
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -14,34 +14,53 @@ const Contact = () => {
   const [subject, setSubject] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
+  const formRef = useRef()
+
   async function handleSubmit(event) {
     event.preventDefault();
-    const formData = new FormData(event.target);
-    try {
-      const response = await fetch("api/contact", {
-        method: "post",
-        body: formData,
-      });
-
-      if (!response.ok) {
-        console.log("falling over");
-        throw new Error(`response status: ${response.status}`);
-      }
-      const responseData = await response.json();
-      console.log(responseData["message"]);
-
-      alert("Message successfully sent");
-    } catch (err) {
-      console.error(err);
-      alert("Error, please try resubmitting the form");
+    // const formData = new FormData(event.target);
+    const res = await sendContactForm({
+      name: name,
+      email: email,
+      subject: subject,
+      message: message,
+    });
+    if (res == 0) {
+      setMessage("Thank you for your valuable comment!");
+      //formRef.current.reset();
+      setName(''),
+      setName(''),
+      setEmail(''),
+      setMessage('')
+    } else {
+      setMessage("Something went wrong! Please try again");
     }
   }
 
-  const { contact_form_action } = config.params;
-  const title = "Contacto";
-  const meta_title = "";
-  const description = "this is a meta description";
-  const image = "";
+
+  // async function handleSubmit(event) {
+  //   event.preventDefault();
+  //   const formData = new FormData(event.target);
+  //   try {
+  //     const response = await fetch("api/contact", {
+  //       method: "post",
+  //       body: formData,
+  //     });
+
+  //     if (!response.ok) {
+  //       console.log("falling over");
+  //       throw new Error(`response status: ${response.status}`);
+  //     }
+  //     const responseData = await response.json();
+  //     console.log(responseData["message"]);
+
+  //     alert("Message successfully sent");
+  //   } catch (err) {
+  //     console.error(err);
+  //     alert("Error, please try resubmitting the form");
+  //   }
+  // }
+
 
   return (
     <Container>
@@ -64,7 +83,10 @@ const Contact = () => {
         <div className="mx-auto container  border border-spacing-1 border-slate-700">
          <div className="p-10 flex flex-col gap-3">
           <div className="text-3xl">Deja tu mensaje</div>
-          <form onSubmit={handleSubmit}>
+          <form 
+          onSubmit={handleSubmit}
+          ref={formRef}
+          >
 
             <div className="mb-6">
              
@@ -136,7 +158,7 @@ const Contact = () => {
                    tracking-wider  dark:text-slate-400 text-dark flex px-6 py-3 uppercase
                    hover:bg-primary hover:text-black group-dark:hover:text-black"
             >
-              Submit
+              Enviar
             </button>
           </form>
         </div>

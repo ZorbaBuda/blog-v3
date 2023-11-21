@@ -38,7 +38,7 @@ function ArticleCard({ post }: Props) {
            lg:h-[273px] lg:w-[348px]  md:h-[273px] md:w-[348px] sm:h-[273px] sm:container container h-[313px]
              bg-[#EEEEEE] dark:bg-[#252525] rounded-sm
           "
-          href={`/posts/${slug}`}
+          href={`/${slug}`}
         >
         {category === 'writings' ? (
          
@@ -86,7 +86,7 @@ function ArticleCard({ post }: Props) {
          </div>
 
         
-          <Link className="no-underline" href={`/posts/${slug}`}>
+          <Link className="no-underline" href={`/${slug}`}>
             <div className="hover:underline mt-3 font-gloock   tracking-wider lg:text-5xl text-3xl  text-black dark:text-white">
               {title}
             </div>
@@ -106,7 +106,7 @@ function ArticleCard({ post }: Props) {
 
          
 
-          <Button href={`/posts/${slug}`}>Leer artículo</Button>
+          <Button href={`/${slug}`}>Leer artículo</Button>
         </div>
 
 

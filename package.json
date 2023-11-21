@@ -17,6 +17,8 @@
     "clsx": "^2.0.0",
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
+    "encoding": "^0.1.13",
+    "firebase": "^10.6.0",
     "framer-motion": "^10.16.4",
     "fuse.js": "^7.0.0",
     "github-slugger": "^1.4.0",
