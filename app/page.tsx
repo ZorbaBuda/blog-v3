@@ -10,7 +10,20 @@ import { sortPosts } from "@/lib/postsUtils";
 import { TbPointFilled } from "react-icons/tb";
 const MAX_DISPLAY = 5;
 
-export default function Home() {
+// export default function Home({
+//   searchParams,
+// }: {
+//   searchParams: { [key: string]: string | string[] | undefined };
+// }) {
+//   const pageNumber= searchParams["p"] ?? "1"; // default value is "1"
+//   return (<>Current page is: {pageNumber}</>);
+// }
+
+
+export default function Home({ searchParams}) {
+
+  console.log(searchParams)
+
   if (!allPosts) {
     return <p className="mt-10 text-center">Sorry, no posts available.</p>;
   }

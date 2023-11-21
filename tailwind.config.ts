@@ -27,7 +27,8 @@ const config: Config = {
         crimson_text:["CRIMSON_TEXT"],
         gloock:["GLOOCK"],
         spectral_regular:["SPECTRAL-REGULAR"],
-        pt_serif_regular:["PT-SERIF"]
+        pt_serif_regular:["PT-SERIF"],
+        recoleta:['recoleta'],
       },
       colors: {
         transparent: 'transparent',

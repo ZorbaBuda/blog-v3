@@ -87,12 +87,12 @@ function ArticleCard({ post }: Props) {
 
         
           <Link className="no-underline" href={`/${slug}`}>
-            <div className="hover:underline mt-3 font-gloock   tracking-wider lg:text-5xl text-3xl  text-black dark:text-white">
+            <div className="hover:underline mt-3 font-recoleta font-extrabold   tracking-wider lg:text-5xl text-3xl  text-black dark:text-white">
               {title}
             </div>
           </Link>
 
-          <div className="font-gloock dark:text-white text-xl text-black mt-1">
+          <div className="font-recoleta font-bold dark:text-white text-2xl text-black mt-1">
             {" "}
             {post.bookAuthor ? post.bookAuthor : 'Anonymous'}
             {', '}

@@ -10,7 +10,6 @@ import React from "react";
 import config from './config.json'
 //TODO use mdx to dropdown children
 import { allAbouts } from "@/.contentlayer/generated";
-import SearchNav from "./SearchNav";
 
 // child navigation link interface
 export interface IChildNavigationLink {
@@ -202,9 +201,7 @@ export function NavMenu({}) {
             <div className="hover:text-[#FB5148]">  <IoSearch /></div>
             </Link>
           )}
-          <SearchNav />
           <ThemeSwitcher className="mr-5" />
-        
          
         </div>
 

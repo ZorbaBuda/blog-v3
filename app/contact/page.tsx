@@ -71,7 +71,7 @@ const Contact = () => {
         image={image}
       /> */}
 
-      <div className="pt-5  grid grid-cols-1 lg:grid-cols-2 justify-between gap-10">
+      <div className="py-10  grid grid-cols-1 lg:grid-cols-2 justify-between gap-10">
         <div className="flex flex-col gap-5">
           <div className="text-3xl">Hello there! </div>
           <div>

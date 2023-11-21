@@ -17,7 +17,7 @@ export const About = defineDocumentType(() => ({
   contentType: 'mdx',
   fields: {
       title: { type: 'string', required: true },
-  
+       categories: { type: 'list', of: { type: 'string' },required: true}
     },
   computedFields: {
       url: {

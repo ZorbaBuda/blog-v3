@@ -7,13 +7,14 @@ import { getFirestore} from "firebase/firestore"
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+//todo ENVIRONMENT VARIABLES FAIL
 const firebaseConfig = {
-  apiKey: "AIzaSyD_Ed0qQ45YH1lYbe2CO2n11nrDpFUl9bk",
-  authDomain: "medium-clone-7e055.firebaseapp.com",
-  projectId: "medium-clone-7e055",
-  storageBucket: "medium-clone-7e055.appspot.com",
-  messagingSenderId: "172737829973",
-  appId: "1:172737829973:web:7dfbea51eadfee828bc8dc"
+  apiKey: `${process.env.API_KEY}`,
+  authDomain: `${process.env.AUTH_DOMAIN}`,
+  projectId: `${process.env.PROJECT_ID}`,
+  storageBucket: `${process.env.STORAGE_BUCKET}`,
+  messagingSenderId: `${process.env.MESSAGING_SENDER_ID}`,
+  appId: `${process.env.APP_ID}`
 };
 
 // Initialize Firebase
