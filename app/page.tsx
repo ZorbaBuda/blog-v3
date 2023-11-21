@@ -1,4 +1,3 @@
-
 import { allPosts } from "@/.contentlayer/generated";
 import tagData from "@/lib/tag-data.json";
 import AsideLayout from "@/components/AsideLayout";
@@ -8,6 +7,7 @@ import { Button } from "@/components/Button";
 import ArticleList from "@/components/articleListLayouts/ArticleList";
 import { sortPosts } from "@/lib/postsUtils";
 import { TbPointFilled } from "react-icons/tb";
+import searchPosts from "@/lib/searchPosts";
 const MAX_DISPLAY = 5;
 
 // export default function Home({
@@ -22,21 +22,16 @@ const MAX_DISPLAY = 5;
 
 export default function Home({ searchParams}) {
 
-  console.log(searchParams)
+  //  console.log(searchParams['s'])
+   const postResults = searchPosts(searchParams['s'])
+  // console.log(searchParams['s'])
 
   if (!allPosts) {
     return <p className="mt-10 text-center">Sorry, no posts available.</p>;
   }
 
   const sortedPosts = sortPosts(allPosts);
-  //const allPostsCopy = structuredClone(allPosts)
-  // allBookResumesCopy.splice(4)
-
-  const tagCounts = tagData as Record<string, number>;
-  const tagKeys = Object.keys(tagCounts);
-  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a]);
-  const categoryKeys = Object.keys(categoryData);
-
+ 
   return (
     <Container>
       <div className="">

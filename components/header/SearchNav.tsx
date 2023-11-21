@@ -72,7 +72,7 @@ const SearchNav = () => {
                 <FaSearch />
               </button>
             </div>
-            <Link  onClick={onToggleNav} href={{ pathname: '/', query: { s: 'search params' } }}>SearchUrl</Link>
+            <Link  onClick={onToggleNav} href={{ pathname: '/', query: { s: 'Janov' } }}>SearchUrl</Link>
             {/* <Link href={'/'}>ir</Link> */}
       </div>
     </>

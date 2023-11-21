@@ -2,7 +2,7 @@
 
 import { humanize } from "@/lib/textConverter";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 
@@ -10,6 +10,10 @@ const Breadcrumbs = ({ className }: { className?: string }) => {
   const pathname = usePathname();
 
   const paths = pathname.split("/").filter((x) => x);
+  // const searchParams = useSearchParams()
+  // const searchQuery= searchParams.get('s')
+  //  console.log("search params:", searchQuery)
+  
   let parts = [
     {
       label: "Home",
