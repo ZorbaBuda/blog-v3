@@ -196,13 +196,23 @@
 }
 
 // form style
+// .form-input {
+//   @apply w-full rounded border-transparent bg-slate-300 px-6 py-4 text-black
+//    placeholder:text-slate-700 focus:border-slate-800 focus:ring-transparent
+//     dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400;
+// }
+
 .form-input {
-  @apply w-full rounded border-transparent bg-slate-300 px-6 py-4 text-black placeholder:text-slate-700 focus:border-slate-800 focus:ring-transparent dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400;
+  @apply w-full py-3 pl-4 border border-spacing-1 border-gray-600 
+   placeholder:text-gray-700 placeholder:hover:text-gray-900
+  placeholder:dark:text-gray-700 placeholder:dark:hover:text-gray-500
+   bg-white dark:bg-[#121212] max-w-sm
+   ;
 }
 
-.form-label {
-  @apply mb-4 block  text-xl font-normal text-black dark:text-white;
-}
+// .form-label {
+//   @apply mb-4 block  text-xl font-normal text-black dark:text-white;
+// }
 
 //not working
 .animated_line {

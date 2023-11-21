@@ -30,11 +30,11 @@ const config: Config = {
         pt_serif_regular:["PT-SERIF"]
       },
       colors: {
-        primary: colors.black,
+        transparent: 'transparent',
+        current: 'currentColor',
+        'primary': '#FB5148',
         gray: colors.gray,
-        "almost-white": "hsl(0, 0%, 98%)",
-        "medium-gray": "hsl(0, 0%, 41%)",
-        "almost-black": "hsl(0, 0%, 8%)",
+      
       },
       
       

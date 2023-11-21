@@ -8,6 +8,7 @@ import { Container } from '@/components/layouts/Container'
 import BookResumeList from '@/components/articleListLayouts/PostsListGrid'
 import { allCoreContent, sortPosts } from '@/lib/postsUtils'
 import { allPosts } from '@/.contentlayer/generated'
+import ArticleList from '@/components/articleListLayouts/ArticleList'
 
 export default function page({ params} : { params: { tag: string }}) {
 
@@ -41,7 +42,7 @@ export default function page({ params} : { params: { tag: string }}) {
       <div className='mt-10'>Browsing  {tag}  Tag   </div>
       {/* <ListLayout posts={tag!== "all" ? filtered  : allPosts} /> */}
     </div>
-    <BookResumeList articles={sortedTagPosts} showEndMessage fullHeight />
+    <ArticleList articles={sortedTagPosts} showEndMessage fullHeight />
     </Container>
   )
 }

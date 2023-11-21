@@ -33,7 +33,7 @@ export default function Home() {
               {" "}
               Últimos artículos
             </div>
-            <div className="text-[#FB5148] dark:text-[#FB5148]">
+            <div className="text-primary dark:text-primary">
               <TbPointFilled />
             </div>
             <div className="flex-grow border-t border-gray-400"></div>
