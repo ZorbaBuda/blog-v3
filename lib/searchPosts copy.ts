@@ -1,5 +1,5 @@
 
-import { Post, allPosts } from "@/.contentlayer/generated";
+import { allPosts } from "@/.contentlayer/generated";
 import Fuse from "fuse.js";
 import { useState } from "react";
 
@@ -33,24 +33,23 @@ const searchList = allPosts.map((item) => ({
 }));
 
 
-export default function searchPosts(params) {
+export default function searchPosts(params : string) {
 
-  //console.log('params ', params)
+  console.log('params ', params)
 
   // const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
 
-  const fuse = new Fuse(allPosts, {
+  const fuse = new Fuse(searchList, {
     
-    keys: ["title", "category", "tags", "body.raw"],
+    keys: ["frontmatter.title", "frontmatter.categories", "frontmatter.tags", "content"],
     includeMatches: true,
     minMatchCharLength: 3,
     threshold: 0.5,
   });
 
   let inputResult =  fuse.search(params);
-  const posts : Post[] = []
-  inputResult.map((result) => posts.push(result.item))
   
-  return posts
+  console.log(inputResult.length)
+  return inputResult
  
 }

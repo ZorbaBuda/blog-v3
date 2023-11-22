@@ -5,12 +5,15 @@ import Link from 'next/link'
 import headerNavLinks from '@/data/headerNavLinks'
 import { IoSearch } from "react-icons/io5";
 import { FaSearch } from 'react-icons/fa';
+import Search from '../ui/Search';
 
 const SearchNav = () => {
   const [navShow, setNavShow] = useState(false)
 
   const inputRef = useRef<HTMLInputElement>(null);
   const [inputVal, setInputVal] = useState("");
+
+  const [dOpen, setdOpen] = useState(false)
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     setInputVal(e.currentTarget.value);
@@ -63,7 +66,7 @@ const SearchNav = () => {
                 value={inputVal}
                 onChange={handleChange}
                 autoComplete="on"
-                autoFocus
+                // autoFocus
                 ref={inputRef}
               />
               <button className=" mt-5 border-[1px] border-slate-400 rounded-sm text-sm 
@@ -72,9 +75,14 @@ const SearchNav = () => {
                 <FaSearch />
               </button>
             </div>
-            <Link  onClick={onToggleNav} href={{ pathname: '/', query: { s: 'Janov' } }}>SearchUrl</Link>
+            <Link  onClick={onToggleNav} href={{ pathname: '/search', query: { s: inputVal } }}>SearchUrl</Link>
             {/* <Link href={'/'}>ir</Link> */}
+      
+       <Search />
+
+   
       </div>
+     
     </>
   )
 }

@@ -5,6 +5,7 @@ import { PageTransition } from "@/components/PageTransition";
 import { NavMenu } from "../header/NavMenu";
 import React from "react";
 import Breadcrumbs from "../breadcrumb/Breadcrumbs";
+import ScrollTop from "../ScrollTop";
 
 
 export const Container = (props) => {
@@ -28,7 +29,7 @@ export const Container = (props) => {
     <div className={` min-h-full`}>
       {/* <Header /> */}
       <NavMenu />
-
+      <ScrollTop />
       <main
         className={`flex flex-col mx-auto max-w-7xl justify-center px-4   dark:prose-dark relative `}
       >

@@ -1,37 +1,76 @@
-import config from "@/lib//config.json";
-import Search from "@/components/layouts/Search";
-import { getSinglePage } from "@/lib/contentParser";
-import SeoMeta from "@/components/SeoMeta";
-import { Post } from "@/.contentlayer/generated";
-import { allPosts } from "@/.contentlayer/generated";
 
-const { blog_folder } = config.settings;
+import siteMetadata, { search } from '@/data/siteMetadata'
+//import ListLayout from '@/layouts/ListLayoutWithTags'
+//import { genPageMetadata } from 'app/seo'
+import { Metadata } from 'next'
+import categoryData from '@/content/category-files.json'
+import { Container } from '@/components/layouts/Container'
+import BookResumeList from '@/components/articleListLayouts/PostsListGrid'
+import type { Post } from '@/.contentlayer/generated'
+import { allCoreContent, sortPosts } from '@/lib/postsUtils'
+import { TbPointFilled } from 'react-icons/tb'
+import ArticleList from '@/components/articleListLayouts/ArticleList'
+import { useSearchParams } from 'next/navigation'
+import searchPosts from "@/lib/searchPosts";
+import { useEffect, useState } from 'react'
+import Search from '@/components/ui/Search'
 
-// Retrieve all articles
-// const posts: Post[] = getSinglePage(blog_folder);
 
-// List of items to search in
-const searchList = allPosts.map((item) => ({
-  slug: item.slug!,
-  // frontmatter: item.frontmatter,
-  frontmatter: {
-    title: item.title,
-    categories: [item.category],
-    tags: item.tags,
-    image: item.coverImage,
-    author: item.bookAuthor!,
-    summary: item.summary,
-  },
-  content: item.body.raw,
-}));
 
-const SearchPage = () => {
+export default function page( {
+  searchParams,
+}: {
+  searchParams?: {
+    s?: string;
+    p?: string;
+  };
+}) {
+  const query = searchParams?.s || '';
+  //for use when pagination const currentPage = Number(searchParams?.page) || 1;
+ 
+  const posts = searchPosts(query)
+  //console.log("type of posts ", (posts[0]))
+ 
   return (
-    <>
-      <SeoMeta title={"Search"} />
-      <Search searchList={searchList} />
-    </>
-  );
-};
+    <Container>
+     
 
-export default SearchPage;
+      <div className="flex items-center space-x-5">
+            <div className="capitalize text-black dark:text-white font-libre_baskerville text-3xl ">
+              {`Resultados para ${query}`}
+             
+            </div>
+            <div className="text-primary dark:text-primary">
+              <TbPointFilled />
+            </div>
+            <div className="flex-grow border-t border-gray-400"></div>
+          </div>
+          <Search />
+
+         
+          
+         <ArticleList articles={posts} showEndMessage fullHeight />  
+  
+
+    </Container>
+  )}
+    {/* <div className="mt-10 flex  flex-wrap">
+    {categoryKeys.length === 0 && 'No tags found.'}
+    {categoryKeys.map((t) => {
+      return (
+        <div key={t} className="mb-2 mr-5 mt-2">
+          <Category text={t} />
+          <Link
+            href={`/category/${t}`}
+            className="-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300"
+            aria-label={`View posts tagged ${t}`}
+          >   
+          </Link>
+        </div>
+      )
+    })}
+  </div>
+    <div>
+      <div className='mt-10'>Browsing  {category}  Category   </div>
+    </div> */}
+ 

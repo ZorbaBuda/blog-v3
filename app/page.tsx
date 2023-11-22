@@ -8,6 +8,7 @@ import ArticleList from "@/components/articleListLayouts/ArticleList";
 import { sortPosts } from "@/lib/postsUtils";
 import { TbPointFilled } from "react-icons/tb";
 import searchPosts from "@/lib/searchPosts";
+import { search } from "@/data/siteMetadata";
 const MAX_DISPLAY = 5;
 
 // export default function Home({
@@ -20,11 +21,7 @@ const MAX_DISPLAY = 5;
 // }
 
 
-export default function Home({ searchParams}) {
-
-  //  console.log(searchParams['s'])
-   const postResults = searchPosts(searchParams['s'])
-  // console.log(searchParams['s'])
+export default function Home() {
 
   if (!allPosts) {
     return <p className="mt-10 text-center">Sorry, no posts available.</p>;
