@@ -131,7 +131,8 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
      <DocHeading post={post} />
 
 
-      <div className="grid justify-center grid-cols-1 lg:grid-cols-12 lg:gap-8">
+     <div className=" max-w-4xl flex mx-auto">
+      <div className=" flex flex-col  lg:gap-8">
         {post.toc && (
           <div className="mt-10 lg:col-start-1 lg:col-end-10">
             {post.toc.length > 0 && <TableOfContents source={post.body.raw} />}
@@ -140,23 +141,21 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
 
      
 
-        <div className="lg:col-start-1 lg:col-end-10">
-         
-
+        
           <article
-            className="mt-4 text-black dark:text-white font-pt_serif_regular  prose-headings:font-crimson
-          prose lg:prose-2xl md:prose-xl sm:prose-lg prose-lg
+            className=" mt-4 text-black dark:text-white font-minion  prose-headings:font-minion
+          prose lg:prose-2xl  sm:prose-lg  md:prose-lg prose-lg
           prose-headings:text-black dark:prose-headings:text-slate-800  
-          prose-headings:text-2xl tracking-normal leading-8
+          prose-headings:text-2xl tracking-normal md:leading-8 leading-7
           max-w-none md:px-5 sm:px-5 lg:px-0  
           
           "
           >
             <MDXComponents code={post.body.code} />
           </article>
-        </div>
+      
 
-        <article className="mt-10 flex flex-wrap text-black dark:text-white lg:col-start-1 lg:col-end-10">
+        <article className="mt-10 flex flex-wrap text-black dark:text-white ">
           <div className="flex justify-between items-center">
             <BsFillTagsFill />
              <div className="ml-3">Etiquetas:</div>
@@ -168,6 +167,7 @@ const BlogDetails: React.FC<BlogDetailsProps> = async ({ params }) => {
           ))}
           </div>
         </article>
+      </div>
       </div>
     </Container>
   );

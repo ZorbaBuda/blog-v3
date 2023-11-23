@@ -2,7 +2,6 @@
 
 import { useRef, useState } from 'react'
 import Link from 'next/link'
-import headerNavLinks from '@/data/headerNavLinks'
 import { IoSearch } from "react-icons/io5";
 import { FaSearch } from 'react-icons/fa';
 import Search from '../ui/Search';
@@ -13,7 +12,6 @@ const SearchNav = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [inputVal, setInputVal] = useState("");
 
-  const [dOpen, setdOpen] = useState(false)
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     setInputVal(e.currentTarget.value);
@@ -33,11 +31,11 @@ const SearchNav = () => {
 
   return (
     <>
-      <button aria-label="Toggle Menu" onClick={onToggleNav} className="">
-       <IoSearch />
+      <button aria-label="Toggle Menu" onClick={onToggleNav} className="mr-5 inline-block border-r border-border pr-5 text-xl text-dark  dark:border-darkmode-border dark:text-white">
+     <div className='hover:text-primary'> <IoSearch /></div>
       </button>
       <div
-        className={`fixed left-0 top-0 z-10 h-full w-full transform opacity-95 dark:opacity-[0.98] bg-white duration-1000 ease-in-out dark:bg-gray-950 ${
+        className={`fixed left-0 top-0 z-10 h-full w-full transform  bg-white duration-1000 ease-in-out dark:bg-gray-900 ${
           navShow ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
@@ -57,28 +55,11 @@ const SearchNav = () => {
             </svg>
           </button>
         </div>
-        <div className="flex flex-nowrap">
-              <input
-                className="form-input rounded-r-none"
-                placeholder="Search posts"
-                type="search"
-                name="search"
-                value={inputVal}
-                onChange={handleChange}
-                autoComplete="on"
-                // autoFocus
-                ref={inputRef}
-              />
-              <button className=" mt-5 border-[1px] border-slate-400 rounded-sm text-sm 
-      tracking-wider  dark:text-slate-400 text-dark flex px-6 py-3 uppercase
-      hover:bg-[#f02b2b] hover:text-black group-dark:hover:text-black" type="submit">
-                <FaSearch />
-              </button>
-            </div>
-            <Link  onClick={onToggleNav} href={{ pathname: '/search', query: { s: inputVal } }}>SearchUrl</Link>
-            {/* <Link href={'/'}>ir</Link> */}
-      
+       
+         
+      <div className='  mt-52  justify-center px-10'>
        <Search />
+       </div>
 
    
       </div>

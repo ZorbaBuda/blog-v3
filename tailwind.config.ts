@@ -28,12 +28,15 @@ const config: Config = {
         gloock:["GLOOCK"],
         spectral_regular:["SPECTRAL-REGULAR"],
         pt_serif_regular:["PT-SERIF"],
-        recoleta:['recoleta'],
+        recoleta:['RECOLETA'],
+        recoleta_bold:['RECOLETA-BOLD'],
+        minion:['MINION']
       },
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
         'primary': '#FB5148',
+        "secondary": '#e65100',
         gray: colors.gray,
       
       },

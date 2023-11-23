@@ -13,15 +13,19 @@ export default function DocHeading({ post }: Props) {
   const imageUrl = `${process.env.GITHUB_URL_IMAGES}${post.coverImage}`;
   const formattedDate = getFormattedDate(post.date);
   return (
+    
     <article className=" flex  flex-col gap-5 justify-center   text-black dark:text-white">
-      <div className="flex flex-col gap-5 justify-center">
-      <div className="text-black dark:text-white lg:text-5xl text-4xl mt-5 font-semibold font-gloock tracking-wider">
+     <div className="flex justify-center">
+      <div className=" flex flex-col  gap-5 ">
+      <div className="text-black dark:text-white lg:text-5xl text-4xl  font-bold font-recoleta_bold ">
         {post.title}
       </div>
 
-      <div className=" lg:text-3xl text-xl flex flex-wrap items-center text-black dark:text-white font-gloock tracking-wide gap-3">
-        <div className="  ">Arthur Janov,</div>
-        <div className="   ">1973</div>
+      <div className=" lg:text-3xl text-xl flex flex-wrap items-center text-black dark:text-white font-recoleta tracking-wide gap-x-3">
+      {" "}
+            {post.bookAuthor ? `${post.bookAuthor},` : ''}
+            {" "}
+            {post.bookYear ? post.bookYear : ''}
       </div>
 
       <div className="flex flex-wrap items-center gap-5">
@@ -31,6 +35,7 @@ export default function DocHeading({ post }: Props) {
           <div className="tracking-wider  ml-3 ">{formattedDate}</div>
         </div>
       
+      </div>
       </div>
       </div>
 <div className="flex justify-center">

@@ -20,12 +20,12 @@ export default function Search() {
   }
 
   return (
-    <div className="relative flex flex-1 flex-shrink-0">
+    <div className="relative flex flex-1 justify-center flex-shrink-0">
       <label htmlFor="search" className="sr-only">
         Search {searchParams}
       </label>
       <input
-        className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+        className="max-w-2xl peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
         placeholder={'Buscar por tags, categoria, resumen'}
         onChange={(e) => {
           handleSearch(e.target.value);
