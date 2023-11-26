@@ -1,0 +1,6 @@
+USING TINA CMS
+
+
+npx @tinacms/cli@latest init
+
+http://localhost:3000/admin/index.html
